@@ -23,6 +23,8 @@
 		DE060D0B18AC4CDB0010DF47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE060CE718AC4CDA0010DF47 /* UIKit.framework */; };
 		DE060D1318AC4CDB0010DF47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE060D1118AC4CDB0010DF47 /* InfoPlist.strings */; };
 		DE060D1518AC4CDB0010DF47 /* iOS_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE060D1418AC4CDB0010DF47 /* iOS_AppTests.m */; };
+		DE2DB34D18AD4287001C03BF /* XYZContactsNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */; };
+		DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		DE060D1018AC4CDB0010DF47 /* iOS AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS AppTests-Info.plist"; sourceTree = "<group>"; };
 		DE060D1218AC4CDB0010DF47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE060D1418AC4CDB0010DF47 /* iOS_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_AppTests.m; sourceTree = "<group>"; };
+		DE2DB34B18AD4287001C03BF /* XYZContactsNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZContactsNavigator.h; sourceTree = "<group>"; };
+		DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsNavigator.m; sourceTree = "<group>"; };
+		DE2DB34E18AD42DD001C03BF /* XYZContactsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZContactsTable.h; sourceTree = "<group>"; };
+		DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsTable.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +123,12 @@
 		DE060CE918AC4CDA0010DF47 /* iOS App */ = {
 			isa = PBXGroup;
 			children = (
+				DE2DB34B18AD4287001C03BF /* XYZContactsNavigator.h */,
+				DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */,
 				DE060CF218AC4CDA0010DF47 /* XYZAppDelegate.h */,
 				DE060CF318AC4CDA0010DF47 /* XYZAppDelegate.m */,
+				DE2DB34E18AD42DD001C03BF /* XYZContactsTable.h */,
+				DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */,
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
 				DE060CFB18AC4CDA0010DF47 /* XYZFirstViewController.h */,
@@ -260,6 +270,8 @@
 			files = (
 				DE060CFD18AC4CDA0010DF47 /* XYZFirstViewController.m in Sources */,
 				DE060CF418AC4CDA0010DF47 /* XYZAppDelegate.m in Sources */,
+				DE2DB34D18AD4287001C03BF /* XYZContactsNavigator.m in Sources */,
+				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,
 				DE060D0018AC4CDA0010DF47 /* XYZSecondViewController.m in Sources */,
 				DE060CF018AC4CDA0010DF47 /* main.m in Sources */,
 			);
@@ -480,6 +492,7 @@
 				DE060D1A18AC4CDB0010DF47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE060D1B18AC4CDB0010DF47 /* Build configuration list for PBXNativeTarget "iOS AppTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +501,7 @@
 				DE060D1D18AC4CDB0010DF47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
