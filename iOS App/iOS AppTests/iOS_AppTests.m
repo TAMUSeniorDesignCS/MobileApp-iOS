@@ -1,18 +1,18 @@
 //
-//  AAiOSTests.m
-//  AAiOSTests
+//  iOS_AppTests.m
+//  iOS AppTests
 //
 //  Created by John Patrick Nowotny on 2/12/14.
-//  Copyright (c) 2014 TeamAlphaAlpha. All rights reserved.
+//
 //
 
 #import <XCTest/XCTest.h>
 
-@interface AAiOSTests : XCTestCase
+@interface iOS_AppTests : XCTestCase
 
 @end
 
-@implementation AAiOSTests
+@implementation iOS_AppTests
 
 - (void)setUp
 {
