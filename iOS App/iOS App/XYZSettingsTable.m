@@ -1,19 +1,19 @@
 //
-//  XYZContactsTable.m
+//  XYZSettingsTable.m
 //  iOS App
 //
 //  Created by John Nowotny on 2/13/14.
 //
 //
 
-#import "XYZContactsTable.h"
+#import "XYZSettingsTable.h"
 
-@interface XYZContactsTable ()
+@interface XYZSettingsTable ()
 
 @end
 
-@implementation XYZContactsTable{
-    NSArray *contacts;
+@implementation XYZSettingsTable{
+    NSArray *settings;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -35,8 +35,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    contacts = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
-
+    settings = [NSArray arrayWithObjects:@"Log Out", @"Change Password", @"Privacy Settings", @"Proximity Inspirations", @"Default Timeout", @"Set Sponsor", nil];
 }
 
 - (void)viewDidUnload
@@ -64,18 +63,19 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [contacts count];
+    return [settings count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [contacts objectAtIndex:indexPath.row];
+    cell.textLabel.text = [settings objectAtIndex:indexPath.row];
     // Configure the cell...
     
     return cell;

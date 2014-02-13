@@ -25,6 +25,7 @@
 		DE060D1518AC4CDB0010DF47 /* iOS_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE060D1418AC4CDB0010DF47 /* iOS_AppTests.m */; };
 		DE2DB34D18AD4287001C03BF /* XYZContactsNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */; };
 		DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */; };
+		DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsNavigator.m; sourceTree = "<group>"; };
 		DE2DB34E18AD42DD001C03BF /* XYZContactsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZContactsTable.h; sourceTree = "<group>"; };
 		DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsTable.m; sourceTree = "<group>"; };
+		DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSettingsTable.h; sourceTree = "<group>"; };
+		DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSettingsTable.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,14 +126,16 @@
 		DE060CE918AC4CDA0010DF47 /* iOS App */ = {
 			isa = PBXGroup;
 			children = (
-				DE2DB34B18AD4287001C03BF /* XYZContactsNavigator.h */,
-				DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */,
-				DE060CF218AC4CDA0010DF47 /* XYZAppDelegate.h */,
-				DE060CF318AC4CDA0010DF47 /* XYZAppDelegate.m */,
-				DE2DB34E18AD42DD001C03BF /* XYZContactsTable.h */,
-				DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */,
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
+				DE060CF218AC4CDA0010DF47 /* XYZAppDelegate.h */,
+				DE060CF318AC4CDA0010DF47 /* XYZAppDelegate.m */,
+				DE2DB34B18AD4287001C03BF /* XYZContactsNavigator.h */,
+				DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */,
+				DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */,
+				DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */,
+				DE2DB34E18AD42DD001C03BF /* XYZContactsTable.h */,
+				DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */,
 				DE060CFB18AC4CDA0010DF47 /* XYZFirstViewController.h */,
 				DE060CFC18AC4CDA0010DF47 /* XYZFirstViewController.m */,
 				DE060CFE18AC4CDA0010DF47 /* XYZSecondViewController.h */,
@@ -270,6 +275,7 @@
 			files = (
 				DE060CFD18AC4CDA0010DF47 /* XYZFirstViewController.m in Sources */,
 				DE060CF418AC4CDA0010DF47 /* XYZAppDelegate.m in Sources */,
+				DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */,
 				DE2DB34D18AD4287001C03BF /* XYZContactsNavigator.m in Sources */,
 				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,
 				DE060D0018AC4CDA0010DF47 /* XYZSecondViewController.m in Sources */,
