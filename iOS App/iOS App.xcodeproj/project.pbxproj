@@ -26,6 +26,7 @@
 		DE2DB34D18AD4287001C03BF /* XYZContactsNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */; };
 		DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */; };
 		DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */; };
+		DEAFC6A818B004500003B42F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEAFC6A718B004500003B42F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsTable.m; sourceTree = "<group>"; };
 		DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSettingsTable.h; sourceTree = "<group>"; };
 		DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSettingsTable.m; sourceTree = "<group>"; };
+		DEAFC6A718B004500003B42F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEAFC6A818B004500003B42F /* CoreLocation.framework in Frameworks */,
 				DE060CE618AC4CDA0010DF47 /* CoreGraphics.framework in Frameworks */,
 				DE060CE818AC4CDA0010DF47 /* UIKit.framework in Frameworks */,
 				DE060CE418AC4CDA0010DF47 /* Foundation.framework in Frameworks */,
@@ -115,6 +118,7 @@
 		DE060CE218AC4CDA0010DF47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DEAFC6A718B004500003B42F /* CoreLocation.framework */,
 				DE060CE318AC4CDA0010DF47 /* Foundation.framework */,
 				DE060CE518AC4CDA0010DF47 /* CoreGraphics.framework */,
 				DE060CE718AC4CDA0010DF47 /* UIKit.framework */,

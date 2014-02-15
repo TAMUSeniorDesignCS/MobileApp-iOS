@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface XYZFirstViewController : UIViewController
+@interface XYZFirstViewController : UIViewController <CLLocationManagerDelegate>{
+	
+	CLLocationManager *locationManager;
+	
+}
+
 @property (weak, nonatomic) IBOutlet UIWebView *viewWeb;
 
 @end

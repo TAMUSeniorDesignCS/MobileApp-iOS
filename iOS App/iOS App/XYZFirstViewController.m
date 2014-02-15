@@ -8,7 +8,11 @@
 
 #import "XYZFirstViewController.h"
 
-@interface XYZFirstViewController ()
+@interface XYZFirstViewController () {
+    
+	CLGeocoder *geocoder;
+	CLPlacemark *placemark;
+}
 
 @end
 
@@ -43,6 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //For the QUOTE......................
     NSString *fullURL = @"http://www.aa.org/lang/en/aareflections.cfm";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSError *error;
@@ -65,10 +70,47 @@
             quote = [page substringWithRange:elementRange];
         }
     }
+    //..........................
+    
+    //For GEOFENCING....................
+    locationManager = [[CLLocationManager alloc] init];
+	locationManager.delegate = self;
+	locationManager.distanceFilter = kCLDistanceFilterNone;
+	locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    //...............
 
     
     [_viewWeb loadHTMLString:quote baseURL:nil];
 }
+
+- (IBAction)getlocation:(id)sender
+{
+	
+    
+	[locationManager startUpdatingLocation];
+}
+
+
+// Failed to get current location
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+	
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+							   initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    // Call alert
+	[errorAlert show];
+}
+
+// Got location and now update
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+	
+    CLLocation *currentLocation = newLocation;
+    
+	NSLog(@"%@", currentLocation);
+	
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -76,5 +118,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)callSponsor:(id)sender
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://8004664411"]];
+
+}
 
 @end
