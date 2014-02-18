@@ -83,11 +83,19 @@
     [_viewWeb loadHTMLString:quote baseURL:nil];
 }
 
+
 - (IBAction)getlocation:(id)sender
 {
 	
-    
-	[locationManager startUpdatingLocation];
+    if (self.geoSwitch.isOn)
+    {
+        [locationManager startUpdatingLocation];
+    }
+    else
+    {
+        [locationManager stopUpdatingLocation];
+    }
+         
 }
 
 
@@ -106,8 +114,11 @@
 {
 	
     CLLocation *currentLocation = newLocation;
+    NSNumber *latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
+    NSNumber *longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&rankby=distance&types=bar&radius=17&sensor=true&key=AIzaSyAkU63FTdiEiaahe4x-9oZ_fJ0qrZQAcZ0",latitude,longitude];
     
-	NSLog(@"%@", currentLocation);
+	NSLog(@"%@", url);
 	
 }
 

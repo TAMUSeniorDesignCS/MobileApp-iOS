@@ -16,5 +16,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIWebView *viewWeb;
+//@property (weak, nonatomic) IBOutlet UISwitch *geoSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *geoSwitch;
 
 @end

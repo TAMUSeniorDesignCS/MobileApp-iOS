@@ -35,16 +35,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMG-AE-GYH">
-                                <rect key="frame" x="137" y="385" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getlocation:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="QMT-ES-t7B"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bo2-tH-7cF">
                                 <rect key="frame" x="116" y="94" width="89" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -55,6 +45,13 @@
                                     <action selector="callSponsor:" destination="CZ4-MO-1fc" eventType="touchUpInside" id="4gS-FK-liO"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5i2-CP-LiF">
+                                <rect key="frame" x="136" y="385" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="getlocation:" destination="CZ4-MO-1fc" eventType="valueChanged" id="jFE-Wm-v89"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -64,6 +61,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="cottage-25" id="u1e-5L-l1D"/>
                     <connections>
+                        <outlet property="geoSwitch" destination="5i2-CP-LiF" id="H4t-wW-31v"/>
                         <outlet property="viewWeb" destination="dmh-AQ-5hh" id="Me1-2E-yI0"/>
                     </connections>
                 </viewController>
