@@ -10,8 +10,7 @@
 
 @interface XYZFirstViewController () {
     
-	CLGeocoder *geocoder;
-	CLPlacemark *placemark;
+	
 }
 
 @end
@@ -70,57 +69,12 @@
             quote = [page substringWithRange:elementRange];
         }
     }
-    //..........................
     
-    //For GEOFENCING....................
-    locationManager = [[CLLocationManager alloc] init];
-	locationManager.delegate = self;
-	locationManager.distanceFilter = kCLDistanceFilterNone;
-	locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    //...............
-
     
     [_viewWeb loadHTMLString:quote baseURL:nil];
 }
 
 
-- (IBAction)getlocation:(id)sender
-{
-	
-    if (self.geoSwitch.isOn)
-    {
-        [locationManager startUpdatingLocation];
-    }
-    else
-    {
-        [locationManager stopUpdatingLocation];
-    }
-         
-}
-
-
-// Failed to get current location
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-	
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-							   initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    // Call alert
-	[errorAlert show];
-}
-
-// Got location and now update
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-	
-    CLLocation *currentLocation = newLocation;
-    NSNumber *latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
-    NSNumber *longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&rankby=distance&types=bar&radius=17&sensor=true&key=AIzaSyAkU63FTdiEiaahe4x-9oZ_fJ0qrZQAcZ0",latitude,longitude];
-    
-	NSLog(@"%@", url);
-	
-}
 
 
 - (void)didReceiveMemoryWarning

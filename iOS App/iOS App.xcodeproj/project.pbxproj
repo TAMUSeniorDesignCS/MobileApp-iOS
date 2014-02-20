@@ -26,6 +26,7 @@
 		DE2DB34D18AD4287001C03BF /* XYZContactsNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */; };
 		DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */; };
 		DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */; };
+		DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */; };
 		DEAFC6A818B004500003B42F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEAFC6A718B004500003B42F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,8 @@
 		DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsTable.m; sourceTree = "<group>"; };
 		DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSettingsTable.h; sourceTree = "<group>"; };
 		DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSettingsTable.m; sourceTree = "<group>"; };
+		DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZProximityViewViewController.h; sourceTree = "<group>"; };
+		DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZProximityViewViewController.m; sourceTree = "<group>"; };
 		DEAFC6A718B004500003B42F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -132,6 +135,8 @@
 			children = (
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
+				DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */,
+				DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */,
 				DE060CF218AC4CDA0010DF47 /* XYZAppDelegate.h */,
 				DE060CF318AC4CDA0010DF47 /* XYZAppDelegate.m */,
 				DE2DB34B18AD4287001C03BF /* XYZContactsNavigator.h */,
@@ -279,6 +284,7 @@
 			files = (
 				DE060CFD18AC4CDA0010DF47 /* XYZFirstViewController.m in Sources */,
 				DE060CF418AC4CDA0010DF47 /* XYZAppDelegate.m in Sources */,
+				DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */,
 				DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */,
 				DE2DB34D18AD4287001C03BF /* XYZContactsNavigator.m in Sources */,
 				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,
