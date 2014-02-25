@@ -23,7 +23,8 @@
 		DE060D0B18AC4CDB0010DF47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE060CE718AC4CDA0010DF47 /* UIKit.framework */; };
 		DE060D1318AC4CDB0010DF47 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE060D1118AC4CDB0010DF47 /* InfoPlist.strings */; };
 		DE060D1518AC4CDB0010DF47 /* iOS_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE060D1418AC4CDB0010DF47 /* iOS_AppTests.m */; };
-		DE2DB34D18AD4287001C03BF /* XYZContactsNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */; };
+		DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1A09C418BBF85200C999C5 /* XYZInitialNavigationViewViewController.m */; };
+		DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1A09C718BC046F00C999C5 /* XYZTabBarViewController.m */; };
 		DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */; };
 		DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */; };
 		DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */; };
@@ -63,8 +64,10 @@
 		DE060D1018AC4CDB0010DF47 /* iOS AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS AppTests-Info.plist"; sourceTree = "<group>"; };
 		DE060D1218AC4CDB0010DF47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE060D1418AC4CDB0010DF47 /* iOS_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_AppTests.m; sourceTree = "<group>"; };
-		DE2DB34B18AD4287001C03BF /* XYZContactsNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZContactsNavigator.h; sourceTree = "<group>"; };
-		DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsNavigator.m; sourceTree = "<group>"; };
+		DE1A09C318BBF85200C999C5 /* XYZInitialNavigationViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZInitialNavigationViewViewController.h; sourceTree = "<group>"; };
+		DE1A09C418BBF85200C999C5 /* XYZInitialNavigationViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZInitialNavigationViewViewController.m; sourceTree = "<group>"; };
+		DE1A09C618BC046F00C999C5 /* XYZTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZTabBarViewController.h; sourceTree = "<group>"; };
+		DE1A09C718BC046F00C999C5 /* XYZTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZTabBarViewController.m; sourceTree = "<group>"; };
 		DE2DB34E18AD42DD001C03BF /* XYZContactsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZContactsTable.h; sourceTree = "<group>"; };
 		DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsTable.m; sourceTree = "<group>"; };
 		DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSettingsTable.h; sourceTree = "<group>"; };
@@ -135,12 +138,14 @@
 			children = (
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
+				DE1A09C618BC046F00C999C5 /* XYZTabBarViewController.h */,
+				DE1A09C718BC046F00C999C5 /* XYZTabBarViewController.m */,
+				DE1A09C318BBF85200C999C5 /* XYZInitialNavigationViewViewController.h */,
+				DE1A09C418BBF85200C999C5 /* XYZInitialNavigationViewViewController.m */,
 				DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */,
 				DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */,
 				DE060CF218AC4CDA0010DF47 /* XYZAppDelegate.h */,
 				DE060CF318AC4CDA0010DF47 /* XYZAppDelegate.m */,
-				DE2DB34B18AD4287001C03BF /* XYZContactsNavigator.h */,
-				DE2DB34C18AD4287001C03BF /* XYZContactsNavigator.m */,
 				DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */,
 				DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */,
 				DE2DB34E18AD42DD001C03BF /* XYZContactsTable.h */,
@@ -282,13 +287,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */,
 				DE060CFD18AC4CDA0010DF47 /* XYZFirstViewController.m in Sources */,
 				DE060CF418AC4CDA0010DF47 /* XYZAppDelegate.m in Sources */,
 				DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */,
 				DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */,
-				DE2DB34D18AD4287001C03BF /* XYZContactsNavigator.m in Sources */,
 				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,
 				DE060D0018AC4CDA0010DF47 /* XYZSecondViewController.m in Sources */,
+				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,
 				DE060CF018AC4CDA0010DF47 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,7 +12,8 @@
 
 @end
 
-@implementation XYZSettingsTable{
+@implementation XYZSettingsTable {
+
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -28,6 +29,7 @@
 {
     [super viewDidLoad];
 
+    self.navigationItem.hidesBackButton = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -47,6 +49,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0)
+    {
+        UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Log Out" message:@"Are you sure you want to log out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes",nil];
+    
+        // Display Alert Message
+        [messageAlert show];
+    }
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    if([title isEqualToString:@"Yes"])
+    {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+/*
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationItem setHidesBackButton:YES animated:YES];
+}
+*/
 #pragma mark - Table view data source
 /*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

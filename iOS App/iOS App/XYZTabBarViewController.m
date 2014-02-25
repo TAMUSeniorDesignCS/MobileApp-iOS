@@ -1,18 +1,18 @@
 //
-//  XYZContactsNavigator.m
+//  XYZTabBarViewController.m
 //  iOS App
 //
-//  Created by John Nowotny on 2/13/14.
+//  Created by John Nowotny on 2/24/14.
 //
 //
 
-#import "XYZContactsNavigator.h"
+#import "XYZTabBarViewController.h"
 
-@interface XYZContactsNavigator ()
+@interface XYZTabBarViewController ()
 
 @end
 
-@implementation XYZContactsNavigator
+@implementation XYZTabBarViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,5 +34,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    //[self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.navigationItem.hidesBackButton = YES;
+}
+
 
 @end

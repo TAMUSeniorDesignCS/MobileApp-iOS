@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYZSettingsTable : UITableViewController 
+@interface XYZSettingsTable : UITableViewController <UIAlertViewDelegate>
+
 
 @end
