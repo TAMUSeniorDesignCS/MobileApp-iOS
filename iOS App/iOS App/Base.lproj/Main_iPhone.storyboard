@@ -302,20 +302,88 @@
             </objects>
             <point key="canvasLocation" x="651" y="2229"/>
         </scene>
-        <!--View Controller - Change Password-->
+        <!--Change Password View Controller - Change Password-->
         <scene sceneID="nes-qH-cR6">
             <objects>
-                <viewController title="Change Password" id="mgS-me-cl0" sceneMemberID="viewController">
+                <viewController title="Change Password" id="mgS-me-cl0" customClass="XYZChangePasswordViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wf7-wP-UNX"/>
                         <viewControllerLayoutGuide type="bottom" id="l9f-4c-SOh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ABF-g4-o1f">
+                    <view key="view" contentMode="scaleToFill" id="ABF-g4-o1f" customClass="UIControl">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vp-ef-n92">
+                                <rect key="frame" x="136" y="329" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressOKButton:" destination="mgS-me-cl0" eventType="touchUpInside" id="ydr-Da-ueQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Old Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcD-bK-txb">
+                                <rect key="frame" x="20" y="20" width="108" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ozE-E0-IZj">
+                                <rect key="frame" x="20" y="49" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mgS-me-cl0" id="j1L-0G-NHz"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgl-gK-UAh">
+                                <rect key="frame" x="20" y="116" width="116" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqO-4A-sB7">
+                                <rect key="frame" x="20" y="145" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mgS-me-cl0" id="XIU-vS-VYS"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Confirm Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVK-Md-sm9">
+                                <rect key="frame" x="20" y="211" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q0y-qo-yRB">
+                                <rect key="frame" x="20" y="240" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mgS-me-cl0" id="m4o-QD-KDT"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="clickedBackground" destination="mgS-me-cl0" eventType="touchUpInside" id="S7u-CL-XkH"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Change Password" id="ynz-GE-X0H"/>
+                    <connections>
+                        <outlet property="ConfirmPassword" destination="Q0y-qo-yRB" id="7bN-do-jub"/>
+                        <outlet property="NewPassword" destination="zqO-4A-sB7" id="sHS-zt-oD1"/>
+                        <outlet property="OKButton" destination="9vp-ef-n92" id="dIB-0U-b0j"/>
+                        <outlet property="OldPassword" destination="ozE-E0-IZj" id="4MO-Th-Hew"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30F-44-hTt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,7 +408,7 @@
             </objects>
             <point key="canvasLocation" x="1535" y="2197"/>
         </scene>
-        <!--Proximity View View Controller-->
+        <!--Proximity View View Controller - Proximity Inspirations-->
         <scene sceneID="d3B-ls-guv">
             <objects>
                 <tableViewController id="nyT-au-70X" customClass="XYZProximityViewViewController" sceneMemberID="viewController">
@@ -418,7 +486,7 @@
                             <outlet property="delegate" destination="nyT-au-70X" id="lSi-SQ-TuI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="uev-Nn-UK9"/>
+                    <navigationItem key="navigationItem" title="Proximity Inspirations" id="uev-Nn-UK9"/>
                     <connections>
                         <outlet property="SponsorNotification" destination="JAL-SQ-PQ9" id="7ja-As-bFV"/>
                         <outlet property="TypesOfMessages" destination="pzS-JC-fJ9" id="6ZH-BE-wSU"/>
@@ -589,6 +657,13 @@
                     <view key="view" contentMode="scaleToFill" id="sb6-rH-SIH">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Y2-ak-qrI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Meeting Finder" id="BQy-B2-fSh"/>
