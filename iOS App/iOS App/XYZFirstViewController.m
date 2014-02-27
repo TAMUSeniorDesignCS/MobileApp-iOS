@@ -70,8 +70,7 @@
         }
     }
     
-    
-    [_viewWeb loadHTMLString:quote baseURL:nil];
+    [_quoteDay  setText:quote];
 }
 
 

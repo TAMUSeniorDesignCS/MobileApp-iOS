@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XYZFirstViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIWebView *viewWeb;
-//@property (weak, nonatomic) IBOutlet UISwitch *geoSwitch;
+@property (weak, nonatomic) IBOutlet UITextView *quoteDay;
 
 @end
