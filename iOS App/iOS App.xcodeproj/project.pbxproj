@@ -28,6 +28,7 @@
 		DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1A09C718BC046F00C999C5 /* XYZTabBarViewController.m */; };
 		DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */; };
 		DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */; };
+		DE4EF4BD18C7E03D003AAA49 /* XYZTimeoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4EF4BC18C7E03D003AAA49 /* XYZTimeoutView.m */; };
 		DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */; };
 		DEAFC6A818B004500003B42F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEAFC6A718B004500003B42F /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,8 @@
 		DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsTable.m; sourceTree = "<group>"; };
 		DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSettingsTable.h; sourceTree = "<group>"; };
 		DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSettingsTable.m; sourceTree = "<group>"; };
+		DE4EF4BB18C7E03D003AAA49 /* XYZTimeoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZTimeoutView.h; sourceTree = "<group>"; };
+		DE4EF4BC18C7E03D003AAA49 /* XYZTimeoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZTimeoutView.m; sourceTree = "<group>"; };
 		DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZProximityViewViewController.h; sourceTree = "<group>"; };
 		DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZProximityViewViewController.m; sourceTree = "<group>"; };
 		DEAFC6A718B004500003B42F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				DE1A09C718BC046F00C999C5 /* XYZTabBarViewController.m */,
 				DE1A09C318BBF85200C999C5 /* XYZInitialNavigationViewViewController.h */,
 				DE1A09C418BBF85200C999C5 /* XYZInitialNavigationViewViewController.m */,
+				DE4EF4BB18C7E03D003AAA49 /* XYZTimeoutView.h */,
+				DE4EF4BC18C7E03D003AAA49 /* XYZTimeoutView.m */,
 				DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */,
 				DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */,
 				614B3AF518BC297F001AB654 /* XYZChangePasswordViewController.h */,
@@ -299,6 +304,7 @@
 				DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */,
 				DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */,
 				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,
+				DE4EF4BD18C7E03D003AAA49 /* XYZTimeoutView.m in Sources */,
 				DE060D0018AC4CDA0010DF47 /* XYZSecondViewController.m in Sources */,
 				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,
 				DE060CF018AC4CDA0010DF47 /* main.m in Sources */,
