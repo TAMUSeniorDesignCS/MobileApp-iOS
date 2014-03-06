@@ -820,15 +820,15 @@
             </objects>
             <point key="canvasLocation" x="-1641" y="624"/>
         </scene>
-        <!--View Controller - Log In-->
+        <!--Login View - Log In-->
         <scene sceneID="ERW-ya-BBG">
             <objects>
-                <viewController id="6AQ-1k-dtU" sceneMemberID="viewController">
+                <viewController id="6AQ-1k-dtU" customClass="XYZLoginView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uHj-3T-Fio"/>
                         <viewControllerLayoutGuide type="bottom" id="k7p-Rg-R63"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="00t-Fk-kWZ">
+                    <view key="view" contentMode="scaleToFill" id="00t-Fk-kWZ" customClass="UIControl">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -840,7 +840,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8YX-ce-x5E" kind="push" id="tYb-Eu-h3R"/>
+                                    <action selector="pressLoginButton:" destination="6AQ-1k-dtU" eventType="touchUpInside" id="uCr-US-8jQ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQU-T6-jVX">
@@ -869,8 +869,17 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="clickedBackground:" destination="6AQ-1k-dtU" eventType="touchUpInside" id="NpO-e7-NLy"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="LWp-gU-boU"/>
+                    <connections>
+                        <outlet property="LoginButton" destination="BBB-GE-cmb" id="V1K-xu-tFc"/>
+                        <outlet property="Password" destination="eQU-T6-jVX" id="SlW-nW-Izd"/>
+                        <outlet property="UserName" destination="yZv-PI-ccw" id="AUk-QF-1MJ"/>
+                        <segue destination="8YX-ce-x5E" kind="push" identifier="tabBarPush" id="yFN-GQ-TAe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xls-Km-5mg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
