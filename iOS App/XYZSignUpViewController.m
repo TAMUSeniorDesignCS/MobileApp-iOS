@@ -1,18 +1,18 @@
 //
-//  XYZChangePasswordViewController.m
+//  XYZSignUpViewController.m
 //  iOS App
 //
-//  Created by Sujin Lee on 2/24/14.
+//  Created by Sujin Lee on 3/13/14.
 //
 //
 
-#import "XYZChangePasswordViewController.h"
+#import "XYZSignUpViewController.h"
 
-@interface XYZChangePasswordViewController ()
+@interface XYZSignUpViewController ()
 
 @end
 
-@implementation XYZChangePasswordViewController
+@implementation XYZSignUpViewController
 
 /*- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,13 +34,9 @@
 
 - (void)viewDidLoad
 {
-    [_OldPassword becomeFirstResponder];
+    [_Username becomeFirstResponder];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-}
-
--(void)viewDidUnload{
-    [super viewDidUnload];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,8 +45,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)pressOKButton:(id)sender{
-    
+- (IBAction)pressOKButton:(id)sender {
 }
+
 
 @end

@@ -35,15 +35,16 @@
 
 - (IBAction)pressLoginButton:(id)sender{
     
-    if([self.UserName.text isEqual:@"jnowotny"]) {
+    if([self.Username.text isEqual:@"jnowotny"]) {
+        [self performSegueWithIdentifier:@"tabBarPush" sender:nil];
+    }else if([self.Username.text isEqual:@"sujin"]){
         [self performSegueWithIdentifier:@"tabBarPush" sender:nil];
     }
 }
 
-
-
 - (void)viewDidLoad
 {
+    [_Username becomeFirstResponder];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

@@ -10,9 +10,10 @@
 
 @interface XYZLoginView : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *LoginButton;
-@property (strong, nonatomic) IBOutlet UITextField *UserName;
+@property (strong, nonatomic) IBOutlet UITextField *Username;
 @property (strong, nonatomic) IBOutlet UITextField *Password;
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField;
 -(IBAction)clickedBackground;
+
 @end
