@@ -727,8 +727,10 @@
                     <connections>
                         <outlet property="MessageHours" destination="DT2-fS-EW6" id="XOa-bD-O77"/>
                         <outlet property="MessageSwitch" destination="CKh-0e-vgY" id="F9n-q9-plp"/>
+                        <outlet property="MessageTextfield" destination="Jsp-ns-EMi" id="1jA-00-w9a"/>
                         <outlet property="PostHours" destination="YOf-UJ-FUf" id="imu-kR-ydX"/>
                         <outlet property="PostSwitch" destination="E0U-Hn-qiN" id="CAh-2s-VLz"/>
+                        <outlet property="PostTextfield" destination="Cuz-95-Hdm" id="Xs5-75-K49"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AEr-71-z9i" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -26,12 +26,54 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIToolbar* postNumberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    UIToolbar* messageNumberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    
+    //---Default Timeout for Post---
+    postNumberToolbar.items = [NSArray arrayWithObjects:
+                          [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(postCancelNumberPad)],
+                          [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                          [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(postDoneWithNumberPad)],
+                          nil];
+    
+    _PostTextfield.inputAccessoryView = postNumberToolbar;
+    
+    
+    //---Default Timeout for Message---
+    messageNumberToolbar.items = [NSArray arrayWithObjects:
+                               [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(messageCancelNumberPad)],
+                               [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                               [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(messageDoneWithNumberPad)],
+                               nil];
+    
+    _MessageTextfield.inputAccessoryView = messageNumberToolbar;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)postCancelNumberPad{
+    [_PostTextfield resignFirstResponder];
+    _PostTextfield.text = @"48";
+}
+
+-(void)postDoneWithNumberPad{
+    NSString *postNumberFromTheKeyboard = _PostTextfield.text;
+    [_PostTextfield resignFirstResponder];
+}
+
+-(void)messageCancelNumberPad{
+    [_MessageTextfield resignFirstResponder];
+    _MessageTextfield.text = @"48";
+}
+
+-(void)messageDoneWithNumberPad{
+    NSString *messageNumberFromTheKeyboard = _MessageTextfield.text;
+    [_MessageTextfield resignFirstResponder];
 }
 
 -(IBAction)postTimeout:(id)sender{
