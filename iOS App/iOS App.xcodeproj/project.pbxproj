@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611B103B18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B103A18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m */; };
 		614B3AF718BC297F001AB654 /* XYZChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */; };
 		619892F618D265680090D576 /* XYZSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619892F518D265680090D576 /* XYZSignUpViewController.m */; };
 		DE060CE418AC4CDA0010DF47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE060CE318AC4CDA0010DF47 /* Foundation.framework */; };
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		611B103918D3B410009CBA8D /* XYZDefaultTimeoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZDefaultTimeoutViewController.h; sourceTree = "<group>"; };
+		611B103A18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZDefaultTimeoutViewController.m; sourceTree = "<group>"; };
 		614B3AF518BC297F001AB654 /* XYZChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZChangePasswordViewController.h; sourceTree = "<group>"; };
 		614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZChangePasswordViewController.m; sourceTree = "<group>"; };
 		619892F418D265680090D576 /* XYZSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYZSignUpViewController.h; path = ../XYZSignUpViewController.h; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				DE1A09C418BBF85200C999C5 /* XYZInitialNavigationViewViewController.m */,
 				DE4EF4BB18C7E03D003AAA49 /* XYZTimeoutView.h */,
 				DE4EF4BC18C7E03D003AAA49 /* XYZTimeoutView.m */,
+				611B103918D3B410009CBA8D /* XYZDefaultTimeoutViewController.h */,
+				611B103A18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m */,
 				DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */,
 				DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */,
 				614B3AF518BC297F001AB654 /* XYZChangePasswordViewController.h */,
@@ -307,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				611B103B18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m in Sources */,
 				DE4EF4C018C7E7DD003AAA49 /* XYZLoginView.m in Sources */,
 				DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */,
 				DE060CFD18AC4CDA0010DF47 /* XYZFirstViewController.m in Sources */,
