@@ -36,7 +36,29 @@
 {
     [_Username becomeFirstResponder];
     [super viewDidLoad];
+    
+    //---Number Keypad for Group Code---
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    
+    numberToolbar.items = [NSArray arrayWithObjects:
+                               [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                               [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                               [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                               nil];
+    
+    _GroupCode.inputAccessoryView = numberToolbar;
+    
 	// Do any additional setup after loading the view.
+}
+
+-(void)cancelNumberPad{
+    [_GroupCode resignFirstResponder];
+    _GroupCode.text = @"";
+}
+
+-(void)doneWithNumberPad{
+    NSString *numberFromTheKeyboard = _GroupCode.text;
+    [_GroupCode resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
