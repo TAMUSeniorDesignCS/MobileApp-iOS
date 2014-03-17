@@ -7,6 +7,8 @@
 //
 
 #import "XYZProximityViewViewController.h"
+#import "XYZAppDelegate.h"
+
 
 @interface XYZProximityViewViewController () {
     
@@ -21,7 +23,7 @@
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:style ];
     if (self) {
         // Custom initialization
     }
@@ -30,7 +32,21 @@
 
 - (void)viewDidLoad
 {
+    
+    
     [super viewDidLoad];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL geoState = [defaults boolForKey:@"geoSwitch"];
+    [self.geoSwitch setOn:geoState];
+    if (self.geoSwitch.isOn) {
+        [self.TypesOfMessages setHidden:FALSE];
+        [self.SponsorNotification setHidden:FALSE];
+    }
+    else {
+        [self.TypesOfMessages setHidden:TRUE];
+        [self.SponsorNotification setHidden:TRUE];
+    }
+    /*
 	// Do any additional setup after loading the view.
     //For GEOFENCING....................
     locationManager = [[CLLocationManager alloc] init];
@@ -38,6 +54,7 @@
 	//locationManager.distanceFilter = kCLDistanceFilterNone;
 	locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     //...............
+     */
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -55,22 +72,33 @@
 
 - (IBAction)getlocation:(id)sender {
     
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    BOOL geoState = [self.geoSwitch isOn];
+    [defaults setBool:geoState forKey:@"geoSwitch"];
+    [defaults synchronize];
+
     if (self.geoSwitch.isOn)
     {
-        [locationManager startMonitoringSignificantLocationChanges];
+        //[locationManager startMonitoringSignificantLocationChanges];
+        //[locationManager startUpdatingLocation];
+        [appDelegate.locationManager startMonitoringSignificantLocationChanges];
         [self.TypesOfMessages setHidden:FALSE];
         [self.SponsorNotification setHidden:FALSE];
         
     }
     else
     {
-        [locationManager stopMonitoringSignificantLocationChanges];
+        //[locationManager stopMonitoringSignificantLocationChanges];
+        //[locationManager stopUpdatingLocation];
+        [appDelegate.locationManager stopMonitoringSignificantLocationChanges];
         [self.TypesOfMessages setHidden:TRUE];
         [self.SponsorNotification setHidden:TRUE];
         [self.sponsorSwitch setOn:NO];
     }
 }
 
+/*
 // Failed to get current location
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
@@ -93,6 +121,7 @@
 	NSLog(@"%@", url);
 	
 }
+ */
 
 - (void)viewDidUnload
 {

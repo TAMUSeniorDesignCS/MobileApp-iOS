@@ -7,12 +7,53 @@
 //
 
 #import "XYZAppDelegate.h"
+#import "XYZProximityViewViewController.h"
+
 
 @implementation XYZAppDelegate
+
+@synthesize locationManager=_locationManager;
+
+// Failed to get current location
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+	
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+							   initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    // Call alert
+	[errorAlert show];
+}
+
+// Got location and now update
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+	
+    CLLocation *currentLocation = newLocation;
+    NSNumber *latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
+    NSNumber *longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&rankby=distance&types=bar&radius=17&sensor=true&key=AIzaSyAkU63FTdiEiaahe4x-9oZ_fJ0qrZQAcZ0",latitude,longitude];
+    
+	NSLog(@"%@", url);
+	
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    //If object has not been created, create it.
+    if(self.locationManager==nil){
+        _locationManager=[[CLLocationManager alloc] init];
+        //I'm using ARC with this project so no need to release
+        
+        _locationManager.delegate=self;
+        
+        //The desired accuracy that you want, not guaranteed though
+        _locationManager.desiredAccuracy=kCLLocationAccuracyBest;
+        
+        self.locationManager=_locationManager;
+    }
+    
     return YES;
 }
 							

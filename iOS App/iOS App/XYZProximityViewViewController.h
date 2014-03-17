@@ -10,11 +10,11 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface XYZProximityViewViewController : UITableViewController <CLLocationManagerDelegate>{
+@interface XYZProximityViewViewController : UITableViewController /*<CLLocationManagerDelegate>{
 	
 	CLLocationManager *locationManager;
 	
-}
+}*/
 
 @property (weak, nonatomic) IBOutlet UISwitch *geoSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *sponsorSwitch;
