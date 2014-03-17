@@ -46,6 +46,7 @@
                                [[UIBarButtonItem alloc]initWithTitle:@"Apply" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
                                nil];
     
+    
     _GroupCode.inputAccessoryView = numberToolbar;
     
 	// Do any additional setup after loading the view.
