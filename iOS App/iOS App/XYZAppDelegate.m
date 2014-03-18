@@ -8,11 +8,14 @@
 
 #import "XYZAppDelegate.h"
 #import "XYZProximityViewViewController.h"
+#import "SBJson4.h"
+#import "SBJson4Parser.h"
 
 
 @implementation XYZAppDelegate
 
 @synthesize locationManager=_locationManager;
+
 
 // Failed to get current location
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -34,7 +37,19 @@
     NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&rankby=distance&types=bar&radius=17&sensor=true&key=AIzaSyAkU63FTdiEiaahe4x-9oZ_fJ0qrZQAcZ0",latitude,longitude];
     
 	NSLog(@"%@", url);
-	
+    
+    // Prepare URL request to download statuses from Twitter
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    // Perform request and get JSON back as a NSData object
+    NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    // Get JSON as a NSString from NSData response
+    NSString *json_string = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+    if ([json_string rangeOfString:@"ZERO_RESULTS"].location == NSNotFound) {
+        UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Test" message:@"High risk area!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
+        // Display Alert Message
+        [messageAlert show];
+    }
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
