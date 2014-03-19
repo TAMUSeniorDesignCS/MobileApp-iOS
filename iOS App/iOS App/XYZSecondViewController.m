@@ -18,9 +18,13 @@
 {
     [super viewDidLoad];
     myPosts = [[NSMutableArray alloc] init];
+
+    //[self refreshPost];
+    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)refreshPost{
     NSString *url = [NSString stringWithFormat:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/refresh"];
     
 	NSLog(@"usr is %@", url);
@@ -46,7 +50,23 @@
     // Get JSON as a NSString from NSData response
     NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
 	NSLog(@"post string is %@", post_string);
-    // Do any additional setup after loading the view, typically from a nib.
+    [self.tableView reloadData];
+
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    //[myPosts removeAllObjects];
+    [self refreshPost];
+    [self.tableView reloadData];
+    //[self.tableView numberOfRowsInSection:[myPosts count]];
+    //[self.tableView cellForRowAtIndexPath:[myPosts ]];
+    
+    
+
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+     [myPosts removeAllObjects];
 }
 
 - (void)didReceiveMemoryWarning
