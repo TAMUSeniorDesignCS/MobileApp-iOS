@@ -18,13 +18,13 @@
 {
     [super viewDidLoad];
     myPosts = [[NSMutableArray alloc] init];
-
-    //[self refreshPost];
+    
     // Do any additional setup after loading the view, typically from a nib.
 
 }
 
--(void)refreshPost{
+- (void)refreshPost
+{
     NSString *url = [NSString stringWithFormat:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/refresh"];
     
 	NSLog(@"usr is %@", url);
@@ -54,18 +54,15 @@
 
 }
 
--(void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated
+{
     //[myPosts removeAllObjects];
     [self refreshPost];
     [self.tableView reloadData];
-    //[self.tableView numberOfRowsInSection:[myPosts count]];
-    //[self.tableView cellForRowAtIndexPath:[myPosts ]];
-    
-    
-
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated
+{
      [myPosts removeAllObjects];
 }
 
