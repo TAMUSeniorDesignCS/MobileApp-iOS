@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYZSecondViewController : UIViewController
+@interface XYZSecondViewController : UITableViewController {
+    NSMutableArray *myPosts;
+}
+
 
 @end

@@ -64,38 +64,35 @@
             </objects>
             <point key="canvasLocation" x="649" y="-474"/>
         </scene>
-        <!--Second View Controller - Second-->
-        <scene sceneID="ot8-2e-RuS">
+        <!--Second View Controller - Posts-->
+        <scene sceneID="AVN-GE-sR2">
             <objects>
-                <viewController title="Second" id="QUy-BD-bpt" customClass="XYZSecondViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cfb-Vt-bhd"/>
-                        <viewControllerLayoutGuide type="bottom" id="WT3-O3-f5c"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gMD-aP-Fq6">
+                <tableViewController id="zrF-65-2FM" customClass="XYZSecondViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="PRr-pT-Xty">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="29h-N2-YGT">
-                                <rect key="frame" x="20" y="23" width="280" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="29h-N2-YGT" firstAttribute="leading" secondItem="gMD-aP-Fq6" secondAttribute="leading" constant="20" symbolic="YES" id="4te-rk-9Fp"/>
-                            <constraint firstAttribute="trailing" secondItem="29h-N2-YGT" secondAttribute="trailing" constant="20" symbolic="YES" id="FIx-Zl-RBr"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Posts" image="news-25" id="Z7h-1E-pvt"/>
-                    <navigationItem key="navigationItem" title="Second View" id="v77-bi-L2I"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3qq-4t-Ow8" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Gkl-r8-8h0">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gkl-r8-8h0" id="JTn-K7-uPs">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zrF-65-2FM" id="rKB-XF-fdI"/>
+                            <outlet property="delegate" destination="zrF-65-2FM" id="V9z-Qj-M9J"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Posts" image="news-25" id="VUR-Nb-xxy"/>
+                    <navigationItem key="navigationItem" id="AUI-1L-kWt"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0MU-8q-dAJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="140"/>
+            <point key="canvasLocation" x="649" y="180"/>
         </scene>
         <!--View Controller - Messages-->
         <scene sceneID="Y7b-SS-pjg">
@@ -392,10 +389,10 @@
             </objects>
             <point key="canvasLocation" x="1135" y="2197"/>
         </scene>
-        <!--Table View Controller - Privacy Settings-->
+        <!--Privacy Setting View Controller - Privacy Settings-->
         <scene sceneID="3ro-Pl-krr">
             <objects>
-                <tableViewController id="lMq-yl-udl" sceneMemberID="viewController">
+                <tableViewController id="lMq-yl-udl" customClass="XYZPrivacySettingViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="q7V-YX-HEP">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -477,10 +474,10 @@
             </objects>
             <point key="canvasLocation" x="1540" y="2196"/>
         </scene>
-        <!--Table View Controller - Block User List-->
+        <!--Block User List View Controller - Block User List-->
         <scene sceneID="uSj-Vx-OeD">
             <objects>
-                <tableViewController id="KL5-hU-Tw9" sceneMemberID="viewController">
+                <tableViewController id="KL5-hU-Tw9" customClass="XYZBlockUserListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JnW-RW-knZ">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1047,7 +1044,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="CZ4-MO-1fc" kind="relationship" relationship="viewControllers" id="SUk-Ux-ee1"/>
-                        <segue destination="QUy-BD-bpt" kind="relationship" relationship="viewControllers" id="M8t-EP-wfW"/>
+                        <segue destination="zrF-65-2FM" kind="relationship" relationship="viewControllers" id="3Zm-73-hrF"/>
                         <segue destination="3Qs-HG-DyX" kind="relationship" relationship="viewControllers" id="FxE-wE-zgf"/>
                         <segue destination="4YS-Yt-efa" kind="relationship" relationship="viewControllers" id="ndM-xi-4jY"/>
                         <segue destination="D40-Qg-iNx" kind="relationship" relationship="viewControllers" id="Oot-9s-Y8K"/>
