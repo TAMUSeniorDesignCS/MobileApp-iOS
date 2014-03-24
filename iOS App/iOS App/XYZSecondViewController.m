@@ -31,26 +31,34 @@
     
     // Prepare URL request to download statuses from Twitter
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    // Perform request and get JSON back as a NSData object
-    NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     // Error
     NSError *error;
-    // Parse JSON
-    NSMutableDictionary *array = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error];
+    // Perform request and get JSON back as a NSData object
+    NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
     }
     else{
-        for(NSDictionary *dict in array){
-            [myPosts addObject:dict[@"message"]];
-        }
-    }
+            // Error
+        NSError *error2;
+        // Parse JSON
+        NSMutableDictionary *array = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error2];
     
-    // Get JSON as a NSString from NSData response
-    NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
-	NSLog(@"post string is %@", post_string);
-    [self.tableView reloadData];
+        if (error2) {
+            NSLog(@"%@", [error2 localizedDescription]);
+        }
+        else{
+            for(NSDictionary *dict in array){
+                [myPosts addObject:dict[@"message"]];
+            }
+        }
+    
+        // Get JSON as a NSString from NSData response
+        NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+        NSLog(@"post string is %@", post_string);
+        [self.tableView reloadData];
+    }
 
 }
 

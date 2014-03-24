@@ -42,6 +42,7 @@
 		DEB6336E18D806200089CC76 /* SBJson4Writer.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6336518D806200089CC76 /* SBJson4Writer.m */; };
 		DEB6336F18D806200089CC76 /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6336718D806200089CC76 /* SBJson4StreamParserState.m */; };
 		DEB6337018D806200089CC76 /* SBJson4StreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6336818D806200089CC76 /* SBJson4StreamTokeniser.m */; };
+		DEDD78BA18E0D45600F8F82B /* XYZMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDD78B918E0D45600F8F82B /* XYZMessagesView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,8 @@
 		DEB6336718D806200089CC76 /* SBJson4StreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamParserState.m; sourceTree = "<group>"; };
 		DEB6336818D806200089CC76 /* SBJson4StreamTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamTokeniser.m; sourceTree = "<group>"; };
 		DEB6336918D806200089CC76 /* SBJson4StreamTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamTokeniser.h; sourceTree = "<group>"; };
+		DEDD78B818E0D45600F8F82B /* XYZMessagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZMessagesView.h; sourceTree = "<group>"; };
+		DEDD78B918E0D45600F8F82B /* XYZMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZMessagesView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 				619892F518D265680090D576 /* XYZSignUpViewController.m */,
 				DE4EF4BE18C7E7DD003AAA49 /* XYZLoginView.h */,
 				DE4EF4BF18C7E7DD003AAA49 /* XYZLoginView.m */,
+				DEDD78B818E0D45600F8F82B /* XYZMessagesView.h */,
+				DEDD78B918E0D45600F8F82B /* XYZMessagesView.m */,
 				DE1A09C318BBF85200C999C5 /* XYZInitialNavigationViewViewController.h */,
 				DE1A09C418BBF85200C999C5 /* XYZInitialNavigationViewViewController.m */,
 				611B103918D3B410009CBA8D /* XYZDefaultTimeoutViewController.h */,
@@ -366,6 +371,7 @@
 				DE060CF418AC4CDA0010DF47 /* XYZAppDelegate.m in Sources */,
 				614B3AF718BC297F001AB654 /* XYZChangePasswordViewController.m in Sources */,
 				DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */,
+				DEDD78BA18E0D45600F8F82B /* XYZMessagesView.m in Sources */,
 				DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */,
 				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,
 				DEB6336A18D806200089CC76 /* SBJson4StreamWriterState.m in Sources */,
