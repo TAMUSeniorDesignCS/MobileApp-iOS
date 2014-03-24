@@ -12,6 +12,7 @@
 		6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113918DA40F6007B3A5C /* XYZPrivacySettingViewController.m */; };
 		6187113D18DA4125007B3A5C /* XYZBlockUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113C18DA4125007B3A5C /* XYZBlockUserListViewController.m */; };
 		619892F618D265680090D576 /* XYZSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619892F518D265680090D576 /* XYZSignUpViewController.m */; };
+		61F4D9DD18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */; };
 		DE060CE418AC4CDA0010DF47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE060CE318AC4CDA0010DF47 /* Foundation.framework */; };
 		DE060CE618AC4CDA0010DF47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE060CE518AC4CDA0010DF47 /* CoreGraphics.framework */; };
 		DE060CE818AC4CDA0010DF47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE060CE718AC4CDA0010DF47 /* UIKit.framework */; };
@@ -66,6 +67,8 @@
 		6187113C18DA4125007B3A5C /* XYZBlockUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZBlockUserListViewController.m; sourceTree = "<group>"; };
 		619892F418D265680090D576 /* XYZSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYZSignUpViewController.h; path = ../XYZSignUpViewController.h; sourceTree = "<group>"; };
 		619892F518D265680090D576 /* XYZSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYZSignUpViewController.m; path = ../XYZSignUpViewController.m; sourceTree = "<group>"; };
+		61F4D9DB18E0DC3900D1257B /* XYZTypesOfMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYZTypesOfMessagesViewController.h; path = ../XYZTypesOfMessagesViewController.h; sourceTree = "<group>"; };
+		61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYZTypesOfMessagesViewController.m; path = ../XYZTypesOfMessagesViewController.m; sourceTree = "<group>"; };
 		DE060CE018AC4CDA0010DF47 /* iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE060CE318AC4CDA0010DF47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE060CE518AC4CDA0010DF47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -214,6 +217,8 @@
 				6187113918DA40F6007B3A5C /* XYZPrivacySettingViewController.m */,
 				DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */,
 				DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */,
+				61F4D9DB18E0DC3900D1257B /* XYZTypesOfMessagesViewController.h */,
+				61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */,
 				614B3AF518BC297F001AB654 /* XYZChangePasswordViewController.h */,
 				614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */,
 				DE060CF218AC4CDA0010DF47 /* XYZAppDelegate.h */,
@@ -372,6 +377,7 @@
 				614B3AF718BC297F001AB654 /* XYZChangePasswordViewController.m in Sources */,
 				DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */,
 				DEDD78BA18E0D45600F8F82B /* XYZMessagesView.m in Sources */,
+				61F4D9DD18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m in Sources */,
 				DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */,
 				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,
 				DEB6336A18D806200089CC76 /* SBJson4StreamWriterState.m in Sources */,
