@@ -15,12 +15,12 @@
 @implementation XYZAppDelegate
 
 @synthesize locationManager=_locationManager;
+@synthesize userSettings = _userSettings;
 
 
 // Failed to get current location
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-	
     UIAlertView *errorAlert = [[UIAlertView alloc]
 							   initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     // Call alert
@@ -30,7 +30,6 @@
 // Got location and now update
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-	
     CLLocation *currentLocation = newLocation;
     NSNumber *latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
     NSNumber *longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
@@ -67,6 +66,12 @@
         _locationManager.desiredAccuracy=kCLLocationAccuracyBest;
         
         self.locationManager=_locationManager;
+    }
+    
+    if(self.userSettings == nil) {
+        _userSettings = [[XYZUserSettings alloc] init];
+        self.userSettings=_userSettings;
+        
     }
     
     return YES;

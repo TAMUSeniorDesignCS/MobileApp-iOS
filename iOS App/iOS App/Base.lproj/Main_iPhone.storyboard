@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Weclome, John!" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-ve-WU7">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zhg-ve-WU7">
                                 <rect key="frame" x="96" y="20" width="129" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -53,6 +53,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="cottage-25" id="u1e-5L-l1D"/>
                     <connections>
+                        <outlet property="helloUser" destination="Zhg-ve-WU7" id="13E-gT-wyy"/>
                         <outlet property="quoteDay" destination="dvO-hH-hGe" id="Pmf-X4-uBv"/>
                     </connections>
                 </viewController>
@@ -1082,6 +1083,7 @@
                         <outlet property="Password" destination="Mkc-w1-e9A" id="f1E-mi-Yve"/>
                         <outlet property="Username" destination="JgV-Ti-ZhD" id="yuX-vJ-oCN"/>
                         <outlet property="VerifyPassword" destination="b0c-yw-9td" id="bE0-DX-APA"/>
+                        <segue destination="8YX-ce-x5E" kind="push" identifier="signUpPush" id="voh-G4-ScR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1L-nO-IsU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1198,4 +1200,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="voh-G4-ScR"/>
+    </inferredMetricsTieBreakers>
 </document>

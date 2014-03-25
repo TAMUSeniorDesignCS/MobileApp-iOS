@@ -7,6 +7,7 @@
 //
 
 #import "XYZFirstViewController.h"
+#import "XYZAppDelegate.h"
 
 @interface XYZFirstViewController () {
     
@@ -46,6 +47,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    [self.helloUser setText:(@"Welcome %@", appDelegate.userSettings.firstname)];
+    
     //For the QUOTE......................
     NSString *fullURL = @"http://www.aa.org/lang/en/aareflections.cfm";
     NSURL *url = [NSURL URLWithString:fullURL];

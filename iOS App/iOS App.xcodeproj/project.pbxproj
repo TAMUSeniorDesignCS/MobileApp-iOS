@@ -13,6 +13,8 @@
 		6187113D18DA4125007B3A5C /* XYZBlockUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113C18DA4125007B3A5C /* XYZBlockUserListViewController.m */; };
 		619892F618D265680090D576 /* XYZSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619892F518D265680090D576 /* XYZSignUpViewController.m */; };
 		61F4D9DD18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */; };
+		61F4D9DF18E0EA4E00D1257B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F4D9DE18E0EA4E00D1257B /* libsqlite3.dylib */; };
+		61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F4D9E118E0EC3700D1257B /* XYZUserSettings.m */; };
 		DE060CE418AC4CDA0010DF47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE060CE318AC4CDA0010DF47 /* Foundation.framework */; };
 		DE060CE618AC4CDA0010DF47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE060CE518AC4CDA0010DF47 /* CoreGraphics.framework */; };
 		DE060CE818AC4CDA0010DF47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE060CE718AC4CDA0010DF47 /* UIKit.framework */; };
@@ -69,6 +71,9 @@
 		619892F518D265680090D576 /* XYZSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYZSignUpViewController.m; path = ../XYZSignUpViewController.m; sourceTree = "<group>"; };
 		61F4D9DB18E0DC3900D1257B /* XYZTypesOfMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYZTypesOfMessagesViewController.h; path = ../XYZTypesOfMessagesViewController.h; sourceTree = "<group>"; };
 		61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYZTypesOfMessagesViewController.m; path = ../XYZTypesOfMessagesViewController.m; sourceTree = "<group>"; };
+		61F4D9DE18E0EA4E00D1257B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		61F4D9E018E0EC3700D1257B /* XYZUserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZUserSettings.h; sourceTree = "<group>"; };
+		61F4D9E118E0EC3700D1257B /* XYZUserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZUserSettings.m; sourceTree = "<group>"; };
 		DE060CE018AC4CDA0010DF47 /* iOS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE060CE318AC4CDA0010DF47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE060CE518AC4CDA0010DF47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -128,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61F4D9DF18E0EA4E00D1257B /* libsqlite3.dylib in Frameworks */,
 				DEAFC6A818B004500003B42F /* CoreLocation.framework in Frameworks */,
 				DE060CE618AC4CDA0010DF47 /* CoreGraphics.framework in Frameworks */,
 				DE060CE818AC4CDA0010DF47 /* UIKit.framework in Frameworks */,
@@ -185,6 +191,7 @@
 		DE060CE218AC4CDA0010DF47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61F4D9DE18E0EA4E00D1257B /* libsqlite3.dylib */,
 				DEAFC6A718B004500003B42F /* CoreLocation.framework */,
 				DE060CE318AC4CDA0010DF47 /* Foundation.framework */,
 				DE060CE518AC4CDA0010DF47 /* CoreGraphics.framework */,
@@ -231,6 +238,8 @@
 				DE060CFC18AC4CDA0010DF47 /* XYZFirstViewController.m */,
 				DE060CFE18AC4CDA0010DF47 /* XYZSecondViewController.h */,
 				DE060CFF18AC4CDA0010DF47 /* XYZSecondViewController.m */,
+				61F4D9E018E0EC3700D1257B /* XYZUserSettings.h */,
+				61F4D9E118E0EC3700D1257B /* XYZUserSettings.m */,
 				DE060D0118AC4CDA0010DF47 /* Images.xcassets */,
 				DE060CEA18AC4CDA0010DF47 /* Supporting Files */,
 			);
@@ -386,6 +395,7 @@
 				6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */,
 				DEB6336D18D806200089CC76 /* SBJson4Parser.m in Sources */,
 				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,
+				61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */,
 				DE060CF018AC4CDA0010DF47 /* main.m in Sources */,
 				DEB6336F18D806200089CC76 /* SBJson4StreamParserState.m in Sources */,
 			);

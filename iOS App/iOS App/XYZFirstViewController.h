@@ -10,5 +10,6 @@
 
 @interface XYZFirstViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *quoteDay;
+@property (weak, nonatomic) IBOutlet UILabel *helloUser;
 
 @end

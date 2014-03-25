@@ -7,6 +7,8 @@
 //
 
 #import "XYZSignUpViewController.h"
+#import "XYZAppDelegate.h"
+
 
 @interface XYZSignUpViewController ()
 
@@ -69,6 +71,28 @@
 }
 
 - (IBAction)pressOKButton:(id)sender {
+    if([self.GroupCode.text isEqual:@"0000"]) {
+        if([self.Password.text isEqualToString:self.VerifyPassword.text]){
+            XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+        
+            appDelegate.userSettings.username = self.Username.text;
+            appDelegate.userSettings.firstname = self.FirstName.text;
+            appDelegate.userSettings.showPhone = TRUE;
+            appDelegate.userSettings.showEmail = FALSE;
+            appDelegate.userSettings.geoAlerts = FALSE;
+            appDelegate.userSettings.religiousOn = FALSE;
+            appDelegate.userSettings.funnyOn = FALSE;
+            appDelegate.userSettings.inspirationalOn = TRUE;
+            appDelegate.userSettings.sponsorNotify = FALSE;
+            appDelegate.userSettings.postTimeoutOn = TRUE;
+            appDelegate.userSettings.postTime = 48;
+            appDelegate.userSettings.messageTimeoutOn = FALSE;
+            appDelegate.userSettings.messageTime = 48;
+            appDelegate.userSettings.setSponsor = @"";
+        
+            [self performSegueWithIdentifier:@"signUpPush" sender:nil];
+        }
+    }
 }
 
 
