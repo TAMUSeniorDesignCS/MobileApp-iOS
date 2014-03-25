@@ -33,7 +33,7 @@
     CLLocation *currentLocation = newLocation;
     NSNumber *latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
     NSNumber *longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&rankby=distance&types=bar&radius=17&sensor=true&key=AIzaSyAkU63FTdiEiaahe4x-9oZ_fJ0qrZQAcZ0",latitude,longitude];
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&rankby=distance&types=bar&radius=500&sensor=true&key=AIzaSyAkU63FTdiEiaahe4x-9oZ_fJ0qrZQAcZ0",latitude,longitude];
     
 	NSLog(@"%@", url);
     
@@ -43,11 +43,36 @@
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     // Get JSON as a NSString from NSData response
     NSString *json_string = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-
+    //NSLog(@"%@",json_string);
     if ([json_string rangeOfString:@"ZERO_RESULTS"].location == NSNotFound) {
+        NSLog(@"HIGH RISK!");
+        /*
         UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Test" message:@"High risk area!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil,nil];
         // Display Alert Message
         [messageAlert show];
+        */
+        UIApplication *app = [UIApplication sharedApplication];
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        
+        if (notification == nil)
+            return;
+        notification.alertBody = [NSString stringWithFormat:@"You are in a high risk area!!"];
+        notification.alertAction = @"Ok";
+        notification.soundName = UILocalNotificationDefaultSoundName;
+        //notification.applicationIconBadgeNumber = 1;
+        [app presentLocalNotificationNow:notification];
+    }
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    if (notification)
+    {
+        notification.applicationIconBadgeNumber = 1;
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:notification.alertBody delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        application.applicationIconBadgeNumber = 0;
     }
 }
 
@@ -72,6 +97,12 @@
         _userSettings = [[XYZUserSettings alloc] init];
         self.userSettings=_userSettings;
         
+    }
+    
+    UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (locationNotification) {
+        // Set icon badge number to zero
+        application.applicationIconBadgeNumber = 0;
     }
     
     return YES;
