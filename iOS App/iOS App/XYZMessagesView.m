@@ -7,6 +7,7 @@
 //
 
 #import "XYZMessagesView.h"
+#import "XYZTabBarViewController.h"
 
 @interface XYZMessagesView ()
 
@@ -26,7 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -38,6 +38,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    animated = NO;
+    self.tabBarController.navigationItem.rightBarButtonItem.title = @"New Message";
+    self.tabBarController.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
 #pragma mark - Table view data source
@@ -54,6 +60,10 @@
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 0;
+}
+
+- (IBAction)goToNewMessage:(id)sender {
+    
 }
 
 /*

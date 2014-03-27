@@ -77,6 +77,11 @@
     [_quoteDay  setText:quote];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    animated = NO;
+    self.tabBarController.navigationItem.rightBarButtonItem.title = @"";
+    self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
+}
 
 - (void)didReceiveMemoryWarning
 {

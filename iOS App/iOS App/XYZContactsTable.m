@@ -51,6 +51,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    animated = NO;
+    self.tabBarController.navigationItem.rightBarButtonItem.title = @"";
+    self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

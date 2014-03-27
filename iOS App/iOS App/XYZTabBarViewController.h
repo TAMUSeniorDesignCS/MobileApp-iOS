@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYZTabBarViewController : UITabBarController
+@interface XYZTabBarViewController : UITabBarController <UITabBarDelegate>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *NewButton;
 @end

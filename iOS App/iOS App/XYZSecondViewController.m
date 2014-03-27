@@ -64,7 +64,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    //[myPosts removeAllObjects];
+    animated = NO;
+    self.tabBarController.navigationItem.rightBarButtonItem.title = @"New Post";
+    self.tabBarController.navigationItem.rightBarButtonItem.enabled = YES;
     [self refreshPost];
     [self.tableView reloadData];
 }
@@ -115,5 +117,6 @@
     
     return cell;
 }
+
 
 @end

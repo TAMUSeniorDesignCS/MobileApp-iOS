@@ -70,12 +70,13 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
-/*
+
 - (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.navigationItem setHidesBackButton:YES animated:YES];
+    animated = NO;
+    self.tabBarController.navigationItem.rightBarButtonItem.title = @"";
+    self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
 }
-*/
+
 #pragma mark - Table view data source
 /*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

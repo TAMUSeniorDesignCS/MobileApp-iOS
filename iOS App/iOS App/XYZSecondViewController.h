@@ -12,5 +12,7 @@
     NSMutableArray *myPosts;
 }
 
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *newPostButton;
+
 
 @end
