@@ -37,6 +37,7 @@
 		DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */; };
 		DE4EF4C018C7E7DD003AAA49 /* XYZLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4EF4BF18C7E7DD003AAA49 /* XYZLoginView.m */; };
 		DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */; };
+		DE90B6AA18EA049D006D91F5 /* XYZNewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = DE90B6A918EA049D006D91F5 /* XYZNewPost.m */; };
 		DEAFC6A818B004500003B42F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEAFC6A718B004500003B42F /* CoreLocation.framework */; };
 		DEB6336A18D806200089CC76 /* SBJson4StreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6335C18D806200089CC76 /* SBJson4StreamWriterState.m */; };
 		DEB6336B18D806200089CC76 /* SBJson4StreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6336018D806200089CC76 /* SBJson4StreamWriter.m */; };
@@ -108,6 +109,8 @@
 		DE4EF4BF18C7E7DD003AAA49 /* XYZLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZLoginView.m; sourceTree = "<group>"; };
 		DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZProximityViewViewController.h; sourceTree = "<group>"; };
 		DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZProximityViewViewController.m; sourceTree = "<group>"; };
+		DE90B6A818EA049D006D91F5 /* XYZNewPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZNewPost.h; sourceTree = "<group>"; };
+		DE90B6A918EA049D006D91F5 /* XYZNewPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZNewPost.m; sourceTree = "<group>"; };
 		DEAFC6A718B004500003B42F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DEB6335B18D806200089CC76 /* SBJson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4.h; sourceTree = "<group>"; };
 		DEB6335C18D806200089CC76 /* SBJson4StreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamWriterState.m; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 			children = (
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
+				DE90B6A818EA049D006D91F5 /* XYZNewPost.h */,
+				DE90B6A918EA049D006D91F5 /* XYZNewPost.m */,
 				DE1A09C618BC046F00C999C5 /* XYZTabBarViewController.h */,
 				DE1A09C718BC046F00C999C5 /* XYZTabBarViewController.m */,
 				619892F418D265680090D576 /* XYZSignUpViewController.h */,
@@ -375,6 +380,7 @@
 			files = (
 				611B103B18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m in Sources */,
 				DE4EF4C018C7E7DD003AAA49 /* XYZLoginView.m in Sources */,
+				DE90B6AA18EA049D006D91F5 /* XYZNewPost.m in Sources */,
 				DEB6336B18D806200089CC76 /* SBJson4StreamWriter.m in Sources */,
 				DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */,
 				DEB6336E18D806200089CC76 /* SBJson4Writer.m in Sources */,

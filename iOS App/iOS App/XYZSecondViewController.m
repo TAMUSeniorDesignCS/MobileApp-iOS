@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
     myPosts = [[NSMutableArray alloc] init];
+    NSLog(@"Number of posts: %lu", (unsigned long)[myPosts count]);
     
     // Do any additional setup after loading the view, typically from a nib.
 
@@ -35,18 +36,20 @@
     NSError *error;
     // Perform request and get JSON back as a NSData object
     NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    
+    // Get JSON as a NSString from NSData response
+    NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+    NSLog(@"post string is %@", post_string);
     if (error) {
-        NSLog(@"%@", [error localizedDescription]);
+        return;
+        NSLog(@"First error: %@", [error localizedDescription]);
     }
     else{
-            // Error
         NSError *error2;
         // Parse JSON
         NSMutableDictionary *array = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error2];
-    
         if (error2) {
-            NSLog(@"%@", [error2 localizedDescription]);
+            return;
+            NSLog(@"Second error: %@", [error2 localizedDescription]);
         }
         else{
             for(NSDictionary *dict in array){
@@ -54,12 +57,9 @@
             }
         }
     
-        // Get JSON as a NSString from NSData response
-        NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
-        NSLog(@"post string is %@", post_string);
+        
         [self.tableView reloadData];
     }
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -101,7 +101,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [myPosts count];
+    return MAX(1,[myPosts count]);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,7 +112,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [myPosts objectAtIndex:indexPath.row];
+    if ([myPosts count] <= 0) {
+        cell.textLabel.text = [myPosts objectAtIndex:indexPath.row];
+    }
+    else cell.textLabel.text = @"nothing";
     // Configure the cell...
     
     return cell;
