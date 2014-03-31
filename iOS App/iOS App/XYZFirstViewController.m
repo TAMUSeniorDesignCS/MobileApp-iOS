@@ -18,6 +18,7 @@
 
 @implementation XYZFirstViewController
 
+
 -(NSString *) getValueBetweenElement:(NSString *) element inHTML:(NSString *) html {
     NSString *result = nil;
     
@@ -47,8 +48,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
-    [self.helloUser setText:(@"Welcome %@", appDelegate.userSettings.firstname)];
+    NSString *user = [NSString stringWithFormat:@"Welcome %@", appDelegate.userSettings.username];
+    [self.helloUser setText:user];
     
     //For the QUOTE......................
     NSString *fullURL = @"http://www.aa.org/lang/en/aareflections.cfm";

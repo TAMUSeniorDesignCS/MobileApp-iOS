@@ -7,6 +7,7 @@
 //
 
 #import "XYZLoginView.h"
+#import "XYZAppDelegate.h"
 
 @interface XYZLoginView ()
 
@@ -57,6 +58,10 @@
     }
     else{
         if (![authReturn isEqualToString:@"NO"]) {
+            XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+            
+            appDelegate.userSettings.username = self.Username.text;
+
             [self performSegueWithIdentifier:@"tabBarPush" sender:nil];
         }
         else {
