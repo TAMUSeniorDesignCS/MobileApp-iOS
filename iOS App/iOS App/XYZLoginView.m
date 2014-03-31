@@ -51,13 +51,17 @@
     NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
     NSLog(@"post string is %@", authReturn);
-
-    
     if (error) {
         NSLog(@"error: %@", [error localizedDescription]);
     }
     else{
-        if (![authReturn isEqualToString:@"NO"]) {
+        NSError *error2;
+        NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error2];
+        if (error2) {
+            return;
+            NSLog(@"Second error: %@", [error2 localizedDescription]);
+        }
+        if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
             XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
             
             appDelegate.userSettings.username = self.Username.text;

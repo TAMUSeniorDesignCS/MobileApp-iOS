@@ -79,11 +79,11 @@
     
        NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  self.GroupCode.text, @"groupid",
+                                 self.Password.text, @"password",
                                  self.FirstName.text, @"firstname",
                                  self.Username.text, @"username",
-                                 nil, @"sponsorid",
-                                 self.Password.text, @"password",
-                                 nil, @"email",
+                                 @"", @"sponsorid",
+                                 @"", @"email",
                                  nil];
        NSError *error;
        NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
@@ -98,7 +98,7 @@
        if (error) NSLog(@"error: %@", [error localizedDescription]);
        else{ //no error
         
-           if ([authReturn isEqualToString:@"Request Handled successfully."]) { //account created!
+           if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) { //account created!
              XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
              
              appDelegate.userSettings.username = self.Username.text;

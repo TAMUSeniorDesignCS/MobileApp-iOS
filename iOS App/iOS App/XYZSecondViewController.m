@@ -18,25 +18,24 @@
 {
     [super viewDidLoad];
     myPosts = [[NSMutableArray alloc] init];
-    NSLog(@"Number of posts: %lu", (unsigned long)[myPosts count]);
-    
     // Do any additional setup after loading the view, typically from a nib.
 
 }
 
 - (void)refreshPost
 {
-    NSString *url = [NSString stringWithFormat:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/refresh"];
-    
-	NSLog(@"usr is %@", url);
-    
-    // Prepare URL request to download statuses from Twitter
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    // Error
+    NSMutableURLRequest *request = [NSMutableURLRequest
+                                    requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/refresh"]];
+    NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 @"1", @"groupid",
+                                 nil];
     NSError *error;
-    // Perform request and get JSON back as a NSData object
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:&error];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:requestData];
     NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    // Get JSON as a NSString from NSData response
+    
     NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
     NSLog(@"post string is %@", post_string);
     if (error) {
@@ -53,7 +52,8 @@
         }
         else{
             for(NSDictionary *dict in array){
-                [myPosts addObject:dict[@"message"]];
+                if (dict[@"valid"]);
+                else [myPosts addObject:dict[@"message"]];
             }
         }
     
@@ -101,7 +101,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return MAX(1,[myPosts count]);
+    return [myPosts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,10 +112,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    if ([myPosts count] <= 0) {
-        cell.textLabel.text = [myPosts objectAtIndex:indexPath.row];
-    }
-    else cell.textLabel.text = @"nothing";
+
+    cell.textLabel.text = [myPosts objectAtIndex:indexPath.row];
     // Configure the cell...
     
     return cell;
