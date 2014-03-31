@@ -71,28 +71,63 @@
 }
 
 - (IBAction)pressOKButton:(id)sender {
-    if([self.GroupCode.text isEqual:@"0000"]) {
-        if([self.Password.text isEqualToString:self.VerifyPassword.text]){
-            XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    if([self.Password.text isEqualToString:self.VerifyPassword.text]){ //passwords match!
+    
+       NSMutableURLRequest *request = [NSMutableURLRequest
+                                       requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/new"]];
+    
+       NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 self.GroupCode.text, @"groupid",
+                                 self.FirstName.text, @"firstname",
+                                 self.Username.text, @"username",
+                                 nil, @"sponsorid",
+                                 self.Password.text, @"password",
+                                 nil, @"email",
+                                 nil];
+       NSError *error;
+       NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
+       [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+       [request setHTTPMethod:@"POST"];
+       [request setHTTPBody:postData];
+       NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+       NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
+       NSLog(@"post string is %@", authReturn);
+    
+    
+       if (error) NSLog(@"error: %@", [error localizedDescription]);
+       else{ //no error
         
-            appDelegate.userSettings.username = self.Username.text;
-            appDelegate.userSettings.firstname = self.FirstName.text;
-            appDelegate.userSettings.showPhone = TRUE;
-            appDelegate.userSettings.showEmail = FALSE;
-            appDelegate.userSettings.geoAlerts = FALSE;
-            appDelegate.userSettings.religiousOn = FALSE;
-            appDelegate.userSettings.funnyOn = FALSE;
-            appDelegate.userSettings.inspirationalOn = TRUE;
-            appDelegate.userSettings.sponsorNotify = FALSE;
-            appDelegate.userSettings.postTimeoutOn = TRUE;
-            appDelegate.userSettings.postTime = 48;
-            appDelegate.userSettings.messageTimeoutOn = FALSE;
-            appDelegate.userSettings.messageTime = 48;
-            appDelegate.userSettings.setSponsor = @"";
-        
-            [self performSegueWithIdentifier:@"signUpPush" sender:nil];
-        }
-    }
+           if ([authReturn isEqualToString:@"Request Handled successfully."]) { //account created!
+             XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+             
+             appDelegate.userSettings.username = self.Username.text;
+             appDelegate.userSettings.firstname = self.FirstName.text;
+             appDelegate.userSettings.showPhone = TRUE;
+             appDelegate.userSettings.showEmail = FALSE;
+             appDelegate.userSettings.geoAlerts = FALSE;
+             appDelegate.userSettings.religiousOn = FALSE;
+             appDelegate.userSettings.funnyOn = FALSE;
+             appDelegate.userSettings.inspirationalOn = TRUE;
+             appDelegate.userSettings.sponsorNotify = FALSE;
+             appDelegate.userSettings.postTimeoutOn = TRUE;
+             appDelegate.userSettings.postTime = 48;
+             appDelegate.userSettings.messageTimeoutOn = FALSE;
+             appDelegate.userSettings.messageTime = 48;
+             appDelegate.userSettings.setSponsor = @"";
+             
+             [self performSegueWithIdentifier:@"signUpPush" sender:nil];
+           }
+           else { //account signup went wrong
+               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot signup" message:@"Group code wrong or account already exists." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+               [alertView show];
+           }
+       }
+   }
+   else { //Passwords do not match
+       UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot sign up" message:@"Passwords do not match." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+       [alertView show];
+   }
 }
 
 

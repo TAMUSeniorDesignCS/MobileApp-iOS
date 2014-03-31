@@ -51,20 +51,6 @@
     NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
     NSLog(@"post string is %@", authReturn);
 
-    /*
-    NSString *url = [NSString stringWithFormat:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/auth?username=%@&password=%@",self.Username.text,self.Password.text];
-    
-	NSLog(@"usr is %@", url);
-    
-    // Prepare URL request to download statuses from Twitter
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    // Error
-    NSError *error;
-    // Perform request and get JSON back as a NSData object
-    NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
-    NSLog(@"post string is %@", authReturn);
-    */
     
     if (error) {
         NSLog(@"error: %@", [error localizedDescription]);
