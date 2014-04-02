@@ -25,6 +25,19 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
+    
+    if (textField == _OldPassword) {
+		[textField resignFirstResponder];
+		[_NewPassword becomeFirstResponder];
+	}
+    else if (textField == _NewPassword) {
+		[textField resignFirstResponder];
+        [_ConfirmPassword becomeFirstResponder];
+	}
+	else if (textField == _ConfirmPassword) {
+		[textField resignFirstResponder];
+	}
+    
     return YES;
 }
 

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		611B103B18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B103A18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m */; };
+		6134D4CE18ECAF1E00E6A243 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134D4C718ECAF1E00E6A243 /* TPKeyboardAvoidingCollectionView.m */; };
+		6134D4CF18ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134D4C918ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.m */; };
+		6134D4D018ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134D4CB18ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.m */; };
+		6134D4D118ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134D4CD18ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		614B3AF718BC297F001AB654 /* XYZChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */; };
 		6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113918DA40F6007B3A5C /* XYZPrivacySettingViewController.m */; };
 		6187113D18DA4125007B3A5C /* XYZBlockUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113C18DA4125007B3A5C /* XYZBlockUserListViewController.m */; };
@@ -62,6 +66,14 @@
 /* Begin PBXFileReference section */
 		611B103918D3B410009CBA8D /* XYZDefaultTimeoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZDefaultTimeoutViewController.h; sourceTree = "<group>"; };
 		611B103A18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZDefaultTimeoutViewController.m; sourceTree = "<group>"; };
+		6134D4C618ECAF1E00E6A243 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingCollectionView.h; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/TPKeyboardAvoidingCollectionView.h"; sourceTree = "<group>"; };
+		6134D4C718ECAF1E00E6A243 /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingCollectionView.m; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/TPKeyboardAvoidingCollectionView.m"; sourceTree = "<group>"; };
+		6134D4C818ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.h"; sourceTree = "<group>"; };
+		6134D4C918ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.m"; sourceTree = "<group>"; };
+		6134D4CA18ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingTableView.h; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/TPKeyboardAvoidingTableView.h"; sourceTree = "<group>"; };
+		6134D4CB18ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingTableView.m; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/TPKeyboardAvoidingTableView.m"; sourceTree = "<group>"; };
+		6134D4CC18ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		6134D4CD18ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		614B3AF518BC297F001AB654 /* XYZChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZChangePasswordViewController.h; sourceTree = "<group>"; };
 		614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZChangePasswordViewController.m; sourceTree = "<group>"; };
 		6187113818DA40F6007B3A5C /* XYZPrivacySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZPrivacySettingViewController.h; sourceTree = "<group>"; };
@@ -207,6 +219,14 @@
 		DE060CE918AC4CDA0010DF47 /* iOS App */ = {
 			isa = PBXGroup;
 			children = (
+				6134D4C618ECAF1E00E6A243 /* TPKeyboardAvoidingCollectionView.h */,
+				6134D4C718ECAF1E00E6A243 /* TPKeyboardAvoidingCollectionView.m */,
+				6134D4C818ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.h */,
+				6134D4C918ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.m */,
+				6134D4CA18ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.h */,
+				6134D4CB18ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.m */,
+				6134D4CC18ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				6134D4CD18ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
 				DE90B6A818EA049D006D91F5 /* XYZNewPost.h */,
@@ -397,13 +417,17 @@
 				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,
 				DEB6336A18D806200089CC76 /* SBJson4StreamWriterState.m in Sources */,
 				DEB6336C18D806200089CC76 /* SBJson4StreamParser.m in Sources */,
+				6134D4D118ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
+				6134D4CE18ECAF1E00E6A243 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				DE060D0018AC4CDA0010DF47 /* XYZSecondViewController.m in Sources */,
+				6134D4CF18ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */,
 				DEB6336D18D806200089CC76 /* SBJson4Parser.m in Sources */,
 				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,
 				61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */,
 				DE060CF018AC4CDA0010DF47 /* main.m in Sources */,
 				DEB6336F18D806200089CC76 /* SBJson4StreamParserState.m in Sources */,
+				6134D4D018ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

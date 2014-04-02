@@ -11,6 +11,8 @@
 
 
 @interface XYZSignUpViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -27,6 +29,26 @@
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
+    
+    if (textField == _Username) {
+		[textField resignFirstResponder];
+		[_FirstName becomeFirstResponder];
+	}
+	else if (textField == _FirstName) {
+		[textField resignFirstResponder];
+		[_Password becomeFirstResponder];
+	}
+	else if (textField == _Password) {
+		[textField resignFirstResponder];
+		[_VerifyPassword becomeFirstResponder];
+	}
+    else if (textField == _VerifyPassword) {
+		[textField resignFirstResponder];
+		[_GroupCode becomeFirstResponder];
+	}
+    else if (textField == _GroupCode) {
+		[textField resignFirstResponder];
+	}
     return YES;
 }
 
@@ -38,6 +60,9 @@
 {
     [_Username becomeFirstResponder];
     [super viewDidLoad];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
     
     //---Number Keypad for Group Code---
     UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
@@ -52,6 +77,14 @@
     _GroupCode.inputAccessoryView = numberToolbar;
     
 	// Do any additional setup after loading the view.
+}
+
+-(void)dismissKeyboard{
+    [_Username resignFirstResponder];
+    [_FirstName resignFirstResponder];
+    [_Password resignFirstResponder];
+    [_VerifyPassword resignFirstResponder];
+    [_GroupCode resignFirstResponder];
 }
 
 -(void)cancelNumberPad{
@@ -129,6 +162,5 @@
        [alertView show];
    }
 }
-
 
 @end

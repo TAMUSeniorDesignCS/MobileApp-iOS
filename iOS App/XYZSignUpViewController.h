@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYZSignUpViewController : UIViewController<UITextFieldDelegate>
+@interface XYZSignUpViewController : UIViewController<UITextFieldDelegate>{
+    IBOutlet UIScrollView *scroll;
+}
 @property (strong, nonatomic) IBOutlet UITextField *Username;
 @property (strong, nonatomic) IBOutlet UITextField *FirstName;
 @property (strong, nonatomic) IBOutlet UITextField *Password;
