@@ -7,6 +7,7 @@
 //
 
 #import "XYZSecondViewController.h"
+#import "XYZPostCell.h"
 
 @interface XYZSecondViewController ()
 
@@ -18,6 +19,9 @@
 {
     [super viewDidLoad];
     myPosts = [[NSMutableArray alloc] init];
+    firstNames = [[NSMutableArray alloc] init];
+    userNames = [[NSMutableArray alloc] init];
+    dates = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view, typically from a nib.
 
 }
@@ -53,7 +57,13 @@
         else{
             for(NSDictionary *dict in array){
                 if (dict[@"valid"]);
-                else [myPosts addObject:dict[@"message"]];
+                else {
+                    [myPosts addObject:dict[@"message"]];
+                    [userNames addObject:dict[@"username"]];
+                    [firstNames addObject:dict[@"firstname"]];
+                    [dates addObject:dict[@"dateposted"]];
+                }
+                
             }
         }
     
@@ -69,11 +79,18 @@
     self.tabBarController.navigationItem.rightBarButtonItem.enabled = YES;
     [self refreshPost];
     [self.tableView reloadData];
+    
+    CGRect frame = self.tableView.frame;
+    frame.size.height -= 49;
+    [self.tableView setFrame:frame];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-     [myPosts removeAllObjects];
+    [myPosts removeAllObjects];
+    [userNames removeAllObjects];
+    [firstNames removeAllObjects];
+    [dates removeAllObjects];
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,14 +123,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"postCell";
+    XYZPostCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[XYZPostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
 
-    cell.textLabel.text = [myPosts objectAtIndex:indexPath.row];
+    cell.postTextBox.text = [myPosts objectAtIndex:indexPath.row];
+    cell.userLabel.text = [userNames objectAtIndex:indexPath.row];
+    [cell.userLabel sizeToFit];
+    cell.firstLabel.text = [firstNames objectAtIndex:indexPath.row];
+    [cell.firstLabel sizeToFit];
+    
+    NSString *str = [dates objectAtIndex:indexPath.row];
+    NSLog(@"original string %@", str);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYY-MM-dd'T'HH:mm:ss'.000Z'"];
+    NSDate *dte = [dateFormat dateFromString:str];
+    NSLog(@"convert to date %@", str);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
+    [dateFormat2 setDateFormat:@"MM/dd/YYYY HH:mm"];
+    NSString *dateString = [dateFormat2 stringFromDate:dte];
+    NSLog(@"DateString: %@", dateString);
+    
+    cell.dateLabel.text = dateString;
+    [cell.dateLabel sizeToFit];
     // Configure the cell...
     
     return cell;

@@ -26,7 +26,48 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.text.layer.borderWidth = 5.0f;
+    self.text.layer.borderColor = [[UIColor grayColor] CGColor];
+    self.text.layer.cornerRadius = 8;
+    
+    UIToolbar* deleteNumberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    deleteNumberToolbar.items = [NSArray arrayWithObjects:
+                               [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(deleteCancelNumberPad)],
+                               [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                               [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(deleteDoneWithNumberPad)],
+                               nil];
+    
+    _deleteTime.inputAccessoryView = deleteNumberToolbar;
+    
+    UIToolbar* textToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    textToolbar.items = [NSArray arrayWithObjects:
+                                 [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(textCancelNumberPad)],
+                                 [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                 [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(textDoneWithNumberPad)],
+                                 nil];
+    
+    _text.inputAccessoryView = textToolbar;
+
     // Do any additional setup after loading the view.
+}
+
+-(void)deleteCancelNumberPad{
+    [_deleteTime resignFirstResponder];
+    _deleteTime.text = @"48";
+}
+
+-(void)deleteDoneWithNumberPad{
+    NSString *deleteNumberFromTheKeyboard = _deleteTime.text;
+    [_deleteTime resignFirstResponder];
+}
+
+-(void)textCancelNumberPad{
+    [_text resignFirstResponder];
+}
+
+-(void)textDoneWithNumberPad{
+    NSString *textNumberFromTheKeyboard = _text.text;
+    [_text resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

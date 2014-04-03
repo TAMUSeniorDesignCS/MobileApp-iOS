@@ -10,7 +10,7 @@
 
 @interface XYZNewPost : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *postText;
+@property (weak, nonatomic) IBOutlet UITextView *text;
 @property (weak, nonatomic) IBOutlet UITextField *deleteTime;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 

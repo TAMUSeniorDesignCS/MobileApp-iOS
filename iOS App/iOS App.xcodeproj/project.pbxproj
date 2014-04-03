@@ -12,6 +12,7 @@
 		6134D4CF18ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134D4C918ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.m */; };
 		6134D4D018ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134D4CB18ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.m */; };
 		6134D4D118ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134D4CD18ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		6134D4D418ECC45100E6A243 /* XYZPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134D4D318ECC45100E6A243 /* XYZPostCell.m */; };
 		614B3AF718BC297F001AB654 /* XYZChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */; };
 		6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113918DA40F6007B3A5C /* XYZPrivacySettingViewController.m */; };
 		6187113D18DA4125007B3A5C /* XYZBlockUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113C18DA4125007B3A5C /* XYZBlockUserListViewController.m */; };
@@ -74,6 +75,8 @@
 		6134D4CB18ECAF1E00E6A243 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingTableView.m; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/TPKeyboardAvoidingTableView.m"; sourceTree = "<group>"; };
 		6134D4CC18ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+TPKeyboardAvoidingAdditions.h"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		6134D4CD18ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+TPKeyboardAvoidingAdditions.m"; path = "../../../Downloads/TPKeyboardAvoiding-master/TPKeyboardAvoiding/UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		6134D4D218ECC45100E6A243 /* XYZPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZPostCell.h; sourceTree = "<group>"; };
+		6134D4D318ECC45100E6A243 /* XYZPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZPostCell.m; sourceTree = "<group>"; };
 		614B3AF518BC297F001AB654 /* XYZChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZChangePasswordViewController.h; sourceTree = "<group>"; };
 		614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZChangePasswordViewController.m; sourceTree = "<group>"; };
 		6187113818DA40F6007B3A5C /* XYZPrivacySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZPrivacySettingViewController.h; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				6134D4CD18ECAF1E00E6A243 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
+				6134D4D218ECC45100E6A243 /* XYZPostCell.h */,
+				6134D4D318ECC45100E6A243 /* XYZPostCell.m */,
 				DE90B6A818EA049D006D91F5 /* XYZNewPost.h */,
 				DE90B6A918EA049D006D91F5 /* XYZNewPost.m */,
 				DE1A09C618BC046F00C999C5 /* XYZTabBarViewController.h */,
@@ -421,6 +426,7 @@
 				6134D4CE18ECAF1E00E6A243 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				DE060D0018AC4CDA0010DF47 /* XYZSecondViewController.m in Sources */,
 				6134D4CF18ECAF1E00E6A243 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				6134D4D418ECC45100E6A243 /* XYZPostCell.m in Sources */,
 				6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */,
 				DEB6336D18D806200089CC76 /* SBJson4Parser.m in Sources */,
 				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,

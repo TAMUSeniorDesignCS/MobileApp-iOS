@@ -107,55 +107,76 @@
     
     if([self.Password.text isEqualToString:self.VerifyPassword.text]){ //passwords match!
     
-       NSMutableURLRequest *request = [NSMutableURLRequest
-                                       requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/new"]];
-    
-       NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 self.GroupCode.text, @"groupid",
-                                 self.Password.text, @"password",
-                                 self.FirstName.text, @"firstname",
-                                 self.Username.text, @"username",
-                                 @"", @"sponsorid",
-                                 @"", @"email",
-                                 nil];
-       NSError *error;
-       NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
-       [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-       [request setHTTPMethod:@"POST"];
-       [request setHTTPBody:postData];
-       NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-       NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
-       NSLog(@"post string is %@", authReturn);
-    
-    
-       if (error) NSLog(@"error: %@", [error localizedDescription]);
-       else{ //no error
+        NSMutableURLRequest *requestGroup = [NSMutableURLRequest
+                                        requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/aagroup/auth"]];
         
-           if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) { //account created!
-             XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
-             
-             appDelegate.userSettings.username = self.Username.text;
-             appDelegate.userSettings.firstname = self.FirstName.text;
-             appDelegate.userSettings.showPhone = TRUE;
-             appDelegate.userSettings.showEmail = FALSE;
-             appDelegate.userSettings.geoAlerts = FALSE;
-             appDelegate.userSettings.religiousOn = FALSE;
-             appDelegate.userSettings.funnyOn = FALSE;
-             appDelegate.userSettings.inspirationalOn = TRUE;
-             appDelegate.userSettings.sponsorNotify = FALSE;
-             appDelegate.userSettings.postTimeoutOn = TRUE;
-             appDelegate.userSettings.postTime = 48;
-             appDelegate.userSettings.messageTimeoutOn = FALSE;
-             appDelegate.userSettings.messageTime = 48;
-             appDelegate.userSettings.setSponsor = @"";
-             
-             [self performSegueWithIdentifier:@"signUpPush" sender:nil];
+        NSDictionary *group_requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     self.GroupCode.text, @"groupid",
+                                     nil];
+        NSError *group_error;
+        NSData *postgroupData = [NSJSONSerialization dataWithJSONObject:group_requestData options:0 error:&group_error];
+        [requestGroup setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [requestGroup setHTTPMethod:@"POST"];
+        [requestGroup setHTTPBody:postgroupData];
+        NSData *groupData = [NSURLConnection sendSynchronousRequest:requestGroup returningResponse:nil error:&group_error];
+        NSString *groupReturn = [[NSString alloc] initWithData:groupData encoding:NSUTF8StringEncoding];
+        
+        if (!([groupReturn rangeOfString:@"true"].location == NSNotFound)) {
+        
+           NSMutableURLRequest *request = [NSMutableURLRequest
+                                           requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/new"]];
+        
+           NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     self.GroupCode.text, @"groupid",
+                                     self.Password.text, @"password",
+                                     self.FirstName.text, @"firstname",
+                                     self.Username.text, @"username",
+                                     @"", @"sponsorid",
+                                     @"", @"email",
+                                     nil];
+           NSError *error;
+           NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
+           [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+           [request setHTTPMethod:@"POST"];
+           [request setHTTPBody:postData];
+           NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+           NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
+           NSLog(@"post string is %@", authReturn);
+        
+        
+           if (error) NSLog(@"error: %@", [error localizedDescription]);
+           else{ //no error
+            
+               if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) { //account created!
+                 XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+                 
+                 appDelegate.userSettings.username = self.Username.text;
+                 appDelegate.userSettings.firstname = self.FirstName.text;
+                 appDelegate.userSettings.showPhone = TRUE;
+                 appDelegate.userSettings.showEmail = FALSE;
+                 appDelegate.userSettings.geoAlerts = FALSE;
+                 appDelegate.userSettings.religiousOn = FALSE;
+                 appDelegate.userSettings.funnyOn = FALSE;
+                 appDelegate.userSettings.inspirationalOn = TRUE;
+                 appDelegate.userSettings.sponsorNotify = FALSE;
+                 appDelegate.userSettings.postTimeoutOn = TRUE;
+                 appDelegate.userSettings.postTime = 48;
+                 appDelegate.userSettings.messageTimeoutOn = FALSE;
+                 appDelegate.userSettings.messageTime = 48;
+                 appDelegate.userSettings.setSponsor = @"";
+                 
+                 [self performSegueWithIdentifier:@"signUpPush" sender:nil];
+               }
+               else { //account signup went wrong
+                   UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot signup" message:@"Account already exists." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                   [alertView show];
+               }
            }
-           else { //account signup went wrong
-               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot signup" message:@"Group code wrong or account already exists." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-               [alertView show];
-           }
-       }
+        }
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot signup" message:@"Group code does not exist." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
    }
    else { //Passwords do not match
        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot sign up" message:@"Passwords do not match." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

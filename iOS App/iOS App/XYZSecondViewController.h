@@ -10,6 +10,9 @@
 
 @interface XYZSecondViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
     NSMutableArray *myPosts;
+    NSMutableArray *firstNames;
+    NSMutableArray *userNames;
+    NSMutableArray *dates;
 }
 
 //@property (weak, nonatomic) IBOutlet UIBarButtonItem *newPostButton;
