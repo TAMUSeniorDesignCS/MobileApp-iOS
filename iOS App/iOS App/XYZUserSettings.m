@@ -11,7 +11,7 @@
 
 @implementation XYZUserSettings
 
-@synthesize username, firstname, showPhone, showEmail, geoAlerts, religiousOn, funnyOn, inspirationalOn, sponsorNotify, postTimeoutOn, postTime, messageTimeoutOn, messageTime, setSponsor;
+@synthesize username, firstname, groupId, showPhone, showEmail, geoAlerts, religiousOn, funnyOn, inspirationalOn, sponsorNotify, postTimeoutOn, postTime, messageTimeoutOn, messageTime, setSponsor;
 
 /*
 @synthesize username =  _username;
@@ -60,6 +60,24 @@
         
     }
     return self;
+}
+
+- (void)resetAllObjects{
+    username = nil;
+    firstname = nil;
+    groupId = nil;
+    showPhone = nil;
+    showEmail = nil;
+    geoAlerts = nil;
+    religiousOn = nil;
+    funnyOn = nil;
+    inspirationalOn = nil;
+    sponsorNotify = nil;
+    postTimeoutOn = nil;
+    postTime = nil;
+    messageTimeoutOn = nil;
+    messageTime = nil;
+    setSponsor = nil;
 }
 
 - (void)dealloc{

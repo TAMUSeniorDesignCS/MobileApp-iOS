@@ -7,6 +7,8 @@
 //
 
 #import "XYZSettingsTable.h"
+#import "XYZAppDelegate.h"
+
 
 @interface XYZSettingsTable () 
 
@@ -64,10 +66,13 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+
     
     if([title isEqualToString:@"Yes"])
     {
         [self.navigationController popToRootViewControllerAnimated:YES];
+        [appDelegate.userSettings resetAllObjects];
     }
 }
 

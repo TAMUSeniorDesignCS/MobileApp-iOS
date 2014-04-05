@@ -72,17 +72,20 @@
     }
 }
 
+
 - (void)viewWillAppear:(BOOL)animated
 {
-    animated = NO;
+    NSLog(@"refreshed!");
+    [self refreshPost];
     self.tabBarController.navigationItem.rightBarButtonItem.title = @"New Post";
     self.tabBarController.navigationItem.rightBarButtonItem.enabled = YES;
-    [self refreshPost];
     [self.tableView reloadData];
     
     CGRect frame = self.tableView.frame;
     frame.size.height -= 49;
     [self.tableView setFrame:frame];
+    [super viewWillAppear:YES];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -129,6 +132,8 @@
         cell = [[XYZPostCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
+    // Configure the cell...
+
     cell.postTextBox.text = [myPosts objectAtIndex:indexPath.row];
     cell.userLabel.text = [userNames objectAtIndex:indexPath.row];
     [cell.userLabel sizeToFit];
@@ -148,7 +153,6 @@
     
     cell.dateLabel.text = dateString;
     [cell.dateLabel sizeToFit];
-    // Configure the cell...
     
     return cell;
 }

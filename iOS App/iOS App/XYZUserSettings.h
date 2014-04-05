@@ -11,6 +11,7 @@
 @interface XYZUserSettings : NSObject{
     NSString *_username;
     NSString *_firstname;
+    int *_groupId;
     BOOL *_showPhone;
     BOOL *_showEmail;
     //NSArray *_blockList;
@@ -24,10 +25,12 @@
     BOOL *_messageTimeoutOn;
     int *_messageTime;
     NSString *_setSponsor;
-}
 
+}
+-(void)resetAllObjects;
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *firstname;
+@property int *groupId;
 @property BOOL *showPhone;
 @property BOOL *showEmail;
 //@property (nonatomic, copy) NSArray *blockList;

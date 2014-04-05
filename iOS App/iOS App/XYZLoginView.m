@@ -63,24 +63,27 @@
     if (error) {
         NSLog(@"error: %@", [error localizedDescription]);
     }
-    else{
+    if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
         NSError *error2;
-        NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error2];
+        NSMutableArray *array = [NSJSONSerialization JSONObjectWithData:authData options:NSJSONReadingMutableContainers error:&error2];
+        //NSLog(@"group id is: %@", user_info[@"groupid"]);
         if (error2) {
             return;
             NSLog(@"Second error: %@", [error2 localizedDescription]);
         }
-        if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
-            XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
-            
-            appDelegate.userSettings.username = self.Username.text;
-
-            [self performSegueWithIdentifier:@"tabBarPush" sender:nil];
-        }
-        else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot login" message:@"Username and/or password not recognized." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alertView show];
-        }
+        
+        NSDictionary *user_info = array[0];
+        XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+        appDelegate.userSettings.firstname = user_info[@"firstname"];
+        appDelegate.userSettings.username = self.Username.text;
+        appDelegate.userSettings.groupId = [user_info[@"groupid"] intValue];
+        appDelegate.userSettings.setSponsor = user_info[@"sponsorid"];
+        //NSLog(@"group id is: %i", appDelegate.userSettings.groupId);
+        [self performSegueWithIdentifier:@"tabBarPush" sender:nil];
+    }
+    else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot login" message:@"Username and/or password not recognized." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
     }
 }
 
