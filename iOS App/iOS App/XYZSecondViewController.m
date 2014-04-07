@@ -168,7 +168,9 @@
 {
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     XYZPostCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if ([cell.userLabel.text isEqualToString:appDelegate.userSettings.username]) {
+    NSString *at = @"@";
+    NSString *temp = [at stringByAppendingString:appDelegate.userSettings.username];
+    if ([cell.userLabel.text isEqualToString:temp]) {
         return YES;
     }
     else {
