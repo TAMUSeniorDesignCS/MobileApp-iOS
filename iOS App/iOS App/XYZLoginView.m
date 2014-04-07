@@ -49,7 +49,7 @@
                                     requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/auth"]];
     
     NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 self.Username.text, @"username",
+                                 [self.Username.text lowercaseString], @"username",
                                  self.Password.text, @"password",
                                  nil];
     NSError *error;
@@ -74,8 +74,9 @@
         
         NSDictionary *user_info = array[0];
         XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
-        appDelegate.userSettings.firstname = user_info[@"firstname"];
-        appDelegate.userSettings.username = self.Username.text;
+        appDelegate.userSettings.firstname = [user_info[@"firstname"] capitalizedString];
+        NSLog(@"%@", appDelegate.userSettings.firstname);
+        appDelegate.userSettings.username = [self.Username.text lowercaseString];
         appDelegate.userSettings.groupId = [user_info[@"groupid"] intValue];
         appDelegate.userSettings.setSponsor = user_info[@"sponsorid"];
         //NSLog(@"group id is: %i", appDelegate.userSettings.groupId);

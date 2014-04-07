@@ -129,8 +129,8 @@
            NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      self.GroupCode.text, @"groupid",
                                      self.Password.text, @"password",
-                                     self.FirstName.text, @"firstname",
-                                     self.Username.text, @"username",
+                                     [self.FirstName.text capitalizedString], @"firstname",
+                                     [self.Username.text lowercaseString], @"username",
                                      @"", @"sponsorid",
                                      @"", @"email",
                                      nil];
@@ -150,8 +150,8 @@
                if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) { //account created!
                  XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
                  
-                 appDelegate.userSettings.username = self.Username.text;
-                 appDelegate.userSettings.firstname = self.FirstName.text;
+                 appDelegate.userSettings.username = [self.Username.text lowercaseString];
+                 appDelegate.userSettings.firstname = [self.FirstName.text capitalizedString];
                  appDelegate.userSettings.showPhone = TRUE;
                  appDelegate.userSettings.showEmail = FALSE;
                  appDelegate.userSettings.geoAlerts = FALSE;

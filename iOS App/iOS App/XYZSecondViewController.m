@@ -140,9 +140,10 @@
     // Configure the cell...
 
     cell.postTextBox.text = [myPosts objectAtIndex:indexPath.row];
-    cell.userLabel.text = [userNames objectAtIndex:indexPath.row];
+    cell.userLabel.text = @"@";
+    cell.userLabel.text = [cell.userLabel.text stringByAppendingString:[[userNames objectAtIndex:indexPath.row] lowercaseString]];
     [cell.userLabel sizeToFit];
-    cell.firstLabel.text = [firstNames objectAtIndex:indexPath.row];
+    cell.firstLabel.text = [[firstNames objectAtIndex:indexPath.row] capitalizedString];
     [cell.firstLabel sizeToFit];
     
     NSString *str = [dates objectAtIndex:indexPath.row];

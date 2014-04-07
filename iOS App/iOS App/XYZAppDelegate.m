@@ -33,7 +33,7 @@
     CLLocation *currentLocation = newLocation;
     NSNumber *latitude = [NSNumber numberWithDouble:currentLocation.coordinate.latitude];
     NSNumber *longitude = [NSNumber numberWithDouble:currentLocation.coordinate.longitude];
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&rankby=distance&types=bar&radius=500&sensor=true&key=AIzaSyAkU63FTdiEiaahe4x-9oZ_fJ0qrZQAcZ0",latitude,longitude];
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&rankby=distance&types=bar&radius=100&sensor=true&key=AIzaSyAkU63FTdiEiaahe4x-9oZ_fJ0qrZQAcZ0",latitude,longitude];
     
 	NSLog(@"%@", url);
     
