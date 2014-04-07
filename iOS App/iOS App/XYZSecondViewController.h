@@ -13,6 +13,7 @@
     NSMutableArray *firstNames;
     NSMutableArray *userNames;
     NSMutableArray *dates;
+    NSMutableArray *postIDs;
 }
 
 //@property (weak, nonatomic) IBOutlet UIBarButtonItem *newPostButton;

@@ -8,6 +8,7 @@
 
 #import "XYZSecondViewController.h"
 #import "XYZPostCell.h"
+#import "XYZAppDelegate.h"
 
 @interface XYZSecondViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    postIDs = [[NSMutableArray alloc] init];
     myPosts = [[NSMutableArray alloc] init];
     firstNames = [[NSMutableArray alloc] init];
     userNames = [[NSMutableArray alloc] init];
@@ -58,6 +60,7 @@
             for(NSDictionary *dict in array){
                 if (dict[@"valid"]);
                 else {
+                    [postIDs addObject:dict[@"postid"]];
                     [myPosts addObject:dict[@"message"]];
                     [userNames addObject:dict[@"username"]];
                     [firstNames addObject:dict[@"firstname"]];
@@ -91,6 +94,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [postIDs removeAllObjects];
     [myPosts removeAllObjects];
     [userNames removeAllObjects];
     [firstNames removeAllObjects];
@@ -142,20 +146,69 @@
     [cell.firstLabel sizeToFit];
     
     NSString *str = [dates objectAtIndex:indexPath.row];
-    NSLog(@"original string %@", str);
+    //NSLog(@"original string %@", str);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"YYYY-MM-dd'T'HH:mm:ss'.000Z'"];
     NSDate *dte = [dateFormat dateFromString:str];
-    NSLog(@"convert to date %@", str);
+    //NSLog(@"convert to date %@", str);
     NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
     [dateFormat2 setDateFormat:@"MM/dd/YYYY HH:mm"];
     NSString *dateString = [dateFormat2 stringFromDate:dte];
-    NSLog(@"DateString: %@", dateString);
+    //NSLog(@"DateString: %@", dateString);
     
     cell.dateLabel.text = dateString;
     [cell.dateLabel sizeToFit];
     
     return cell;
+}
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    XYZPostCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell.userLabel.text isEqualToString:appDelegate.userSettings.username]) {
+        NSLog(@"YES, user is: %@", cell.userLabel.text);
+        return YES;
+    }
+    else {
+        NSLog(@"NO, user is: %@", cell.userLabel.text);
+        return NO;
+    }
+}
+
+
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSString *removeID = postIDs[indexPath.row];
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest
+                                        requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/remove"]];
+        NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     removeID, @"postid",
+                                     nil];
+        NSError *error;
+        NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:&error];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:requestData];
+        NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+        
+        if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
+            [postIDs removeObjectAtIndex:indexPath.row];
+            [myPosts removeObjectAtIndex:indexPath.row];
+            [firstNames removeObjectAtIndex:indexPath.row];
+            [userNames removeObjectAtIndex:indexPath.row];
+            [dates removeObjectAtIndex:indexPath.row];
+            // Delete the row from the data source
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }
 }
 
 
