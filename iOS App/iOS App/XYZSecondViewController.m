@@ -75,6 +75,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.navigationItem.hidesBackButton = YES;
     NSLog(@"refreshed!");
     [self refreshPost];
     self.tabBarController.navigationItem.rightBarButtonItem.title = @"New Post";

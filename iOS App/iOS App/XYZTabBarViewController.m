@@ -29,14 +29,7 @@
     //[self.navigationController setNavigationBarHidden:YES animated:NO];
 	// Do any additional setup after loading the view.
 }
-- (IBAction)newAction:(id)sender {
-    if ([self.NewButton.title isEqualToString:@"New Post"]) {
-        [self performSegueWithIdentifier:@"newPostPush" sender:nil];
-    }
-    if ([self.NewButton.title isEqualToString:@"New Message"]) {
-        [self performSegueWithIdentifier:@"newMessagePush" sender:nil];
-    }
-}
+
 
 /*
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {

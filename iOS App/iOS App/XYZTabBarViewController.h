@@ -10,5 +10,4 @@
 
 @interface XYZTabBarViewController : UITabBarController <UITabBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *NewButton;
 @end
