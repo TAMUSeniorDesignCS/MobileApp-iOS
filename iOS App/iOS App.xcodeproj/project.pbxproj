@@ -36,6 +36,7 @@
 		DE138DEF18EDD4410067C8B9 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE138DE918EDD4410067C8B9 /* TPKeyboardAvoidingScrollView.m */; };
 		DE138DF018EDD4410067C8B9 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE138DEB18EDD4410067C8B9 /* TPKeyboardAvoidingTableView.m */; };
 		DE138DF118EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DE138DED18EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		DE138DF718F24B910067C8B9 /* XYZContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE138DF618F24B910067C8B9 /* XYZContactCell.m */; };
 		DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1A09C418BBF85200C999C5 /* XYZInitialNavigationViewViewController.m */; };
 		DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1A09C718BC046F00C999C5 /* XYZTabBarViewController.m */; };
 		DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */; };
@@ -112,6 +113,8 @@
 		DE138DEB18EDD4410067C8B9 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		DE138DEC18EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		DE138DED18EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		DE138DF518F24B910067C8B9 /* XYZContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZContactCell.h; sourceTree = "<group>"; };
+		DE138DF618F24B910067C8B9 /* XYZContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactCell.m; sourceTree = "<group>"; };
 		DE1A09C318BBF85200C999C5 /* XYZInitialNavigationViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZInitialNavigationViewViewController.h; sourceTree = "<group>"; };
 		DE1A09C418BBF85200C999C5 /* XYZInitialNavigationViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZInitialNavigationViewViewController.m; sourceTree = "<group>"; };
 		DE1A09C618BC046F00C999C5 /* XYZTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZTabBarViewController.h; sourceTree = "<group>"; };
@@ -232,6 +235,8 @@
 				DE138DED18EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
+				DE138DF518F24B910067C8B9 /* XYZContactCell.h */,
+				DE138DF618F24B910067C8B9 /* XYZContactCell.m */,
 				6134D4D218ECC45100E6A243 /* XYZPostCell.h */,
 				6134D4D318ECC45100E6A243 /* XYZPostCell.m */,
 				DE90B6A818EA049D006D91F5 /* XYZNewPost.h */,
@@ -405,6 +410,7 @@
 			files = (
 				611B103B18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m in Sources */,
 				DE4EF4C018C7E7DD003AAA49 /* XYZLoginView.m in Sources */,
+				DE138DF718F24B910067C8B9 /* XYZContactCell.m in Sources */,
 				DE90B6AA18EA049D006D91F5 /* XYZNewPost.m in Sources */,
 				DEB6336B18D806200089CC76 /* SBJson4StreamWriter.m in Sources */,
 				DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */,

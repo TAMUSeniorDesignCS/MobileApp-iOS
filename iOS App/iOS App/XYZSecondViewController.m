@@ -168,11 +168,9 @@
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     XYZPostCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell.userLabel.text isEqualToString:appDelegate.userSettings.username]) {
-        NSLog(@"YES, user is: %@", cell.userLabel.text);
         return YES;
     }
     else {
-        NSLog(@"NO, user is: %@", cell.userLabel.text);
         return NO;
     }
 }
@@ -192,13 +190,16 @@
                                      removeID, @"postid",
                                      nil];
         NSError *error;
-        NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:&error];
+        NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [request setHTTPMethod:@"POST"];
         [request setHTTPBody:requestData];
         NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
         NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
-        
+        if (error) {
+            return;
+            NSLog(@"First error: %@", [error localizedDescription]);
+        }
         if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
             [postIDs removeObjectAtIndex:indexPath.row];
             [myPosts removeObjectAtIndex:indexPath.row];
