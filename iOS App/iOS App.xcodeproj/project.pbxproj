@@ -10,6 +10,12 @@
 		611B103B18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 611B103A18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m */; };
 		6134D4D418ECC45100E6A243 /* XYZPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134D4D318ECC45100E6A243 /* XYZPostCell.m */; };
 		614B3AF718BC297F001AB654 /* XYZChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */; };
+		6171AB5A18F3468800F7639C /* NSBubbleData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171AB5018F3468800F7639C /* NSBubbleData.m */; };
+		6171AB5B18F3468800F7639C /* UIBubbleHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171AB5218F3468800F7639C /* UIBubbleHeaderTableViewCell.m */; };
+		6171AB5C18F3468800F7639C /* UIBubbleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171AB5418F3468800F7639C /* UIBubbleTableView.m */; };
+		6171AB5D18F3468800F7639C /* UIBubbleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171AB5618F3468800F7639C /* UIBubbleTableViewCell.m */; };
+		6171AB5E18F3468800F7639C /* UIBubbleTypingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171AB5918F3468800F7639C /* UIBubbleTypingTableViewCell.m */; };
+		6171AB6418F3481D00F7639C /* XYZBubbleMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6171AB6318F3481D00F7639C /* XYZBubbleMessage.m */; };
 		6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113918DA40F6007B3A5C /* XYZPrivacySettingViewController.m */; };
 		6187113D18DA4125007B3A5C /* XYZBlockUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113C18DA4125007B3A5C /* XYZBlockUserListViewController.m */; };
 		619892F618D265680090D576 /* XYZSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619892F518D265680090D576 /* XYZSignUpViewController.m */; };
@@ -72,6 +78,19 @@
 		6134D4D318ECC45100E6A243 /* XYZPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZPostCell.m; sourceTree = "<group>"; };
 		614B3AF518BC297F001AB654 /* XYZChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZChangePasswordViewController.h; sourceTree = "<group>"; };
 		614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZChangePasswordViewController.m; sourceTree = "<group>"; };
+		6171AB4F18F3468800F7639C /* NSBubbleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSBubbleData.h; path = "../../../Downloads/UIBubbleTableView-master/src/NSBubbleData.h"; sourceTree = "<group>"; };
+		6171AB5018F3468800F7639C /* NSBubbleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSBubbleData.m; path = "../../../Downloads/UIBubbleTableView-master/src/NSBubbleData.m"; sourceTree = "<group>"; };
+		6171AB5118F3468800F7639C /* UIBubbleHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIBubbleHeaderTableViewCell.h; path = "../../../Downloads/UIBubbleTableView-master/src/UIBubbleHeaderTableViewCell.h"; sourceTree = "<group>"; };
+		6171AB5218F3468800F7639C /* UIBubbleHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIBubbleHeaderTableViewCell.m; path = "../../../Downloads/UIBubbleTableView-master/src/UIBubbleHeaderTableViewCell.m"; sourceTree = "<group>"; };
+		6171AB5318F3468800F7639C /* UIBubbleTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIBubbleTableView.h; path = "../../../Downloads/UIBubbleTableView-master/src/UIBubbleTableView.h"; sourceTree = "<group>"; };
+		6171AB5418F3468800F7639C /* UIBubbleTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIBubbleTableView.m; path = "../../../Downloads/UIBubbleTableView-master/src/UIBubbleTableView.m"; sourceTree = "<group>"; };
+		6171AB5518F3468800F7639C /* UIBubbleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIBubbleTableViewCell.h; path = "../../../Downloads/UIBubbleTableView-master/src/UIBubbleTableViewCell.h"; sourceTree = "<group>"; };
+		6171AB5618F3468800F7639C /* UIBubbleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIBubbleTableViewCell.m; path = "../../../Downloads/UIBubbleTableView-master/src/UIBubbleTableViewCell.m"; sourceTree = "<group>"; };
+		6171AB5718F3468800F7639C /* UIBubbleTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIBubbleTableViewDataSource.h; path = "../../../Downloads/UIBubbleTableView-master/src/UIBubbleTableViewDataSource.h"; sourceTree = "<group>"; };
+		6171AB5818F3468800F7639C /* UIBubbleTypingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIBubbleTypingTableViewCell.h; path = "../../../Downloads/UIBubbleTableView-master/src/UIBubbleTypingTableViewCell.h"; sourceTree = "<group>"; };
+		6171AB5918F3468800F7639C /* UIBubbleTypingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIBubbleTypingTableViewCell.m; path = "../../../Downloads/UIBubbleTableView-master/src/UIBubbleTypingTableViewCell.m"; sourceTree = "<group>"; };
+		6171AB6218F3481D00F7639C /* XYZBubbleMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZBubbleMessage.h; sourceTree = "<group>"; };
+		6171AB6318F3481D00F7639C /* XYZBubbleMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZBubbleMessage.m; sourceTree = "<group>"; };
 		6187113818DA40F6007B3A5C /* XYZPrivacySettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZPrivacySettingViewController.h; sourceTree = "<group>"; };
 		6187113918DA40F6007B3A5C /* XYZPrivacySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZPrivacySettingViewController.m; sourceTree = "<group>"; };
 		6187113B18DA4125007B3A5C /* XYZBlockUserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZBlockUserListViewController.h; sourceTree = "<group>"; };
@@ -175,6 +194,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6171AB6018F3476400F7639C /* TPKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				DE138DE618EDD4410067C8B9 /* TPKeyboardAvoidingCollectionView.h */,
+				DE138DE718EDD4410067C8B9 /* TPKeyboardAvoidingCollectionView.m */,
+				DE138DE818EDD4410067C8B9 /* TPKeyboardAvoidingScrollView.h */,
+				DE138DE918EDD4410067C8B9 /* TPKeyboardAvoidingScrollView.m */,
+				DE138DEA18EDD4410067C8B9 /* TPKeyboardAvoidingTableView.h */,
+				DE138DEB18EDD4410067C8B9 /* TPKeyboardAvoidingTableView.m */,
+				DE138DEC18EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				DE138DED18EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			name = TPKeyboard;
+			sourceTree = "<group>";
+		};
+		6171AB6118F3478A00F7639C /* UIBubbleTable */ = {
+			isa = PBXGroup;
+			children = (
+				6171AB4F18F3468800F7639C /* NSBubbleData.h */,
+				6171AB5018F3468800F7639C /* NSBubbleData.m */,
+				6171AB5118F3468800F7639C /* UIBubbleHeaderTableViewCell.h */,
+				6171AB5218F3468800F7639C /* UIBubbleHeaderTableViewCell.m */,
+				6171AB5318F3468800F7639C /* UIBubbleTableView.h */,
+				6171AB5418F3468800F7639C /* UIBubbleTableView.m */,
+				6171AB5518F3468800F7639C /* UIBubbleTableViewCell.h */,
+				6171AB5618F3468800F7639C /* UIBubbleTableViewCell.m */,
+				6171AB5718F3468800F7639C /* UIBubbleTableViewDataSource.h */,
+				6171AB5818F3468800F7639C /* UIBubbleTypingTableViewCell.h */,
+				6171AB5918F3468800F7639C /* UIBubbleTypingTableViewCell.m */,
+			);
+			name = UIBubbleTable;
+			sourceTree = "<group>";
+		};
 		DE060CD718AC4CDA0010DF47 = {
 			isa = PBXGroup;
 			children = (
@@ -225,14 +277,8 @@
 		DE060CE918AC4CDA0010DF47 /* iOS App */ = {
 			isa = PBXGroup;
 			children = (
-				DE138DE618EDD4410067C8B9 /* TPKeyboardAvoidingCollectionView.h */,
-				DE138DE718EDD4410067C8B9 /* TPKeyboardAvoidingCollectionView.m */,
-				DE138DE818EDD4410067C8B9 /* TPKeyboardAvoidingScrollView.h */,
-				DE138DE918EDD4410067C8B9 /* TPKeyboardAvoidingScrollView.m */,
-				DE138DEA18EDD4410067C8B9 /* TPKeyboardAvoidingTableView.h */,
-				DE138DEB18EDD4410067C8B9 /* TPKeyboardAvoidingTableView.m */,
-				DE138DEC18EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
-				DE138DED18EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				6171AB6018F3476400F7639C /* TPKeyboard */,
+				6171AB6118F3478A00F7639C /* UIBubbleTable */,
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
 				DE138DF518F24B910067C8B9 /* XYZContactCell.h */,
@@ -249,6 +295,8 @@
 				DE4EF4BF18C7E7DD003AAA49 /* XYZLoginView.m */,
 				DEDD78B818E0D45600F8F82B /* XYZMessagesView.h */,
 				DEDD78B918E0D45600F8F82B /* XYZMessagesView.m */,
+				6171AB6218F3481D00F7639C /* XYZBubbleMessage.h */,
+				6171AB6318F3481D00F7639C /* XYZBubbleMessage.m */,
 				DE1A09C318BBF85200C999C5 /* XYZInitialNavigationViewViewController.h */,
 				DE1A09C418BBF85200C999C5 /* XYZInitialNavigationViewViewController.m */,
 				611B103918D3B410009CBA8D /* XYZDefaultTimeoutViewController.h */,
@@ -415,27 +463,33 @@
 				DEB6336B18D806200089CC76 /* SBJson4StreamWriter.m in Sources */,
 				DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */,
 				DEB6336E18D806200089CC76 /* SBJson4Writer.m in Sources */,
+				6171AB6418F3481D00F7639C /* XYZBubbleMessage.m in Sources */,
 				DE138DEE18EDD4410067C8B9 /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				6171AB5B18F3468800F7639C /* UIBubbleHeaderTableViewCell.m in Sources */,
 				DE060CFD18AC4CDA0010DF47 /* XYZFirstViewController.m in Sources */,
 				DEB6337018D806200089CC76 /* SBJson4StreamTokeniser.m in Sources */,
 				DE138DEF18EDD4410067C8B9 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				619892F618D265680090D576 /* XYZSignUpViewController.m in Sources */,
 				6187113D18DA4125007B3A5C /* XYZBlockUserListViewController.m in Sources */,
+				6171AB5C18F3468800F7639C /* UIBubbleTableView.m in Sources */,
 				DE060CF418AC4CDA0010DF47 /* XYZAppDelegate.m in Sources */,
 				614B3AF718BC297F001AB654 /* XYZChangePasswordViewController.m in Sources */,
 				DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */,
 				DEDD78BA18E0D45600F8F82B /* XYZMessagesView.m in Sources */,
 				61F4D9DD18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m in Sources */,
+				6171AB5E18F3468800F7639C /* UIBubbleTypingTableViewCell.m in Sources */,
 				DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */,
 				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,
 				DEB6336A18D806200089CC76 /* SBJson4StreamWriterState.m in Sources */,
 				DEB6336C18D806200089CC76 /* SBJson4StreamParser.m in Sources */,
 				DE138DF018EDD4410067C8B9 /* TPKeyboardAvoidingTableView.m in Sources */,
+				6171AB5A18F3468800F7639C /* NSBubbleData.m in Sources */,
 				DE060D0018AC4CDA0010DF47 /* XYZSecondViewController.m in Sources */,
 				6134D4D418ECC45100E6A243 /* XYZPostCell.m in Sources */,
 				6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */,
 				DEB6336D18D806200089CC76 /* SBJson4Parser.m in Sources */,
 				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,
+				6171AB5D18F3468800F7639C /* UIBubbleTableViewCell.m in Sources */,
 				DE138DF118EDD4410067C8B9 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */,
 				DE060CF018AC4CDA0010DF47 /* main.m in Sources */,
