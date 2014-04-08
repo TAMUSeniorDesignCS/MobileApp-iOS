@@ -47,6 +47,7 @@
 		DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1A09C718BC046F00C999C5 /* XYZTabBarViewController.m */; };
 		DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */; };
 		DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */; };
+		DE4BB22918F46779003B7CD8 /* XYZContactView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4BB22818F46779003B7CD8 /* XYZContactView.m */; };
 		DE4EF4C018C7E7DD003AAA49 /* XYZLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4EF4BF18C7E7DD003AAA49 /* XYZLoginView.m */; };
 		DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */; };
 		DE90B6AA18EA049D006D91F5 /* XYZNewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = DE90B6A918EA049D006D91F5 /* XYZNewPost.m */; };
@@ -142,6 +143,8 @@
 		DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactsTable.m; sourceTree = "<group>"; };
 		DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSettingsTable.h; sourceTree = "<group>"; };
 		DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSettingsTable.m; sourceTree = "<group>"; };
+		DE4BB22718F46779003B7CD8 /* XYZContactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZContactView.h; sourceTree = "<group>"; };
+		DE4BB22818F46779003B7CD8 /* XYZContactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZContactView.m; sourceTree = "<group>"; };
 		DE4EF4BE18C7E7DD003AAA49 /* XYZLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZLoginView.h; sourceTree = "<group>"; };
 		DE4EF4BF18C7E7DD003AAA49 /* XYZLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZLoginView.m; sourceTree = "<group>"; };
 		DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZProximityViewViewController.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */,
 				DE2DB34E18AD42DD001C03BF /* XYZContactsTable.h */,
 				DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */,
+				DE4BB22718F46779003B7CD8 /* XYZContactView.h */,
+				DE4BB22818F46779003B7CD8 /* XYZContactView.m */,
 				DE060CFB18AC4CDA0010DF47 /* XYZFirstViewController.h */,
 				DE060CFC18AC4CDA0010DF47 /* XYZFirstViewController.m */,
 				DE060CFE18AC4CDA0010DF47 /* XYZSecondViewController.h */,
@@ -484,6 +489,7 @@
 				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,
 				61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */,
 				619092D018F3719D00D2E0E7 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				DE4BB22918F46779003B7CD8 /* XYZContactView.m in Sources */,
 				DE060CF018AC4CDA0010DF47 /* main.m in Sources */,
 				DEB6336F18D806200089CC76 /* SBJson4StreamParserState.m in Sources */,
 			);

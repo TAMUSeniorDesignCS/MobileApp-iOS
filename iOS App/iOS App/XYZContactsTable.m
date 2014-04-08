@@ -8,6 +8,7 @@
 
 #import "XYZContactsTable.h"
 #import "XYZContactCell.h"
+#import "XYZContactView.h"
 
 @interface XYZContactsTable ()
 
@@ -16,6 +17,7 @@
 @implementation XYZContactsTable{
     NSMutableArray *firstNames;
     NSMutableArray *userNames;
+    NSMutableArray *phoneNumbers;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -98,6 +100,7 @@
             else {
                 [userNames addObject:dict[@"username"]];
                 [firstNames addObject:dict[@"firstname"]];
+                [phoneNumbers addObject:dict[@"phonenumber"]];
             }
         }
     }
@@ -138,6 +141,19 @@
 }
 
 /*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    XYZContactView *contact = [self.storyboard instantiateViewControllerWithIdentifier:@"contactView"];
+    contact.firstNameLabel.text = firstNames[indexPath.row];
+    contact.usernameLabel.text = userNames[indexPath.row];
+    [contact.phoneButton setTitle:phoneNumbers[indexPath.row] forState:UIControlStateNormal];
+    [self performSegueWithIdentifier:@"contactPush" sender:nil];
+}
+*/
+
+
+/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -176,7 +192,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -184,8 +200,17 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"contactPush"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSString *first = firstNames[indexPath.row];
+        NSString *user = userNames[indexPath.row];
+        NSString *phone = phoneNumbers[indexPath.row];
+        [[segue destinationViewController] setFirstName:first];
+        [[segue destinationViewController] setUserName:user];
+        [[segue destinationViewController] setPhoneNumber:phone];
+        
+    }
 }
-
- */
 
 @end
