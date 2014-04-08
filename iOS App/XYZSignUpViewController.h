@@ -15,7 +15,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *FirstName;
 @property (strong, nonatomic) IBOutlet UITextField *Password;
 @property (strong, nonatomic) IBOutlet UITextField *VerifyPassword;
+@property (weak, nonatomic) IBOutlet UITextField *PhoneNumber;
 @property (strong, nonatomic) IBOutlet UITextField *GroupCode;
+
 @property (strong, nonatomic) IBOutlet UIButton *OKButton;
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField;

@@ -8,10 +8,11 @@
 
 #import "XYZSignUpViewController.h"
 #import "XYZAppDelegate.h"
+#import "TPKeyboardAvoidingScrollView.h"
 
 
 @interface XYZSignUpViewController ()
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
@@ -44,8 +45,12 @@
 	}
     else if (textField == _VerifyPassword) {
 		[textField resignFirstResponder];
-		[_GroupCode becomeFirstResponder];
+		[_PhoneNumber becomeFirstResponder];
 	}
+    else if (textField == _PhoneNumber) {
+		[textField resignFirstResponder];
+		[_GroupCode becomeFirstResponder];
+    }
     else if (textField == _GroupCode) {
 		[textField resignFirstResponder];
 	}
@@ -58,8 +63,11 @@
 
 - (void)viewDidLoad
 {
-    [_Username becomeFirstResponder];
+    //[_Username becomeFirstResponder];
     [super viewDidLoad];
+    
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.contentView.frame.size.height);
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     
@@ -76,6 +84,16 @@
     
     _GroupCode.inputAccessoryView = numberToolbar;
     
+    UIToolbar* phoneToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    
+    phoneToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(nextOne)],
+                           nil];
+    
+    _PhoneNumber.inputAccessoryView = phoneToolbar;
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -84,6 +102,7 @@
     [_FirstName resignFirstResponder];
     [_Password resignFirstResponder];
     [_VerifyPassword resignFirstResponder];
+    [_PhoneNumber resignFirstResponder];
     [_GroupCode resignFirstResponder];
 }
 
@@ -95,6 +114,11 @@
 -(void)doneWithNumberPad{
     NSString *numberFromTheKeyboard = _GroupCode.text;
     [_GroupCode resignFirstResponder];
+}
+
+-(void)nextOne{
+    [_PhoneNumber resignFirstResponder];
+    [_GroupCode becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
