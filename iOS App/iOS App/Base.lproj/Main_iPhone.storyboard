@@ -176,6 +176,9 @@
                                 <state key="normal" title="Send Message">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="DwA-f9-xAQ" kind="push" id="eYE-EI-PuW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Block User?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z22-Ce-yet">
                                 <rect key="frame" x="135" y="330" width="94" height="21"/>
@@ -204,6 +207,7 @@
                     <connections>
                         <outlet property="blockUserSwitch" destination="lqs-HW-UYs" id="pIX-tc-LeX"/>
                         <outlet property="firstNameLabel" destination="SNM-a9-fdw" id="xPL-rr-Sa2"/>
+                        <outlet property="messageButton" destination="sFR-bi-i8K" id="pGv-d9-kzK"/>
                         <outlet property="phoneButton" destination="ODe-q9-riC" id="bHf-J5-9mL"/>
                         <outlet property="sponsorSwitch" destination="6m7-Tb-hvE" id="cTS-rL-mHZ"/>
                         <outlet property="usernameLabel" destination="cEc-Il-of2" id="DV2-SC-gtF"/>
@@ -1386,7 +1390,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ow2-86-jCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2204" y="467"/>
+            <point key="canvasLocation" x="2204" y="451"/>
         </scene>
         <!--New Post - New Post-->
         <scene sceneID="vLz-ZT-QYl">
@@ -1563,5 +1567,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="voh-G4-ScR"/>
+        <segue reference="eYE-EI-PuW"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,10 +28,9 @@
 
 - (void)viewDidLoad
 {
-    self.phoneButton.layer.cornerRadius = 2;
-    self.phoneButton.layer.borderWidth = 1;
-    self.phoneButton.layer.borderColor = [UIColor blueColor].CGColor;
+    
     [super viewDidLoad];
+    
     [self.phoneButton setTitle:phoneNumber forState:UIControlStateNormal];
     self.firstNameLabel.text = firstName;
     self.usernameLabel.text = userName;

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *phoneButton;
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
 @property (weak, nonatomic) IBOutlet UISwitch *sponsorSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *blockUserSwitch;
 
