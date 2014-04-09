@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "UIBubbleTableViewDataSource.h"
 
-@interface XYZBubbleMessage : UIViewController <UIBubbleTableViewDataSource>
+@interface XYZBubbleMessage : UIViewController <UIBubbleTableViewDataSource>{
+    NSMutableArray *userNames;
+    NSMutableArray *messages;
+    NSMutableArray *dates;
+    NSMutableArray *messageIDs;
+}
 @property (weak, nonatomic) IBOutlet UIBubbleTableView *bubbleTable;
 @property (weak, nonatomic) IBOutlet UIView *textInputView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYZMessagesView : UITableViewController
+@interface XYZMessagesView : UITableViewController{
+    NSMutableArray *userNames;
+    NSMutableArray *dates;
+    NSMutableArray *messageIDs;
+}
 
 @end

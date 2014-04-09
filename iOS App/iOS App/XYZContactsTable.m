@@ -133,7 +133,10 @@
     
     cell.firstNameLabel.text = [firstNames objectAtIndex:indexPath.row];
     [cell.firstNameLabel sizeToFit];
-    cell.userNameLabel.text = [userNames objectAtIndex:indexPath.row];
+    cell.userNameLabel.text = @"@";
+    cell.userNameLabel.text = [cell.userNameLabel.text stringByAppendingString:[[userNames objectAtIndex:indexPath.row] lowercaseString]];
+    
+    //cell.userNameLabel.text = [userNames objectAtIndex:indexPath.row];
     [cell.userNameLabel sizeToFit];
 
     // Configure the cell...

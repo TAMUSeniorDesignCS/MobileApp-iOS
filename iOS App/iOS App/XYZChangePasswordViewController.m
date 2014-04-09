@@ -48,7 +48,7 @@
 
 - (void)viewDidLoad
 {
-    [_OldPassword becomeFirstResponder];
+    //[_OldPassword becomeFirstResponder];
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }

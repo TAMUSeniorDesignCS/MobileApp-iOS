@@ -30,10 +30,11 @@
 
 - (void)refreshPost
 {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/refresh"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 @"1", @"groupid",
+                                 [NSString stringWithFormat:@"%d", appDelegate.userSettings.groupId], @"groupid",
                                  nil];
     NSError *error;
     NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:&error];
