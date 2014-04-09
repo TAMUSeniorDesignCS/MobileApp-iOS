@@ -74,8 +74,11 @@
         
         NSDictionary *user_info = array[0];
         XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+        appDelegate.userSettings.password = self.Password.text;
         appDelegate.userSettings.firstname = [user_info[@"firstname"] capitalizedString];
-        NSLog(@"%@", appDelegate.userSettings.firstname);
+        appDelegate.userSettings.phoneNumber = user_info[@"phonenumber"];
+        appDelegate.userSettings.email = user_info[@"email"];
+        //NSLog(@"%@", appDelegate.userSettings.firstname);
         appDelegate.userSettings.username = [self.Username.text lowercaseString];
         appDelegate.userSettings.groupId = [user_info[@"groupid"] intValue];
         appDelegate.userSettings.setSponsor = user_info[@"sponsorid"];

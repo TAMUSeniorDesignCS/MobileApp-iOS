@@ -11,7 +11,7 @@
 
 @implementation XYZUserSettings
 
-@synthesize username, firstname, groupId, showPhone, showEmail, geoAlerts, religiousOn, funnyOn, inspirationalOn, sponsorNotify, postTimeoutOn, postTime, messageTimeoutOn, messageTime, setSponsor;
+@synthesize username, firstname, password, groupId, showPhone, phoneNumber, showEmail, email, geoAlerts, religiousOn, funnyOn, inspirationalOn, sponsorNotify, postTimeoutOn, postTime, messageTimeoutOn, messageTime, setSponsor;
 
 /*
 @synthesize username =  _username;
@@ -65,9 +65,12 @@
 - (void)resetAllObjects{
     username = nil;
     firstname = nil;
+    password = nil;
     groupId = nil;
     showPhone = nil;
+    phoneNumber = nil;
     showEmail = nil;
+    email = nil;
     geoAlerts = nil;
     religiousOn = nil;
     funnyOn = nil;

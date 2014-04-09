@@ -50,7 +50,7 @@
     [super viewDidLoad];
     
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
-    NSString *user = [NSString stringWithFormat:@"Welcome %@", appDelegate.userSettings.username];
+    NSString *user = [NSString stringWithFormat:@"Welcome %@", [appDelegate.userSettings.firstname capitalizedString]];
     [self.helloUser setText:user];
     
     //For the QUOTE......................
