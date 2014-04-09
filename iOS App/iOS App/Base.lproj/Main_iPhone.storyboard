@@ -1357,10 +1357,10 @@
             </objects>
             <point key="canvasLocation" x="1180" y="855"/>
         </scene>
-        <!--Bubble Message-->
+        <!--New Message-->
         <scene sceneID="a6W-qg-l2f">
             <objects>
-                <viewController id="DwA-f9-xAQ" customClass="XYZBubbleMessage" sceneMemberID="viewController">
+                <viewController id="DwA-f9-xAQ" customClass="XYZNewMessage" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Ie-4T-2HZ"/>
                         <viewControllerLayoutGuide type="bottom" id="MfQ-GF-a85"/>
@@ -1408,10 +1408,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="VKf-fy-7xN"/>
                     <connections>
-                        <outlet property="bubbleTable" destination="23Y-Wg-bmE" id="co6-L6-i5I"/>
-                        <outlet property="sendButton" destination="GX5-Rk-nht" id="DZv-Qf-fWm"/>
-                        <outlet property="textField" destination="0As-oY-Edb" id="ckR-Mp-2va"/>
-                        <outlet property="textInputView" destination="8Zc-cP-aKu" id="vjj-xs-N2i"/>
+                        <outlet property="bubbleTable" destination="23Y-Wg-bmE" id="L0k-kf-OYb"/>
+                        <outlet property="sendButton" destination="GX5-Rk-nht" id="axn-Vt-znM"/>
+                        <outlet property="textField" destination="0As-oY-Edb" id="KYv-8L-RGy"/>
+                        <outlet property="textInputView" destination="8Zc-cP-aKu" id="RQi-gq-srv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ow2-86-jCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
