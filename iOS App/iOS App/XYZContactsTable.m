@@ -41,6 +41,7 @@
     
     firstNames = [[NSMutableArray alloc] init];
     userNames = [[NSMutableArray alloc] init];
+    phoneNumbers = [[NSMutableArray alloc] init];
 
 }
 

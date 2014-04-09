@@ -81,36 +81,41 @@
 
 
 - (IBAction)submitPost:(id)sender {
-    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
-    NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/new"]];
-    
-    NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 appDelegate.userSettings.username, @"username",
-                                 self.text.text, @"message",
-                                 self.deleteTime.text, @"timeout",
-                                 nil];
-    NSError *error;
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:postData];
-    NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
-    NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
-    NSLog(@"post string is %@", authReturn);
-    if (error) {
-        NSLog(@"error: %@", [error localizedDescription]);
-    }
-    if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
-       
-        [self.navigationController popViewControllerAnimated:YES];
+    if (![self.text.text isEqual: @""]) {
+        XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+        NSMutableURLRequest *request = [NSMutableURLRequest
+                                        requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/new"]];
         
+        NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"username",
+                                     self.text.text, @"message",
+                                     self.deleteTime.text, @"timeout",
+                                     nil];
+        NSError *error;
+        NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:postData];
+        NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
+        NSLog(@"post string is %@", authReturn);
+        if (error) {
+            NSLog(@"error: %@", [error localizedDescription]);
+        }
+        if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
+           
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not post" message:@"Something went wrong. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
     }
     else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not post" message:@"Something went wrong. Plese try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Nothing to post" message:@"Cannot post nothing." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertView show];
     }
-
 }
 
 /*

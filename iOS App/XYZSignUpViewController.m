@@ -155,6 +155,7 @@
                                      self.Password.text, @"password",
                                      [self.FirstName.text capitalizedString], @"firstname",
                                      [self.Username.text lowercaseString], @"username",
+                                     self.PhoneNumber.text, @"phonenumber",
                                      @"", @"sponsorid",
                                      @"", @"email",
                                      nil];
@@ -176,7 +177,9 @@
                  
                  appDelegate.userSettings.username = [self.Username.text lowercaseString];
                  appDelegate.userSettings.firstname = [self.FirstName.text capitalizedString];
+                 appDelegate.userSettings.password = self.Password.text;
                  appDelegate.userSettings.showPhone = TRUE;
+                 appDelegate.userSettings.phoneNumber = self.PhoneNumber.text;
                  appDelegate.userSettings.showEmail = FALSE;
                  appDelegate.userSettings.geoAlerts = FALSE;
                  appDelegate.userSettings.religiousOn = FALSE;

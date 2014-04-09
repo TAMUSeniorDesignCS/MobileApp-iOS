@@ -30,12 +30,17 @@
 {
     
     [super viewDidLoad];
+    //if ([phoneNumber isEqual:[NSNull null]])
     
-    [self.phoneButton setTitle:phoneNumber forState:UIControlStateNormal];
-    if ([self.phoneButton.titleLabel.text  isEqual: @""])
+    //NSLog(@"%@", self.phoneButton.titleLabel.text);
+    if ([phoneNumber isEqual:[NSNull null]]) {
+        [self.phoneButton setTitle:@"" forState:UIControlStateNormal];
         [self.phoneButton setEnabled:NO];
-    else
+    }
+    else {
+        [self.phoneButton setTitle:phoneNumber forState:UIControlStateNormal];
         [self.phoneButton setEnabled:YES];
+    }
     self.firstNameLabel.text = firstName;
     self.usernameLabel.text = userName;
     // Do any additional setup after loading the view.

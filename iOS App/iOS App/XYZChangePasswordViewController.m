@@ -7,6 +7,7 @@
 //
 
 #import "XYZChangePasswordViewController.h"
+#import "XYZAppDelegate.h"
 
 @interface XYZChangePasswordViewController ()
 
@@ -63,7 +64,57 @@
 }
 
 - (IBAction)pressOKButton:(id)sender{
-    
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    if (![self.OldPassword.text isEqualToString:appDelegate.userSettings.password]) {
+        //NSLog(@"user settingpassword is: %@", appDelegate.userSettings.password);
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Old password incorrect" message:@"Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+    else if (![self.NewPassword.text isEqualToString:self.ConfirmPassword.text]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"New passwords do not match." message:@"Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+    else if ([self.ConfirmPassword.text isEqualToString:self.OldPassword.text]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"New password is the same as old password." message:@"Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+    else {
+        NSMutableURLRequest *request = [NSMutableURLRequest
+                                        requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/edit"]];
+        
+        NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"oldusername",
+                                     appDelegate.userSettings.username, @"username",
+                                     appDelegate.userSettings.firstname, @"firstname",
+                                     self.NewPassword.text, @"password",
+                                     appDelegate.userSettings.setSponsor, @"sponsorid",
+                                     appDelegate.userSettings.email, @"email",
+                                     appDelegate.userSettings.phoneNumber, @"phoneNumber",
+                                     nil];
+        NSError *error;
+        NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:postData];
+        NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
+        NSLog(@"post string is %@", authReturn);
+        if (error) {
+            NSLog(@"error: %@", [error localizedDescription]);
+        }
+        if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Password changed!" message:@"Your password is now changed." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Something went wrong." message:@"Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+            return;
+        }
+    }
 }
 
 @end
