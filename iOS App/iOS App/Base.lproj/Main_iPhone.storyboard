@@ -1336,6 +1336,7 @@
                                 <connections>
                                     <outlet property="date" destination="Wu4-1T-N8C" id="Q6t-dB-piY"/>
                                     <outlet property="username" destination="FNO-fB-VzT" id="yte-os-aOk"/>
+                                    <segue destination="rKB-Bg-bdQ" kind="push" id="glo-Vf-bYi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1356,10 +1357,10 @@
             </objects>
             <point key="canvasLocation" x="1180" y="855"/>
         </scene>
-        <!--New Message-->
+        <!--Bubble Message-->
         <scene sceneID="a6W-qg-l2f">
             <objects>
-                <viewController id="DwA-f9-xAQ" customClass="XYZNewMessage" sceneMemberID="viewController">
+                <viewController id="DwA-f9-xAQ" customClass="XYZBubbleMessage" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Ie-4T-2HZ"/>
                         <viewControllerLayoutGuide type="bottom" id="MfQ-GF-a85"/>
@@ -1407,10 +1408,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="VKf-fy-7xN"/>
                     <connections>
-                        <outlet property="bubbleTable" destination="23Y-Wg-bmE" id="L0k-kf-OYb"/>
-                        <outlet property="sendButton" destination="GX5-Rk-nht" id="axn-Vt-znM"/>
-                        <outlet property="textField" destination="0As-oY-Edb" id="KYv-8L-RGy"/>
-                        <outlet property="textInputView" destination="8Zc-cP-aKu" id="RQi-gq-srv"/>
+                        <outlet property="bubbleTable" destination="23Y-Wg-bmE" id="co6-L6-i5I"/>
+                        <outlet property="sendButton" destination="GX5-Rk-nht" id="DZv-Qf-fWm"/>
+                        <outlet property="textField" destination="0As-oY-Edb" id="ckR-Mp-2va"/>
+                        <outlet property="textInputView" destination="8Zc-cP-aKu" id="vjj-xs-N2i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ow2-86-jCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1586,14 +1587,14 @@
                         <viewControllerLayoutGuide type="bottom" id="vZN-Zm-TE5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OMD-Oe-VEZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziK-0w-Xtp" customClass="TPKeyboardAvoidingScrollView">
                                 <rect key="frame" x="-1" y="43" width="321" height="475"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-ID-FQZ" customClass="UIBubbleTableView">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-ID-FQZ">
                                         <rect key="frame" x="0.0" y="-49" width="321" height="286"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1609,11 +1610,14 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pel-Vh-u5f">
-                                                <rect key="frame" x="275" y="10" width="36" height="30"/>
+                                                <rect key="frame" x="275" y="14" width="36" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Send">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sendPressed:" destination="rKB-Bg-bdQ" eventType="touchUpInside" id="Yxi-Ul-bJV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1625,12 +1629,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="g8z-tV-RTS"/>
                     <connections>
-                        <outlet property="bubbleTable" destination="fbd-ID-FQZ" id="B16-iP-LyQ"/>
-                        <outlet property="bubbleView" destination="fbd-ID-FQZ" id="MQP-rt-8eB"/>
-                        <outlet property="sendButton" destination="Pel-Vh-u5f" id="pAU-0f-zS6"/>
-                        <outlet property="textField" destination="mCj-ma-uQ5" id="krQ-Pt-trC"/>
-                        <outlet property="textInputView" destination="srd-zb-gqU" id="58r-6m-jZu"/>
-                        <outlet property="view" destination="srd-zb-gqU" id="GAb-lN-HYf"/>
+                        <outlet property="bubbleTable" destination="fbd-ID-FQZ" id="21e-65-ykx"/>
+                        <outlet property="sendButton" destination="Pel-Vh-u5f" id="5sf-W5-TGe"/>
+                        <outlet property="textField" destination="mCj-ma-uQ5" id="vog-OO-HPU"/>
+                        <outlet property="textInputView" destination="srd-zb-gqU" id="Wzo-aN-8Wd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NyU-e3-gEx" userLabel="First Responder" sceneMemberID="firstResponder"/>

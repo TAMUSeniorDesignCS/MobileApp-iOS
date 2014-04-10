@@ -6,18 +6,18 @@
 //
 //
 
-#import "XYZNewMessage.h"
+#import "XYZBubbleMessage.h"
 #import "UIBubbleTableView.h"
 #import "UIBubbleTableViewDataSource.h"
 #import "NSBubbleData.h"
 
-@interface XYZNewMessage (){
+@interface XYZBubbleMessage (){
     NSMutableArray *bubbleData;
 }
 
 @end
 
-@implementation XYZNewMessage
+@implementation XYZBubbleMessage
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

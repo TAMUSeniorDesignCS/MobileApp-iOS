@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIBubbleTableViewDataSource.h"
 
-@interface XYZNewMessage : UIViewController <UIBubbleTableViewDataSource>{
+@interface XYZBubbleMessage : UIViewController <UIBubbleTableViewDataSource>{
     NSMutableArray *userNames;
     NSMutableArray *messages;
     NSMutableArray *dates;
