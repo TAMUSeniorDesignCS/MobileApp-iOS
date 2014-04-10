@@ -9,6 +9,7 @@
 #import "XYZContactsTable.h"
 #import "XYZContactCell.h"
 #import "XYZContactView.h"
+#import "XYZUserSettings.h"
 
 @interface XYZContactsTable ()
 
@@ -18,6 +19,8 @@
     NSMutableArray *firstNames;
     NSMutableArray *userNames;
     NSMutableArray *phoneNumbers;
+    NSArray *users;
+    NSArray *searchResults;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -99,12 +102,27 @@
         for(NSDictionary *dict in array){
             if (dict[@"valid"]);
             else {
+                //XYZUserSettings *user = [XYZUserSettings new];
+                //user.username = dict[@"username"];
+                //user.firstname = dict[@"firstname"];
+                //user.phoneNumber = dict[@"phonenumber"];
+                //users = [NSArray arrayWithObjects:user, nil];
                 [userNames addObject:dict[@"username"]];
                 [firstNames addObject:dict[@"firstname"]];
                 [phoneNumbers addObject:dict[@"phonenumber"]];
             }
         }
     }
+}
+
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope{
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"firstname contains[c] %@", searchText];
+    searchResults = [firstNames filteredArrayUsingPredicate:resultPredicate];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller souldReloadTableForSearchString:(NSString *)searchString{
+    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -120,7 +138,11 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [firstNames count];
+    if(tableView == self.searchDisplayController.searchResultsTableView) {
+        return [searchResults count];
+    }else{
+        return [firstNames count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -129,6 +151,14 @@
     XYZContactCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[XYZContactCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Display recipe in the table cell
+    XYZUserSettings *user = nil;
+    if(tableView == self.searchDisplayController.searchResultsTableView){
+        user = [searchResults objectAtIndex:indexPath.row];
+    } else{
+        user = [firstNames objectAtIndex:indexPath.row];
     }
     
     cell.firstNameLabel.text = [firstNames objectAtIndex:indexPath.row];

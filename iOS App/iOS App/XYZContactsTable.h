@@ -10,5 +10,6 @@
 
 @interface XYZContactsTable : UITableViewController
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 
 @end
