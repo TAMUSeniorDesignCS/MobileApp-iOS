@@ -1336,7 +1336,7 @@
                                 <connections>
                                     <outlet property="date" destination="Wu4-1T-N8C" id="Q6t-dB-piY"/>
                                     <outlet property="username" destination="FNO-fB-VzT" id="yte-os-aOk"/>
-                                    <segue destination="rKB-Bg-bdQ" kind="push" id="glo-Vf-bYi"/>
+                                    <segue destination="DwA-f9-xAQ" kind="push" id="kYY-83-tHN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1348,7 +1348,7 @@
                     <navigationItem key="navigationItem" title="Messages" id="fgD-51-8sc">
                         <barButtonItem key="rightBarButtonItem" title="New Message" id="PU0-hx-Xzc">
                             <connections>
-                                <segue destination="DwA-f9-xAQ" kind="push" id="YfJ-Ey-Ubq"/>
+                                <segue destination="AAn-Sf-aHm" kind="push" id="Ssr-1P-OWc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1356,6 +1356,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOE-ND-8CN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1180" y="855"/>
+        </scene>
+        <!--New Message-->
+        <scene sceneID="KfN-Ad-o29">
+            <objects>
+                <viewController id="AAn-Sf-aHm" customClass="XYZNewMessage" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PLT-iA-ew5"/>
+                        <viewControllerLayoutGuide type="bottom" id="1aO-8s-SH5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x5b-Vx-Ujb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zb-1v-UF8" customClass="TPKeyboardAvoidingScrollView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9gR-Gt-QTc" customClass="UIBubbleTableView">
+                                        <rect key="frame" x="0.0" y="43" width="320" height="238"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjo-fm-ggi">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="AAn-Sf-aHm" id="YuT-qv-Gsf"/>
+                                        </connections>
+                                    </searchBar>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UnK-Hf-g4o">
+                                        <rect key="frame" x="0.0" y="281" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dpc-PY-eD8">
+                                                <rect key="frame" x="20" y="10" width="237" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drX-nC-bbS">
+                                                <rect key="frame" x="265" y="10" width="36" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Send">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sendPressed:" destination="AAn-Sf-aHm" eventType="touchUpInside" id="bzr-kb-x1N"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4hT-Sr-dDZ"/>
+                    <connections>
+                        <outlet property="bubbleTable" destination="9gR-Gt-QTc" id="Stn-R6-Hgl"/>
+                        <outlet property="searchDisplayController" destination="FDo-tf-q4k" id="sQE-mk-ape"/>
+                        <outlet property="sendButton" destination="drX-nC-bbS" id="9QS-pN-GIc"/>
+                        <outlet property="textField" destination="Dpc-PY-eD8" id="q3S-zK-Yo0"/>
+                        <outlet property="textInputView" destination="UnK-Hf-g4o" id="gLl-rf-TsV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WJD-ux-SYp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="FDo-tf-q4k">
+                    <connections>
+                        <outlet property="delegate" destination="AAn-Sf-aHm" id="FE6-FV-bvB"/>
+                        <outlet property="searchBar" destination="jjo-fm-ggi" id="mHP-h5-izI"/>
+                        <outlet property="searchContentsController" destination="AAn-Sf-aHm" id="Jvd-Ns-U66"/>
+                        <outlet property="searchResultsDataSource" destination="AAn-Sf-aHm" id="a4i-jh-lh7"/>
+                        <outlet property="searchResultsDelegate" destination="AAn-Sf-aHm" id="V2a-VR-FYf"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2190" y="608"/>
         </scene>
         <!--Bubble Message-->
         <scene sceneID="a6W-qg-l2f">
@@ -1383,13 +1462,13 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0As-oY-Edb">
-                                                <rect key="frame" x="20" y="8" width="243" height="30"/>
+                                                <rect key="frame" x="20" y="8" width="247" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GX5-Rk-nht">
-                                                <rect key="frame" x="275" y="14" width="36" height="30"/>
+                                                <rect key="frame" x="275" y="10" width="36" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Send">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1416,7 +1495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ow2-86-jCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2204" y="451"/>
+            <point key="canvasLocation" x="2190" y="1149"/>
         </scene>
         <!--New Post - New Post-->
         <scene sceneID="vLz-ZT-QYl">
@@ -1577,67 +1656,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bB0-JN-1dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="659" y="1541"/>
-        </scene>
-        <!--Bubble Message-->
-        <scene sceneID="bma-yJ-Myh">
-            <objects>
-                <viewController id="rKB-Bg-bdQ" customClass="XYZBubbleMessage" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7ud-AG-IoI"/>
-                        <viewControllerLayoutGuide type="bottom" id="vZN-Zm-TE5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="OMD-Oe-VEZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziK-0w-Xtp" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="-1" y="43" width="321" height="475"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fbd-ID-FQZ">
-                                        <rect key="frame" x="0.0" y="-49" width="321" height="286"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </tableView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srd-zb-gqU">
-                                        <rect key="frame" x="0.0" y="238" width="331" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mCj-ma-uQ5">
-                                                <rect key="frame" x="20" y="8" width="243" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pel-Vh-u5f">
-                                                <rect key="frame" x="275" y="14" width="36" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Send">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="sendPressed:" destination="rKB-Bg-bdQ" eventType="touchUpInside" id="Yxi-Ul-bJV"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="g8z-tV-RTS"/>
-                    <connections>
-                        <outlet property="bubbleTable" destination="fbd-ID-FQZ" id="21e-65-ykx"/>
-                        <outlet property="sendButton" destination="Pel-Vh-u5f" id="5sf-W5-TGe"/>
-                        <outlet property="textField" destination="mCj-ma-uQ5" id="vog-OO-HPU"/>
-                        <outlet property="textInputView" destination="srd-zb-gqU" id="Wzo-aN-8Wd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NyU-e3-gEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2204" y="980"/>
         </scene>
     </scenes>
     <resources>

@@ -14,6 +14,7 @@
 		617A9EE218F603EE007A2136 /* XYZMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 617A9EE118F603EE007A2136 /* XYZMessageCell.m */; };
 		6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113918DA40F6007B3A5C /* XYZPrivacySettingViewController.m */; };
 		6187113D18DA4125007B3A5C /* XYZBlockUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6187113C18DA4125007B3A5C /* XYZBlockUserListViewController.m */; };
+		618A509918F6E22F00AA8D4B /* XYZNewMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 618A509818F6E22F00AA8D4B /* XYZNewMessage.m */; };
 		619092CE18F3719D00D2E0E7 /* NSBubbleData.m in Sources */ = {isa = PBXBuildFile; fileRef = 619092BC18F3719C00D2E0E7 /* NSBubbleData.m */; };
 		619092CF18F3719D00D2E0E7 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619092BE18F3719C00D2E0E7 /* TPKeyboardAvoidingCollectionView.m */; };
 		619092D018F3719D00D2E0E7 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619092C018F3719C00D2E0E7 /* TPKeyboardAvoidingScrollView.m */; };
@@ -88,6 +89,8 @@
 		6187113918DA40F6007B3A5C /* XYZPrivacySettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZPrivacySettingViewController.m; sourceTree = "<group>"; };
 		6187113B18DA4125007B3A5C /* XYZBlockUserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZBlockUserListViewController.h; sourceTree = "<group>"; };
 		6187113C18DA4125007B3A5C /* XYZBlockUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZBlockUserListViewController.m; sourceTree = "<group>"; };
+		618A509718F6E22F00AA8D4B /* XYZNewMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZNewMessage.h; sourceTree = "<group>"; };
+		618A509818F6E22F00AA8D4B /* XYZNewMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZNewMessage.m; sourceTree = "<group>"; };
 		619092BB18F3719C00D2E0E7 /* NSBubbleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSBubbleData.h; sourceTree = "<group>"; };
 		619092BC18F3719C00D2E0E7 /* NSBubbleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSBubbleData.m; sourceTree = "<group>"; };
 		619092BD18F3719C00D2E0E7 /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 				DEDD78B918E0D45600F8F82B /* XYZMessagesView.m */,
 				617A9EE018F603EE007A2136 /* XYZMessageCell.h */,
 				617A9EE118F603EE007A2136 /* XYZMessageCell.m */,
+				618A509718F6E22F00AA8D4B /* XYZNewMessage.h */,
+				618A509818F6E22F00AA8D4B /* XYZNewMessage.m */,
 				6171AB6218F3481D00F7639C /* XYZBubbleMessage.h */,
 				6171AB6318F3481D00F7639C /* XYZBubbleMessage.m */,
 				DE1A09C318BBF85200C999C5 /* XYZInitialNavigationViewViewController.h */,
@@ -459,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				611B103B18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m in Sources */,
+				618A509918F6E22F00AA8D4B /* XYZNewMessage.m in Sources */,
 				DE4EF4C018C7E7DD003AAA49 /* XYZLoginView.m in Sources */,
 				DE138DF718F24B910067C8B9 /* XYZContactCell.m in Sources */,
 				617A9EE218F603EE007A2136 /* XYZMessageCell.m in Sources */,

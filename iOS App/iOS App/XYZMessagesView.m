@@ -116,11 +116,6 @@
     return [userNames count];
 }
 
-- (IBAction)goToNewMessage:(id)sender {
-    
-}
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"messageCell";
