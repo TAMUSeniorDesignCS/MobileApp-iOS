@@ -65,7 +65,7 @@
 {
     //[_Username becomeFirstResponder];
     [super viewDidLoad];
-    
+    self.PhoneNumber.delegate = self;
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.contentView.frame.size.height);
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
@@ -128,7 +128,12 @@
 }
 
 - (IBAction)pressOKButton:(id)sender {
-    
+    if (self.PhoneNumber.text.length < 10) {
+        [_PhoneNumber becomeFirstResponder];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Phone number incorrect" message:@"Too few numbers!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
     if([self.Password.text isEqualToString:self.VerifyPassword.text]){ //passwords match!
     
         NSMutableURLRequest *requestGroup = [NSMutableURLRequest
@@ -209,6 +214,13 @@
        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot sign up" message:@"Passwords do not match." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
        [alertView show];
    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range     replacementString:(NSString *)string
+{
+    if (textField.text.length >= 10 && range.length == 0)
+        return NO;
+    return YES;
 }
 
 @end

@@ -54,6 +54,7 @@
 		DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */; };
 		DE90B6AA18EA049D006D91F5 /* XYZNewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = DE90B6A918EA049D006D91F5 /* XYZNewPost.m */; };
 		DE93B47B18F9C12000BEC59F /* XYZBlockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE93B47A18F9C12000BEC59F /* XYZBlockCell.m */; };
+		DE93B47E18F9D1B100BEC59F /* XYZMeetingFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = DE93B47D18F9D1B100BEC59F /* XYZMeetingFinder.m */; };
 		DEAFC6A818B004500003B42F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEAFC6A718B004500003B42F /* CoreLocation.framework */; };
 		DEB6336A18D806200089CC76 /* SBJson4StreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6335C18D806200089CC76 /* SBJson4StreamWriterState.m */; };
 		DEB6336B18D806200089CC76 /* SBJson4StreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6336018D806200089CC76 /* SBJson4StreamWriter.m */; };
@@ -160,6 +161,8 @@
 		DE90B6A918EA049D006D91F5 /* XYZNewPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZNewPost.m; sourceTree = "<group>"; };
 		DE93B47918F9C12000BEC59F /* XYZBlockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZBlockCell.h; sourceTree = "<group>"; };
 		DE93B47A18F9C12000BEC59F /* XYZBlockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZBlockCell.m; sourceTree = "<group>"; };
+		DE93B47C18F9D1B100BEC59F /* XYZMeetingFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZMeetingFinder.h; sourceTree = "<group>"; };
+		DE93B47D18F9D1B100BEC59F /* XYZMeetingFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZMeetingFinder.m; sourceTree = "<group>"; };
 		DEAFC6A718B004500003B42F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DEB6335B18D806200089CC76 /* SBJson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4.h; sourceTree = "<group>"; };
 		DEB6335C18D806200089CC76 /* SBJson4StreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamWriterState.m; sourceTree = "<group>"; };
@@ -335,6 +338,8 @@
 				DE060CFF18AC4CDA0010DF47 /* XYZSecondViewController.m */,
 				61F4D9E018E0EC3700D1257B /* XYZUserSettings.h */,
 				61F4D9E118E0EC3700D1257B /* XYZUserSettings.m */,
+				DE93B47C18F9D1B100BEC59F /* XYZMeetingFinder.h */,
+				DE93B47D18F9D1B100BEC59F /* XYZMeetingFinder.m */,
 				DE060D0118AC4CDA0010DF47 /* Images.xcassets */,
 				DE060CEA18AC4CDA0010DF47 /* Supporting Files */,
 			);
@@ -499,6 +504,7 @@
 				DEB6336A18D806200089CC76 /* SBJson4StreamWriterState.m in Sources */,
 				DEB6336C18D806200089CC76 /* SBJson4StreamParser.m in Sources */,
 				619092D318F3719D00D2E0E7 /* UIBubbleTableView.m in Sources */,
+				DE93B47E18F9D1B100BEC59F /* XYZMeetingFinder.m in Sources */,
 				619092D618F3719D00D2E0E7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				DE060D0018AC4CDA0010DF47 /* XYZSecondViewController.m in Sources */,
 				6134D4D418ECC45100E6A243 /* XYZPostCell.m in Sources */,

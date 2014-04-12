@@ -1149,10 +1149,10 @@
             </objects>
             <point key="canvasLocation" x="-945" y="-121"/>
         </scene>
-        <!--View Controller - Meeting Finder-->
+        <!--Meeting Finder - Meeting Finder-->
         <scene sceneID="Voh-Th-4Xp">
             <objects>
-                <viewController id="iyO-Vb-HqP" sceneMemberID="viewController">
+                <viewController id="iyO-Vb-HqP" customClass="XYZMeetingFinder" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="acd-2H-5BY"/>
                         <viewControllerLayoutGuide type="bottom" id="F6u-dh-VXX"/>
@@ -1162,14 +1162,52 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Y2-ak-qrI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hu3-sZ-4r6">
+                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="rewind" id="lo1-iq-eNz">
+                                        <connections>
+                                            <action selector="goBack" destination="9Y2-ak-qrI" id="0pK-1V-Flm"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="s0f-7j-fl0"/>
+                                    <barButtonItem systemItem="stop" id="Sye-F0-m3B">
+                                        <connections>
+                                            <action selector="stopLoading" destination="9Y2-ak-qrI" id="9dA-hW-rQa"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Bti-hg-Mvb"/>
+                                    <barButtonItem systemItem="refresh" id="lsd-SW-6gG">
+                                        <connections>
+                                            <action selector="reload" destination="9Y2-ak-qrI" id="1qa-j9-Y6b"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UfP-VK-9lb"/>
+                                    <barButtonItem systemItem="fastForward" id="ap6-CX-Yj1">
+                                        <connections>
+                                            <action selector="goForward" destination="9Y2-ak-qrI" id="T04-vR-LaM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Meeting Finder" id="BQy-B2-fSh"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backButton" destination="lo1-iq-eNz" id="VT0-5Z-8Fx"/>
+                        <outlet property="forwardButton" destination="ap6-CX-Yj1" id="uk0-0B-yB0"/>
+                        <outlet property="refreshButton" destination="lsd-SW-6gG" id="d17-Fc-QY9"/>
+                        <outlet property="stopButton" destination="Sye-F0-m3B" id="7PJ-3T-gAU"/>
+                        <outlet property="webView" destination="9Y2-ak-qrI" id="io0-tG-GPm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hc-oy-Uzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1297,7 +1335,7 @@
                                                 <rect key="frame" x="20" y="250" width="280" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" keyboardAppearance="alert"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
