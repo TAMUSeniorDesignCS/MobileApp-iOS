@@ -82,6 +82,9 @@
         appDelegate.userSettings.username = [self.Username.text lowercaseString];
         appDelegate.userSettings.groupId = [user_info[@"groupid"] intValue];
         appDelegate.userSettings.setSponsor = user_info[@"sponsorid"];
+        appDelegate.userSettings.religiousOn = FALSE;
+        appDelegate.userSettings.funnyOn = FALSE;
+        appDelegate.userSettings.inspirationalOn = TRUE;
         //NSLog(@"group id is: %i", appDelegate.userSettings.groupId);
         [self performSegueWithIdentifier:@"tabBarPush" sender:nil];
     }
