@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYZSecondViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>{
+@interface XYZSecondViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>{
     NSMutableArray *myPosts;
     NSMutableArray *firstNames;
     NSMutableArray *userNames;

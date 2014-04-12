@@ -19,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.editing = YES;
     postIDs = [[NSMutableArray alloc] init];
     myPosts = [[NSMutableArray alloc] init];
     firstNames = [[NSMutableArray alloc] init];
@@ -34,8 +35,12 @@
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/refresh"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 [NSString stringWithFormat:@"%d", appDelegate.userSettings.groupId], @"groupid",
-                                 nil];
+                                [NSString stringWithFormat:@"%d", appDelegate.userSettings.groupId], @"groupid",
+                                appDelegate.userSettings.username, @"rusername",
+                                appDelegate.userSettings.username, @"username",
+                                appDelegate.userSettings.password, @"rpassword",
+                                @"-", @"postidlimit",
+                                nil];
     NSError *error;
     NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:&error];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -59,7 +64,15 @@
         }
         else{
             for(NSDictionary *dict in array){
-                if (dict[@"valid"]);
+                if (dict[@"valid"]) {
+                    /*
+                    if ([dict[@"valid"] isEqualToString:@"false"]) {
+                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot retrieve posts" message:@"Something went wrong." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alertView show];
+                        return;
+                    }
+                     */
+                }
                 else {
                     [postIDs addObject:dict[@"postid"]];
                     [myPosts addObject:dict[@"message"]];
@@ -132,6 +145,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     static NSString *CellIdentifier = @"postCell";
     XYZPostCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -144,6 +158,16 @@
     cell.userLabel.text = @"@";
     cell.userLabel.text = [cell.userLabel.text stringByAppendingString:[[userNames objectAtIndex:indexPath.row] lowercaseString]];
     [cell.userLabel sizeToFit];
+    cell.editButton.tag = indexPath.row;
+    if ([appDelegate.userSettings.username isEqualToString:[[userNames objectAtIndex:indexPath.row] lowercaseString]]) {
+        [cell.editButton setEnabled:YES];
+        [cell.editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    }
+    else {
+        [cell.editButton setEnabled:NO];
+        [cell.editButton setTitle:@"" forState:UIControlStateNormal];
+    }
+    
     cell.firstLabel.text = [[firstNames objectAtIndex:indexPath.row] capitalizedString];
     [cell.firstLabel sizeToFit];
     
@@ -163,6 +187,74 @@
     
     return cell;
 }
+
+- (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
+- (IBAction)editButton:(id)sender {
+    UIButton *senderButton = (UIButton *)sender;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:senderButton.tag inSection:0];
+    XYZPostCell *cell = (XYZPostCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    //NSLog(@"edit button equal to: %@", senderButton.titleLabel.text);
+
+    if ([senderButton.titleLabel.text isEqualToString:@"Edit"]) {
+        //[self.tableView setEditing:YES];
+        [self.tableView setScrollEnabled:NO];
+        [senderButton setTitle:@"Done" forState:UIControlStateNormal];
+        [cell.postTextBox setEditable:YES];
+        [cell.postTextBox becomeFirstResponder];
+        
+    }
+    else {
+        [senderButton setTitle:@"Edit" forState:UIControlStateNormal];
+        //[self.tableView setEditing:NO];
+        [cell.postTextBox setEditable:NO];
+        [cell.postTextBox resignFirstResponder];
+        [self.tableView setScrollEnabled:YES];
+        NSString *editID = postIDs[indexPath.row];
+        XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+        NSMutableURLRequest *request = [NSMutableURLRequest
+                                        requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/edit"]];
+        NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"rusername",
+                                     appDelegate.userSettings.password, @"rpassword",
+                                     editID, @"postid",
+                                     cell.postTextBox.text, @"message",
+                                     [NSString stringWithFormat:@"%d", appDelegate.userSettings.postTime], @"timeout",
+                                     nil];
+        NSError *error;
+        NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:requestData];
+        NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+        if (error) {
+            NSLog(@"First error: %@", [error localizedDescription]);
+            return;
+        }
+        NSLog(@"OLD POST: %@", myPosts[indexPath.row]);
+        if ([post_string rangeOfString:@"true"].location == NSNotFound) {
+            cell.postTextBox.text = myPosts[indexPath.row];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not edit post" message:@"Something went wrong. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+
+        
+        
+        
+    }
+    
+}
+
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -187,10 +279,12 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         NSString *removeID = postIDs[indexPath.row];
-        
+        XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSMutableURLRequest *request = [NSMutableURLRequest
                                         requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/remove"]];
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"rusername",
+                                     appDelegate.userSettings.password, @"rpassword",
                                      removeID, @"postid",
                                      nil];
         NSError *error;

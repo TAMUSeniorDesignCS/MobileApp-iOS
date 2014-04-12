@@ -87,6 +87,8 @@
                                         requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/post/new"]];
         
         NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"rusername",
+                                     appDelegate.userSettings.password, @"rpassword",
                                      appDelegate.userSettings.username, @"username",
                                      self.text.text, @"message",
                                      self.deleteTime.text, @"timeout",

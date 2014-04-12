@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EUc-q4-jBT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EUc-q4-jBT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--First View Controller - First-->
@@ -93,7 +93,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8f-iG-K9z">
+                                        <textView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8f-iG-K9z">
                                             <rect key="frame" x="8" y="23" width="279" height="83"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <string key="text">hfdjkslf hfjdks fhsdjkl fhjksdfhkdsj hjkdsfsdjk hfkdshfkds fhkdhfkdfk fhdk kfhdk kdhfks fhdskhf fksdhfk fhksdkfhds  hjdk fdhk fdjk</string>
@@ -107,6 +107,16 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KrW-wX-eET">
+                                            <rect key="frame" x="254" y="99" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Edit">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="editButton:" destination="zrF-65-2FM" eventType="touchUpInside" id="MTr-um-uOb"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="qhV-Jy-yge" firstAttribute="leading" secondItem="u88-Rq-3ff" secondAttribute="trailing" constant="8" id="AQb-Wl-G6c"/>
@@ -114,6 +124,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="FzX-at-R6g" id="e6g-aZ-Q2e"/>
+                                    <outlet property="editButton" destination="KrW-wX-eET" id="fxn-Jj-YiP"/>
                                     <outlet property="firstLabel" destination="u88-Rq-3ff" id="h2Z-jD-eZu"/>
                                     <outlet property="postTextBox" destination="W8f-iG-K9z" id="WgG-uc-Pv9"/>
                                     <outlet property="userLabel" destination="qhV-Jy-yge" id="uwG-O9-kug"/>
@@ -1147,7 +1158,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1iI-kf-km0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hbn-EF-9qI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="440"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="376"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-ak-Rox" customClass="TPKeyboardAvoidingScrollView">
@@ -1276,6 +1287,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="6Id-yt-D6o"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="440"/>
                     <connections>
                         <outlet property="FirstName" destination="kew-Rf-dpc" id="iDP-36-SId"/>
                         <outlet property="GroupCode" destination="Wom-94-imD" id="6XJ-56-u3C"/>
