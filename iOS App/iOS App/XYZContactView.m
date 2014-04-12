@@ -38,7 +38,14 @@
         [self.phoneButton setEnabled:NO];
     }
     else {
-        [self.phoneButton setTitle:phoneNumber forState:UIControlStateNormal];
+        NSMutableString *formattedNumber = [NSMutableString stringWithString:phoneNumber];
+        [formattedNumber insertString:@"(" atIndex:0];
+        [formattedNumber insertString:@")" atIndex:4];
+        [formattedNumber insertString:@" " atIndex:5];
+        [formattedNumber insertString:@"-" atIndex:9];
+        
+        [self.phoneButton setTitle:formattedNumber forState:UIControlStateNormal];
+        [self.phoneButton sizeToFit];
         [self.phoneButton setEnabled:YES];
     }
     self.firstNameLabel.text = firstName;

@@ -53,6 +53,7 @@
 		DE4EF4C018C7E7DD003AAA49 /* XYZLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4EF4BF18C7E7DD003AAA49 /* XYZLoginView.m */; };
 		DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */; };
 		DE90B6AA18EA049D006D91F5 /* XYZNewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = DE90B6A918EA049D006D91F5 /* XYZNewPost.m */; };
+		DE93B47B18F9C12000BEC59F /* XYZBlockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE93B47A18F9C12000BEC59F /* XYZBlockCell.m */; };
 		DEAFC6A818B004500003B42F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEAFC6A718B004500003B42F /* CoreLocation.framework */; };
 		DEB6336A18D806200089CC76 /* SBJson4StreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6335C18D806200089CC76 /* SBJson4StreamWriterState.m */; };
 		DEB6336B18D806200089CC76 /* SBJson4StreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6336018D806200089CC76 /* SBJson4StreamWriter.m */; };
@@ -157,6 +158,8 @@
 		DE6589BA18B576E300ECC5F0 /* XYZProximityViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZProximityViewViewController.m; sourceTree = "<group>"; };
 		DE90B6A818EA049D006D91F5 /* XYZNewPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZNewPost.h; sourceTree = "<group>"; };
 		DE90B6A918EA049D006D91F5 /* XYZNewPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZNewPost.m; sourceTree = "<group>"; };
+		DE93B47918F9C12000BEC59F /* XYZBlockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZBlockCell.h; sourceTree = "<group>"; };
+		DE93B47A18F9C12000BEC59F /* XYZBlockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZBlockCell.m; sourceTree = "<group>"; };
 		DEAFC6A718B004500003B42F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DEB6335B18D806200089CC76 /* SBJson4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4.h; sourceTree = "<group>"; };
 		DEB6335C18D806200089CC76 /* SBJson4StreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamWriterState.m; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				611B103A18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m */,
 				6187113B18DA4125007B3A5C /* XYZBlockUserListViewController.h */,
 				6187113C18DA4125007B3A5C /* XYZBlockUserListViewController.m */,
+				DE93B47918F9C12000BEC59F /* XYZBlockCell.h */,
+				DE93B47A18F9C12000BEC59F /* XYZBlockCell.m */,
 				6187113818DA40F6007B3A5C /* XYZPrivacySettingViewController.h */,
 				6187113918DA40F6007B3A5C /* XYZPrivacySettingViewController.m */,
 				DE6589B918B576E300ECC5F0 /* XYZProximityViewViewController.h */,
@@ -464,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				611B103B18D3B410009CBA8D /* XYZDefaultTimeoutViewController.m in Sources */,
+				DE93B47B18F9C12000BEC59F /* XYZBlockCell.m in Sources */,
 				618A509918F6E22F00AA8D4B /* XYZNewMessage.m in Sources */,
 				DE4EF4C018C7E7DD003AAA49 /* XYZLoginView.m in Sources */,
 				DE138DF718F24B910067C8B9 /* XYZContactCell.m in Sources */,
