@@ -43,7 +43,7 @@
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     // Get JSON as a NSString from NSData response
     NSString *json_string = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    //NSLog(@"%@",json_string);
+    NSLog(@"%@",json_string);
     if ([json_string rangeOfString:@"ZERO_RESULTS"].location == NSNotFound) {
         NSLog(@"HIGH RISK!");
         /*
@@ -133,7 +133,9 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    application.applicationIconBadgeNumber = 0;
     [self.locationManager stopMonitoringSignificantLocationChanges];
+    
 }
 
 @end

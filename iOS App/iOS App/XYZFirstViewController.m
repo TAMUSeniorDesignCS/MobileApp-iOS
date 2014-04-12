@@ -94,8 +94,7 @@
 
 - (IBAction)callSponsor:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel://8004664411"]];
-
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"telprompt://8004664411"]];
 }
 
 @end

@@ -63,10 +63,13 @@
 }
 
 - (IBAction)makeCall:(id)sender {
-    UIApplication *myApp = [UIApplication sharedApplication];
+    //UIApplication *myApp = [UIApplication sharedApplication];
     NSString *cleanedString = [[phoneNumber componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
-    NSURL *telURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", cleanedString]];
-    [myApp openURL:telURL];
+    //NSURL *telURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@", cleanedString]];
+    //[myApp openURL:telURL];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", cleanedString]]];
+
 }
 
 - (IBAction)block:(id)sender {
