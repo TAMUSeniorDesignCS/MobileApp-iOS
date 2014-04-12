@@ -10,6 +10,7 @@
 #import "XYZContactCell.h"
 #import "XYZContactView.h"
 #import "XYZUserSettings.h"
+#import "XYZAppDelegate.h"
 
 @interface XYZContactsTable ()
 
@@ -19,6 +20,7 @@
     NSMutableArray *firstNames;
     NSMutableArray *userNames;
     NSMutableArray *phoneNumbers;
+    NSMutableArray *blockedUsers;
     NSArray *users;
     NSArray *searchResults;
 }
@@ -45,6 +47,7 @@
     firstNames = [[NSMutableArray alloc] init];
     userNames = [[NSMutableArray alloc] init];
     phoneNumbers = [[NSMutableArray alloc] init];
+    blockedUsers = [[NSMutableArray alloc] init];
 
 }
 
@@ -65,6 +68,7 @@
     self.tabBarController.navigationItem.rightBarButtonItem.title = @"";
     self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
     [self refreshContacts];
+    [self getBlockedUsers];
     [self.tableView reloadData];
 }
 
@@ -72,6 +76,8 @@
 {
     [userNames removeAllObjects];
     [firstNames removeAllObjects];
+    [blockedUsers removeAllObjects];
+    [phoneNumbers removeAllObjects];
 }
 
 - (void)refreshContacts {
@@ -114,6 +120,49 @@
         }
     }
 }
+
+- (void)getBlockedUsers {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    NSMutableURLRequest *request = [NSMutableURLRequest
+                                    requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/userblock/getinfo"]];
+    NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 appDelegate.userSettings.username, @"rusername",
+                                 appDelegate.userSettings.password, @"rpassword",
+                                 appDelegate.userSettings.username, @"username",
+                                 nil];
+    NSError *error;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:requestData];
+    NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+    NSLog(@"contacts: %@", post_string);
+    if (error) {
+        return;
+        NSLog(@"First error: %@", [error localizedDescription]);
+    }
+    if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
+        NSError *error2;
+        NSMutableDictionary *array = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error2];
+        if (error2) {
+            return;
+            NSLog(@"Second error: %@", [error2 localizedDescription]);
+        }
+        for(NSDictionary *dict in array){
+            if (dict[@"valid"]);
+            else {
+                //XYZUserSettings *user = [XYZUserSettings new];
+                //user.username = dict[@"username"];
+                //user.firstname = dict[@"firstname"];
+                //user.phoneNumber = dict[@"phonenumber"];
+                //users = [NSArray arrayWithObjects:user, nil];
+                [blockedUsers addObject:dict[@"blockeduser"]];
+            }
+        }
+    }
+}
+
 
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope{
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"firstname contains[c] %@", searchText];
@@ -243,6 +292,15 @@
         [[segue destinationViewController] setFirstName:first];
         [[segue destinationViewController] setUserName:user];
         [[segue destinationViewController] setPhoneNumber:phone];
+        
+        if ([blockedUsers containsObject:userNames[indexPath.row]])
+            [[segue destinationViewController] setIsBlocked:YES];
+        else
+            [[segue destinationViewController] setIsBlocked:NO];
+        
+        //IMPLEMENT isSponsor logic
+        [[segue destinationViewController] setIsSponsor:NO];
+
         
     }
 }
