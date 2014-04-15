@@ -78,6 +78,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     animated = NO;
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     self.tabBarController.navigationItem.rightBarButtonItem.title = @"";
     self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
 }
@@ -154,16 +155,17 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 
- */
+
 
 @end

@@ -67,6 +67,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     animated = NO;
+    //[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     self.tabBarController.navigationItem.rightBarButtonItem.title = @"";
     self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
     [self refreshContacts];

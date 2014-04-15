@@ -45,6 +45,7 @@
     //INDEX KEY 0:RELIGIOUS
     //1:FUNNY
     //2:INSPIRATIONAL
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     //UITableViewCell *religious = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     //UITableViewCell *funny = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
@@ -92,6 +93,7 @@
         else if (indexPath.row == 1) appDelegate.userSettings.funnyOn = TRUE;
         else if (indexPath.row == 2) appDelegate.userSettings.inspirationalOn = TRUE;
     }
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 

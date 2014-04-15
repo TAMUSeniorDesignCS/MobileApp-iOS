@@ -63,6 +63,8 @@
 		DEB6336E18D806200089CC76 /* SBJson4Writer.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6336518D806200089CC76 /* SBJson4Writer.m */; };
 		DEB6336F18D806200089CC76 /* SBJson4StreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6336718D806200089CC76 /* SBJson4StreamParserState.m */; };
 		DEB6337018D806200089CC76 /* SBJson4StreamTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB6336818D806200089CC76 /* SBJson4StreamTokeniser.m */; };
+		DEC1A0B218FD7E64007E7165 /* XYZSetSponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC1A0B118FD7E64007E7165 /* XYZSetSponsor.m */; };
+		DEC1A0B518FD7E83007E7165 /* XYZSponsorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC1A0B418FD7E83007E7165 /* XYZSponsorCell.m */; };
 		DEDD78BA18E0D45600F8F82B /* XYZMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDD78B918E0D45600F8F82B /* XYZMessagesView.m */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +181,10 @@
 		DEB6336718D806200089CC76 /* SBJson4StreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamParserState.m; sourceTree = "<group>"; };
 		DEB6336818D806200089CC76 /* SBJson4StreamTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJson4StreamTokeniser.m; sourceTree = "<group>"; };
 		DEB6336918D806200089CC76 /* SBJson4StreamTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson4StreamTokeniser.h; sourceTree = "<group>"; };
+		DEC1A0B018FD7E64007E7165 /* XYZSetSponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSetSponsor.h; sourceTree = "<group>"; };
+		DEC1A0B118FD7E64007E7165 /* XYZSetSponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSetSponsor.m; sourceTree = "<group>"; };
+		DEC1A0B318FD7E83007E7165 /* XYZSponsorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSponsorCell.h; sourceTree = "<group>"; };
+		DEC1A0B418FD7E83007E7165 /* XYZSponsorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSponsorCell.m; sourceTree = "<group>"; };
 		DEDD78B818E0D45600F8F82B /* XYZMessagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZMessagesView.h; sourceTree = "<group>"; };
 		DEDD78B918E0D45600F8F82B /* XYZMessagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZMessagesView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,6 +330,10 @@
 				61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */,
 				614B3AF518BC297F001AB654 /* XYZChangePasswordViewController.h */,
 				614B3AF618BC297F001AB654 /* XYZChangePasswordViewController.m */,
+				DEC1A0B318FD7E83007E7165 /* XYZSponsorCell.h */,
+				DEC1A0B418FD7E83007E7165 /* XYZSponsorCell.m */,
+				DEC1A0B018FD7E64007E7165 /* XYZSetSponsor.h */,
+				DEC1A0B118FD7E64007E7165 /* XYZSetSponsor.m */,
 				DE060CF218AC4CDA0010DF47 /* XYZAppDelegate.h */,
 				DE060CF318AC4CDA0010DF47 /* XYZAppDelegate.m */,
 				DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */,
@@ -487,6 +497,7 @@
 				DE060CFD18AC4CDA0010DF47 /* XYZFirstViewController.m in Sources */,
 				DEB6337018D806200089CC76 /* SBJson4StreamTokeniser.m in Sources */,
 				619092D218F3719D00D2E0E7 /* UIBubbleHeaderTableViewCell.m in Sources */,
+				DEC1A0B518FD7E83007E7165 /* XYZSponsorCell.m in Sources */,
 				619892F618D265680090D576 /* XYZSignUpViewController.m in Sources */,
 				619092D118F3719D00D2E0E7 /* TPKeyboardAvoidingTableView.m in Sources */,
 				619092D418F3719D00D2E0E7 /* UIBubbleTableViewCell.m in Sources */,
@@ -510,6 +521,7 @@
 				6134D4D418ECC45100E6A243 /* XYZPostCell.m in Sources */,
 				6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */,
 				DEB6336D18D806200089CC76 /* SBJson4Parser.m in Sources */,
+				DEC1A0B218FD7E64007E7165 /* XYZSetSponsor.m in Sources */,
 				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,
 				61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */,
 				619092D018F3719D00D2E0E7 /* TPKeyboardAvoidingScrollView.m in Sources */,

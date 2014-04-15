@@ -35,16 +35,19 @@
     
     
     [super viewDidLoad];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL geoState = [defaults boolForKey:@"geoSwitch"];
-    [self.geoSwitch setOn:geoState];
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+
+    [self.geoSwitch setOn:appDelegate.userSettings.geoAlerts];
     if (self.geoSwitch.isOn) {
         [self.TypesOfMessages setHidden:FALSE];
         [self.SponsorNotification setHidden:FALSE];
+        [self.sponsorSwitch setOn:appDelegate.userSettings.sponsorNotify];
     }
     else {
         [self.TypesOfMessages setHidden:TRUE];
         [self.SponsorNotification setHidden:TRUE];
+        appDelegate.userSettings.sponsorNotify = FALSE;
+        [self.sponsorSwitch setOn:FALSE];
     }
     /*
 	// Do any additional setup after loading the view.
@@ -71,32 +74,47 @@
 }
 
 - (IBAction)getlocation:(id)sender {
-    
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    BOOL geoState = [self.geoSwitch isOn];
-    [defaults setBool:geoState forKey:@"geoSwitch"];
-    [defaults synchronize];
-
-    if (self.geoSwitch.isOn)
+    if (!appDelegate.userSettings.geoAlerts)
     {
         //[locationManager startMonitoringSignificantLocationChanges];
         //[locationManager startUpdatingLocation];
+        appDelegate.userSettings.geoAlerts = TRUE;
         [appDelegate.locationManager startMonitoringSignificantLocationChanges];
         [self.TypesOfMessages setHidden:FALSE];
         [self.SponsorNotification setHidden:FALSE];
+        [self.geoSwitch setOn:TRUE];
         
     }
     else
     {
         //[locationManager stopMonitoringSignificantLocationChanges];
         //[locationManager stopUpdatingLocation];
+        appDelegate.userSettings.geoAlerts = FALSE;
         [appDelegate.locationManager stopMonitoringSignificantLocationChanges];
         [self.TypesOfMessages setHidden:TRUE];
         [self.SponsorNotification setHidden:TRUE];
         [self.sponsorSwitch setOn:NO];
+        appDelegate.userSettings.sponsorNotify = FALSE;
+        [self.geoSwitch setOn:FALSE];
     }
 }
+
+- (IBAction)sponsorNotify:(id)sender {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    if (!appDelegate.userSettings.sponsorNotify)
+    {
+        appDelegate.userSettings.sponsorNotify = TRUE;
+        [self.sponsorSwitch setOn:TRUE];
+    }
+    else
+    {
+        appDelegate.userSettings.sponsorNotify = FALSE;
+        [self.sponsorSwitch setOn:false];
+    }
+
+}
+
 
 /*
 // Failed to get current location
