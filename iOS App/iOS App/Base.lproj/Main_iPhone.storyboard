@@ -55,6 +55,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="cottage-25" id="u1e-5L-l1D"/>
                     <connections>
+                        <outlet property="callSponsor" destination="bo2-tH-7cF" id="4i0-9L-4ut"/>
                         <outlet property="helloUser" destination="Zhg-ve-WU7" id="13E-gT-wyy"/>
                         <outlet property="quoteDay" destination="dvO-hH-hGe" id="Pmf-X4-uBv"/>
                     </connections>
