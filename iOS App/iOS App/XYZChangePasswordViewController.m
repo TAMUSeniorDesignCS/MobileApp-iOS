@@ -86,13 +86,16 @@
                                         requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/edit"]];
         
         NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"rusername",
+                                     appDelegate.userSettings.password, @"rpassword",
                                      appDelegate.userSettings.username, @"oldusername",
                                      appDelegate.userSettings.username, @"username",
                                      appDelegate.userSettings.firstname, @"firstname",
                                      self.NewPassword.text, @"password",
                                      appDelegate.userSettings.setSponsor, @"sponsorid",
                                      appDelegate.userSettings.email, @"email",
-                                     appDelegate.userSettings.phoneNumber, @"phoneNumber",
+                                     appDelegate.userSettings.phoneNumber, @"phonenumber",
+                                     [NSString stringWithFormat:@"%d", (appDelegate.userSettings.showPhone ? 1 : 0) ], @"displayphonenumber",
                                      nil];
         NSError *error;
         NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];

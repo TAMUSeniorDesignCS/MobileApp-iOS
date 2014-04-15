@@ -7,6 +7,7 @@
 //
 
 #import "XYZPrivacySettingViewController.h"
+#import "XYZAppDelegate.h"
 
 @interface XYZPrivacySettingViewController ()
 
@@ -25,8 +26,9 @@
 
 - (void)viewDidLoad
 {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     [super viewDidLoad];
-
+    [self.showPhoneNumber setOn:appDelegate.userSettings.showPhone];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -39,6 +41,88 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)displayPhone:(id)sender {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    if (appDelegate.userSettings.showPhone) {
+        XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+        NSMutableURLRequest *request = [NSMutableURLRequest
+                                        requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/edit"]];
+        NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"rusername",
+                                     appDelegate.userSettings.password, @"rpassword",
+                                     appDelegate.userSettings.username, @"oldusername",
+                                     appDelegate.userSettings.username, @"username",
+                                     appDelegate.userSettings.firstname, @"firstname",
+                                     appDelegate.userSettings.password, @"password",
+                                     appDelegate.userSettings.setSponsor, @"sponsorid",
+                                     appDelegate.userSettings.email, @"email",
+                                     appDelegate.userSettings.phoneNumber, @"phonenumber",
+                                     @"0", @"displayphonenumber",
+                                     nil];
+        NSError *error;
+        NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:requestData];
+        NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+        NSLog(@"contacts: %@", post_string);
+        if (error) {
+            return;
+            NSLog(@"First error: %@", [error localizedDescription]);
+        }
+        if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
+            appDelegate.userSettings.showPhone = FALSE;
+            [self.showPhoneNumber setOn:NO];
+        }
+        else {
+            [self.showPhoneNumber setOn:YES];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot unblock phone number" message:@"Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+        
+    }
+    else {
+        XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+        NSMutableURLRequest *request = [NSMutableURLRequest
+                                        requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/edit"]];
+        NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"rusername",
+                                     appDelegate.userSettings.password, @"rpassword",
+                                     appDelegate.userSettings.username, @"oldusername",
+                                     appDelegate.userSettings.username, @"username",
+                                     appDelegate.userSettings.firstname, @"firstname",
+                                     appDelegate.userSettings.password, @"password",
+                                     appDelegate.userSettings.setSponsor, @"sponsorid",
+                                     appDelegate.userSettings.email, @"email",
+                                     appDelegate.userSettings.phoneNumber, @"phonenumber",
+                                     @"1", @"displayphonenumber",
+                                     nil];
+        NSError *error;
+        NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:requestData];
+        NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+        NSLog(@"contacts: %@", post_string);
+        if (error) {
+            return;
+            NSLog(@"First error: %@", [error localizedDescription]);
+        }
+        if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
+            appDelegate.userSettings.showPhone = TRUE;
+            [self.showPhoneNumber setOn:YES];
+        }
+        else {
+            [self.showPhoneNumber setOn:NO];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot block number" message:@"Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+    }
+}
+
 /*
 #pragma mark - Table view data source
 

@@ -88,6 +88,8 @@
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/getinfo"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 appDelegate.userSettings.username, @"rusername",
+                                 appDelegate.userSettings.password, @"rpassword",
                                  [NSString stringWithFormat:@"%d", appDelegate.userSettings.groupId], @"groupid",
                                  nil];
     NSError *error;
@@ -164,14 +166,18 @@
     if (![self.checkedIndexPath isEqual:indexPath]) {
         NSMutableURLRequest *request = [NSMutableURLRequest
                                         requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/edit"]];
+        
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"rusername",
+                                     appDelegate.userSettings.password, @"rpassword",
                                      appDelegate.userSettings.username, @"oldusername",
                                      appDelegate.userSettings.username, @"username",
                                      appDelegate.userSettings.firstname, @"firstname",
                                      appDelegate.userSettings.password, @"password",
                                      [userNames objectAtIndex:indexPath.row], @"sponsorid",
                                      appDelegate.userSettings.email, @"email",
-                                     appDelegate.userSettings.phoneNumber, @"phoneNumber",
+                                     appDelegate.userSettings.phoneNumber, @"phonenumber",
+                                     [NSString stringWithFormat:@"%d", (appDelegate.userSettings.showPhone ? 1 : 0) ], @"displayphonenumber",
                                      nil];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
@@ -199,13 +205,16 @@
         NSMutableURLRequest *request = [NSMutableURLRequest
                                         requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/edit"]];
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     appDelegate.userSettings.username, @"rusername",
+                                     appDelegate.userSettings.password, @"rpassword",
                                      appDelegate.userSettings.username, @"oldusername",
                                      appDelegate.userSettings.username, @"username",
                                      appDelegate.userSettings.firstname, @"firstname",
                                      appDelegate.userSettings.password, @"password",
                                      @"", @"sponsorid",
                                      appDelegate.userSettings.email, @"email",
-                                     appDelegate.userSettings.phoneNumber, @"phoneNumber",
+                                     appDelegate.userSettings.phoneNumber, @"phonenumber",
+                                     [NSString stringWithFormat:@"%d", (appDelegate.userSettings.showPhone ? 1 : 0) ], @"displayphonenumber",
                                      nil];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];

@@ -77,8 +77,11 @@
         appDelegate.userSettings.password = self.Password.text;
         appDelegate.userSettings.firstname = [user_info[@"firstname"] capitalizedString];
         appDelegate.userSettings.phoneNumber = user_info[@"phonenumber"];
+        if (user_info[@"displayphonenumber"] == 1)
+            appDelegate.userSettings.showPhone = TRUE;
+        else
+            appDelegate.userSettings.showPhone = FALSE;
         appDelegate.userSettings.email = user_info[@"email"];
-        //NSLog(@"%@", appDelegate.userSettings.firstname);
         appDelegate.userSettings.username = [self.Username.text lowercaseString];
         appDelegate.userSettings.groupId = [user_info[@"groupid"] intValue];
         NSLog(@"group id i: %d", appDelegate.userSettings.groupId);

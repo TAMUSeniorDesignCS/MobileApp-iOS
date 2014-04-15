@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XYZPrivacySettingViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UISwitch *showPhoneNumber;
 
 @end

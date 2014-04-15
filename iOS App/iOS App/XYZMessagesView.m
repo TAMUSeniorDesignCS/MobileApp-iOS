@@ -68,6 +68,8 @@
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/directmessage/refresh"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 appDelegate.userSettings.username, @"rusername",
+                                 appDelegate.userSettings.password, @"rpassword",
                                  appDelegate.userSettings.username, @"username",
                                  @"-", @"directmessageidlimit",
                                  nil];
