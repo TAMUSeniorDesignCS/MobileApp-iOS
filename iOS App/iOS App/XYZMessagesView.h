@@ -11,6 +11,7 @@
 @interface XYZMessagesView : UITableViewController{
     NSMutableArray *userNames;
     NSMutableArray *dates;
+    NSMutableDictionary *messages;
     NSMutableArray *messageIDs;
 }
 

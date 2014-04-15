@@ -10,6 +10,7 @@
 #import "XYZTabBarViewController.h"
 #import "XYZAppDelegate.h"
 #import "XYZMessageCell.h"
+#import "XYZBubbleMessage.h"
 
 @interface XYZMessagesView ()
 
@@ -32,6 +33,7 @@
     
     userNames = [[NSMutableArray alloc] init];
     dates = [[NSMutableArray alloc] init];
+    messages = [[NSMutableDictionary alloc] init];
     messageIDs = [[NSMutableArray alloc] init];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -85,6 +87,7 @@
     if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
         NSError *error2;
         NSMutableDictionary *array = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error2];
+        messages = [array mutableCopy];
         if (error2) {
             return;
             NSLog(@"Second error: %@", [error2 localizedDescription]);
@@ -92,7 +95,14 @@
         for(NSDictionary *dict in array){
             if (dict[@"valid"]);
             else {
-                [userNames addObject:dict[@"receiversusername"]];
+                if ([dict[@"username"] isEqualToString:appDelegate.userSettings.username]) {
+                    if (!([userNames containsObject:dict[@"receiversusername"]]))
+                        [userNames addObject:dict[@"receiversusername"]];
+                }
+                else {
+                    if (!([userNames containsObject:dict[@"username"]]))
+                           [userNames addObject:dict[@"username"]];
+                }
                 [dates addObject:dict[@"dateposted"]];
                 [messageIDs addObject:dict[@"directmessageid"]];
             }
@@ -182,7 +192,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -190,7 +200,15 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"chatPush"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        XYZMessageCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSString *chatBuddy = [cell.username.text stringByReplacingOccurrencesOfString:@"@" withString:@""];
+        [[segue destinationViewController] setChatData:messages];
+        [[segue destinationViewController] setChatBuddyName:chatBuddy];
+    }
+    
 }
-*/
+
 
 @end

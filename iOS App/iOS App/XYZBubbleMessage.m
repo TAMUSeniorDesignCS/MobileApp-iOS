@@ -7,6 +7,7 @@
 //
 
 #import "XYZBubbleMessage.h"
+#import "XYZAppDelegate.h"
 #import "UIBubbleTableView.h"
 #import "UIBubbleTableViewDataSource.h"
 #import "NSBubbleData.h"
@@ -18,6 +19,8 @@
 @end
 
 @implementation XYZBubbleMessage
+
+@synthesize chatBuddyName ,chatData;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,17 +34,61 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    //chatData = [[NSMutableDictionary alloc] init];
+    userNames = [[NSMutableArray alloc] init];
+    dates = [[NSMutableArray alloc] init];
+    messages = [[NSMutableArray alloc] init];
+    messageIDs = [[NSMutableArray alloc] init];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    animated = NO;
+    [self refreshMessages];
+    [self.bubbleTable reloadData];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [bubbleData removeAllObjects];
+    [chatData removeAllObjects];
+    [userNames removeAllObjects];
+    [dates removeAllObjects];
+    [messages removeAllObjects];
+    [messageIDs removeAllObjects];
+}
+
+-(void)refreshMessages{
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    bubbleData = [[NSMutableArray alloc] init];
     
-    NSBubbleData *heyBubble = [NSBubbleData dataWithText:@"Hey, halloween is soon" date:[NSDate dateWithTimeIntervalSinceNow:-300] type:BubbleTypeSomeoneElse];
-    heyBubble.avatar = nil;
+    for(NSDictionary *dict in chatData){
+        if (dict[@"valid"]);
+        else if ([[dict[@"receiversusername"] lowercaseString] isEqualToString:chatBuddyName] || [[dict[@"username"] lowercaseString] isEqualToString:chatBuddyName]){
+            NSLog(@"username %@", chatBuddyName);
+            NSLog(@"receivername %@", dict[@"receiversusername"]);
+
+            NSString *str = dict[@"dateposted"];
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"YYYY-MM-dd'T'HH:mm:ss'.000Z'"];
+            NSDate *dte = [dateFormat dateFromString:str];
+            
+            if ([dict[@"username"] isEqualToString:appDelegate.userSettings.username]){
+                NSBubbleData *heyBubble = [NSBubbleData dataWithText:dict[@"message"] date:dte type:BubbleTypeMine];
+                heyBubble.avatar = nil;
+                [bubbleData addObject:heyBubble];
+            }
+            else{
+                NSBubbleData *heyBubble = [NSBubbleData dataWithText:dict[@"message"] date:dte type:BubbleTypeSomeoneElse];
+                heyBubble.avatar = nil;
+                [bubbleData addObject:heyBubble];
+            }
+            //heyBubble.avatar = nil;
+            //[bubbleData addObject:heyBubble];
+            NSLog(@"directmessageid is %d", [dict[@"directmessageid"] integerValue]);
+            NSLog(@"message is %@", dict[@"message"]);
+        }
+    }
     
-    NSBubbleData *photoBubble = [NSBubbleData dataWithImage:[UIImage imageNamed:@"halloween.jpg"] date:[NSDate dateWithTimeIntervalSinceNow:-290] type:BubbleTypeSomeoneElse];
-    photoBubble.avatar = nil;
-    
-    NSBubbleData *replyBubble = [NSBubbleData dataWithText:@"Wow.. Really cool picture out there. iPhone 5 has really nice camera, yeah?" date:[NSDate dateWithTimeIntervalSinceNow:-5] type:BubbleTypeMine];
-    replyBubble.avatar = nil;
-    
-    bubbleData = [[NSMutableArray alloc] initWithObjects:heyBubble, photoBubble, replyBubble, nil];
     _bubbleTable.bubbleDataSource = self;
     
     // The line below sets the snap interval in seconds. This defines how the bubbles will be grouped in time.
@@ -61,7 +108,7 @@
     //    - NSBubbleTypingTypeMe - shows "now typing" bubble on the right
     //    - NSBubbleTypingTypeNone - no "now typing" bubble
     
-    _bubbleTable.typingBubble = NSBubbleTypingTypeSomebody;
+    //_bubbleTable.typingBubble = NSBubbleTypingTypeSomebody;
     
     [_bubbleTable reloadData];
     
@@ -73,6 +120,41 @@
     NSIndexPath *ipath = [NSIndexPath indexPathForRow:([_bubbleTable numberOfRowsInSection:([_bubbleTable numberOfSections]-1)] - 1) inSection:([_bubbleTable numberOfSections]-1)];
     [_bubbleTable scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
 	// Do any additional setup after loading the view.
+
+}
+
+- (IBAction)sendButtonPushed:(id)sender {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    NSString *timeout;
+    if (appDelegate.userSettings.messageTimeoutOn)
+        timeout = [NSString stringWithFormat:@"%d", appDelegate.userSettings.messageTime];
+    else
+        timeout = @"0";
+    NSMutableURLRequest *request = [NSMutableURLRequest
+                                    requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/directmessage/new"]];
+    NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 appDelegate.userSettings.username, @"rusername",
+                                 appDelegate.userSettings.password, @"rpassword",
+                                 _textField.text, @"message",
+                                 timeout, @"timeout",
+                                 appDelegate.userSettings.username, @"username",
+                                 chatBuddyName, @"receiversusername",
+                                 nil];
+    NSError *error;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:requestData];
+    NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"result: %@", post_string);
+    
+    NSLog(@"Direct message: %@", post_string);
+    if (error) {
+        return;
+        NSLog(@"First error: %@", [error localizedDescription]);
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -97,42 +179,6 @@
     return [bubbleData objectAtIndex:row];
 }
 
-#pragma mark - Keyboard events
-/*
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    [UIView animateWithDuration:0.2f animations:^{
-        
-        CGRect frame = _textInputView.frame;
-        frame.origin.y -= kbSize.height;
-        _textInputView.frame = frame;
-        
-        frame = _bubbleTable.frame;
-        frame.size.height -= kbSize.height;
-        _bubbleTable.frame = frame;
-    }];
-}
-
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    NSDictionary* info = [aNotification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    [UIView animateWithDuration:0.2f animations:^{
-        
-        CGRect frame = _textInputView.frame;
-        frame.origin.y += kbSize.height;
-        _textInputView.frame = frame;
-        
-        frame = _bubbleTable.frame;
-        frame.size.height += kbSize.height;
-        _bubbleTable.frame = frame;
-    }];
-}
-*/
 #pragma mark - Actions
 - (IBAction)sendPressed:(id)sender {
     _bubbleTable.typingBubble = NSBubbleTypingTypeNobody;

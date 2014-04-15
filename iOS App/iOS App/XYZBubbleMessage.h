@@ -10,6 +10,8 @@
 #import "UIBubbleTableViewDataSource.h"
 
 @interface XYZBubbleMessage : UIViewController <UIBubbleTableViewDataSource>{
+    NSString *chatBuddyName;
+    NSMutableDictionary *chatData;
     NSMutableArray *userNames;
     NSMutableArray *messages;
     NSMutableArray *dates;
@@ -19,5 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *textInputView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (strong, nonatomic) NSString *chatBuddyName;
+@property (strong, nonatomic) NSMutableDictionary *chatData;
 
 @end
