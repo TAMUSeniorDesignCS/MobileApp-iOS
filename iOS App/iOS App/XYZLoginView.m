@@ -81,6 +81,7 @@
         //NSLog(@"%@", appDelegate.userSettings.firstname);
         appDelegate.userSettings.username = [self.Username.text lowercaseString];
         appDelegate.userSettings.groupId = [user_info[@"groupid"] intValue];
+        NSLog(@"group id i: %d", appDelegate.userSettings.groupId);
         appDelegate.userSettings.setSponsor = user_info[@"sponsorid"];
         appDelegate.userSettings.religiousOn = FALSE;
         appDelegate.userSettings.funnyOn = FALSE;

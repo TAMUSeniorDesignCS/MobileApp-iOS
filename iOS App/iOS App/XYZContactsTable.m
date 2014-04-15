@@ -21,8 +21,8 @@
     NSMutableArray *userNames;
     NSMutableArray *phoneNumbers;
     NSMutableArray *blockedUsers;
-    NSArray *users;
-    NSArray *searchResults;
+    NSMutableArray *users;
+    NSMutableArray *searchResults;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -48,6 +48,8 @@
     userNames = [[NSMutableArray alloc] init];
     phoneNumbers = [[NSMutableArray alloc] init];
     blockedUsers = [[NSMutableArray alloc] init];
+    users = [[NSMutableArray alloc] init];
+    searchResults = [[NSMutableArray alloc] init];
 
 }
 
@@ -78,13 +80,16 @@
     [firstNames removeAllObjects];
     [blockedUsers removeAllObjects];
     [phoneNumbers removeAllObjects];
+    [users removeAllObjects];
+    [searchResults removeAllObjects];
 }
 
 - (void)refreshContacts {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/getinfo"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                 @"1", @"groupid",
+                                 [NSString stringWithFormat:@"%d", appDelegate.userSettings.groupId], @"groupid",
                                  nil];
     NSError *error;
     NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
@@ -112,7 +117,7 @@
                 //user.username = dict[@"username"];
                 //user.firstname = dict[@"firstname"];
                 //user.phoneNumber = dict[@"phonenumber"];
-                //users = [NSArray arrayWithObjects:user, nil];
+                //[users addObject:user];
                 [userNames addObject:dict[@"username"]];
                 [firstNames addObject:dict[@"firstname"]];
                 [phoneNumbers addObject:dict[@"phonenumber"]];

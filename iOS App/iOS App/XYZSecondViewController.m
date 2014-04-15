@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.editing = YES;
+    //self.editing = YES;
     postIDs = [[NSMutableArray alloc] init];
     myPosts = [[NSMutableArray alloc] init];
     firstNames = [[NSMutableArray alloc] init];
@@ -188,6 +188,7 @@
     return cell;
 }
 
+/*
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return NO;
@@ -197,6 +198,7 @@
 {
     return NO;
 }
+*/
 
 - (IBAction)editButton:(id)sender {
     UIButton *senderButton = (UIButton *)sender;
