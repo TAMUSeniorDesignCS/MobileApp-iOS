@@ -182,6 +182,7 @@
                  
                  appDelegate.userSettings.username = [self.Username.text lowercaseString];
                  appDelegate.userSettings.firstname = [self.FirstName.text capitalizedString];
+                 appDelegate.userSettings.groupId = [self.GroupCode.text intValue];
                  appDelegate.userSettings.password = self.Password.text;
                  appDelegate.userSettings.showPhone = TRUE;
                  appDelegate.userSettings.phoneNumber = self.PhoneNumber.text;
