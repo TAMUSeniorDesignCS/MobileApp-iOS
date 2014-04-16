@@ -77,6 +77,38 @@
         notification.soundName = UILocalNotificationDefaultSoundName;
         //notification.applicationIconBadgeNumber = 1;
         [app presentLocalNotificationNow:notification];
+        
+        //XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+        NSMutableURLRequest *request = [NSMutableURLRequest
+                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/postlog"]];
+        
+        NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                     self.userSettings.username, @"rusername",
+                                     self.userSettings.password, @"rpassword",
+                                     self.userSettings.username, @"username",
+                                     nil];
+        NSError *error;
+        NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:postData];
+        NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+        NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
+        NSLog(@"incremented thing is %@", authReturn);
+        if (error) {
+            NSLog(@"error: %@", [error localizedDescription]);
+        }
+        /*
+        if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not post" message:@"Something went wrong. Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
+         */
     }
 }
 

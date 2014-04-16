@@ -27,6 +27,8 @@
 		619892F618D265680090D576 /* XYZSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619892F518D265680090D576 /* XYZSignUpViewController.m */; };
 		61A8B60418FEFEA400CC389F /* XYZtest.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60318FEFEA400CC389F /* XYZtest.m */; };
 		61A8B60718FF031600CC389F /* XYZNewMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60618FF031600CC389F /* XYZNewMessageCell.m */; };
+		61A8B60A18FF397B00CC389F /* XYZSponsoreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60918FF397B00CC389F /* XYZSponsoreeCell.m */; };
+		61A8B60D18FF39DB00CC389F /* XYZSponsoreeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60C18FF39DB00CC389F /* XYZSponsoreeInfo.m */; };
 		61F4D9DD18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */; };
 		61F4D9DF18E0EA4E00D1257B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F4D9DE18E0EA4E00D1257B /* libsqlite3.dylib */; };
 		61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F4D9E118E0EC3700D1257B /* XYZUserSettings.m */; };
@@ -122,6 +124,10 @@
 		61A8B60318FEFEA400CC389F /* XYZtest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZtest.m; sourceTree = "<group>"; };
 		61A8B60518FF031600CC389F /* XYZNewMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZNewMessageCell.h; sourceTree = "<group>"; };
 		61A8B60618FF031600CC389F /* XYZNewMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZNewMessageCell.m; sourceTree = "<group>"; };
+		61A8B60818FF397B00CC389F /* XYZSponsoreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSponsoreeCell.h; sourceTree = "<group>"; };
+		61A8B60918FF397B00CC389F /* XYZSponsoreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSponsoreeCell.m; sourceTree = "<group>"; };
+		61A8B60B18FF39DB00CC389F /* XYZSponsoreeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSponsoreeInfo.h; sourceTree = "<group>"; };
+		61A8B60C18FF39DB00CC389F /* XYZSponsoreeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSponsoreeInfo.m; sourceTree = "<group>"; };
 		61F4D9DB18E0DC3900D1257B /* XYZTypesOfMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYZTypesOfMessagesViewController.h; path = ../XYZTypesOfMessagesViewController.h; sourceTree = "<group>"; };
 		61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYZTypesOfMessagesViewController.m; path = ../XYZTypesOfMessagesViewController.m; sourceTree = "<group>"; };
 		61F4D9DE18E0EA4E00D1257B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -346,6 +352,10 @@
 				DE060CF318AC4CDA0010DF47 /* XYZAppDelegate.m */,
 				DE2DB35118AD4E1E001C03BF /* XYZSettingsTable.h */,
 				DE2DB35218AD4E1E001C03BF /* XYZSettingsTable.m */,
+				61A8B60818FF397B00CC389F /* XYZSponsoreeCell.h */,
+				61A8B60918FF397B00CC389F /* XYZSponsoreeCell.m */,
+				61A8B60B18FF39DB00CC389F /* XYZSponsoreeInfo.h */,
+				61A8B60C18FF39DB00CC389F /* XYZSponsoreeInfo.m */,
 				DE2DB34E18AD42DD001C03BF /* XYZContactsTable.h */,
 				DE2DB34F18AD42DD001C03BF /* XYZContactsTable.m */,
 				DE4BB22718F46779003B7CD8 /* XYZContactView.h */,
@@ -515,6 +525,7 @@
 				DE060CF418AC4CDA0010DF47 /* XYZAppDelegate.m in Sources */,
 				619092D518F3719D00D2E0E7 /* UIBubbleTypingTableViewCell.m in Sources */,
 				614B3AF718BC297F001AB654 /* XYZChangePasswordViewController.m in Sources */,
+				61A8B60A18FF397B00CC389F /* XYZSponsoreeCell.m in Sources */,
 				619092CE18F3719D00D2E0E7 /* NSBubbleData.m in Sources */,
 				DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */,
 				DEDD78BA18E0D45600F8F82B /* XYZMessagesView.m in Sources */,
@@ -533,6 +544,7 @@
 				6134D4D418ECC45100E6A243 /* XYZPostCell.m in Sources */,
 				6187113A18DA40F6007B3A5C /* XYZPrivacySettingViewController.m in Sources */,
 				DEB6336D18D806200089CC76 /* SBJson4Parser.m in Sources */,
+				61A8B60D18FF39DB00CC389F /* XYZSponsoreeInfo.m in Sources */,
 				DEC1A0B218FD7E64007E7165 /* XYZSetSponsor.m in Sources */,
 				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,
 				61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */,

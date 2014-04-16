@@ -15,7 +15,8 @@
 @end
 
 @implementation XYZSettingsTable {
-
+    NSMutableArray *userNames;
+    NSMutableArray *riskCounts;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -30,7 +31,57 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    userNames = [[NSMutableArray alloc] init];
+    riskCounts = [[NSMutableArray alloc] init];
+}
 
+-(void)viewWillAppear:(BOOL)animated {
+    [userNames removeAllObjects];
+    [riskCounts removeAllObjects];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
+    self.tabBarController.navigationItem.rightBarButtonItem.title = @"";
+    self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
+    
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    NSMutableURLRequest *request = [NSMutableURLRequest
+                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/getlog"]];
+    
+    NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 appDelegate.userSettings.username, @"rusername",
+                                 appDelegate.userSettings.password, @"rpassword",
+                                 appDelegate.userSettings.username, @"sponsorusername",
+                                 nil];
+    NSError *error;
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:postData];
+    NSData *authData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    NSString *authReturn = [[NSString alloc] initWithData:authData encoding:NSUTF8StringEncoding];
+    NSLog(@"sponsoree info is %@", authReturn);
+    if (error) {
+        NSLog(@"error: %@", [error localizedDescription]);
+    }
+    
+     if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
+         NSError *error2;
+         NSMutableDictionary *array = [NSJSONSerialization JSONObjectWithData:authData options:NSJSONReadingMutableContainers error:&error2];
+         if (error2) {
+             return;
+             NSLog(@"Second error: %@", [error2 localizedDescription]);
+         }
+         for(NSDictionary *dict in array){
+             if (dict[@"valid"]);
+             else {
+                 if (dict[@"username"]) {
+                     [userNames addObject:dict[@"username"]];
+                     [riskCounts addObject:dict[@"riskcount"]];
+                 }
+             }
+         }
+     }
+    
     self.navigationItem.hidesBackButton = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -38,6 +89,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 - (void)viewDidUnload
 {
@@ -53,12 +105,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0)
+    if (indexPath.row == 0 && indexPath.section == 0)
     {
         UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Log Out" message:@"Are you sure you want to log out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes",nil];
     
         // Display Alert Message
         [messageAlert show];
+    }
+    if (indexPath.row == 0 && indexPath.section == 1) {
+        if ([userNames count] > 0)
+            [self performSegueWithIdentifier:@"sponsoreeInfo" sender:nil];
+        else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No sponsorees" message:@"You are not the sponsor of any member!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alertView show];
+        }
     }
     
 }
@@ -76,12 +136,6 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    animated = NO;
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
-    self.tabBarController.navigationItem.rightBarButtonItem.title = @"";
-    self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
-}
 
 #pragma mark - Table view data source
 /*
