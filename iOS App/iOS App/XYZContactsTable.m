@@ -121,9 +121,11 @@
                 //user.firstname = dict[@"firstname"];
                 //user.phoneNumber = dict[@"phonenumber"];
                 //[users addObject:user];
-                [userNames addObject:dict[@"username"]];
-                [firstNames addObject:dict[@"firstname"]];
-                [phoneNumbers addObject:dict[@"phonenumber"]];
+                if (!([dict[@"username"] isEqualToString:appDelegate.userSettings.username])) {
+                    [userNames addObject:dict[@"username"]];
+                    [firstNames addObject:dict[@"firstname"]];
+                    [phoneNumbers addObject:dict[@"phonenumber"]];
+                }
             }
         }
     }
@@ -292,7 +294,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"contactPush"]) {
-        
+        XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSString *first = firstNames[indexPath.row];
         NSString *user = userNames[indexPath.row];
@@ -306,10 +308,10 @@
         else
             [[segue destinationViewController] setIsBlocked:NO];
         
-        //IMPLEMENT isSponsor logic
-        [[segue destinationViewController] setIsSponsor:NO];
-
-        
+        if ([appDelegate.userSettings.setSponsor isEqualToString:userNames[indexPath.row]])
+            [[segue destinationViewController] setIsSponsor:YES];
+        else
+            [[segue destinationViewController] setIsSponsor:NO];
     }
 }
 
