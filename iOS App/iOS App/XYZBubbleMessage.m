@@ -46,7 +46,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.title = chatBuddyName;
-    if (isNewMessage) {
+    if (isNewMessage != 0) {
         [self.cancelButton setTitle:@"Cancel"];
         [self.cancelButton setEnabled:TRUE];
     }
@@ -205,16 +205,24 @@
     //NSLog(@"number of rows in section 0: %i", bubbleData.count);
     NSIndexPath *ipath = [NSIndexPath indexPathForRow:([_bubbleTable numberOfRowsInSection:([_bubbleTable numberOfSections]-1)] - 1) inSection:([_bubbleTable numberOfSections]-1)];
     [_bubbleTable scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-    if (isNewMessage) {
+    if (isNewMessage == 1) {
         NSInteger noOfViewControllers = [self.navigationController.viewControllers count];
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(noOfViewControllers-3)] animated:YES];
+    }
+    if (isNewMessage == 2) {
+        NSInteger noOfViewControllers = [self.navigationController.viewControllers count];
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(noOfViewControllers-2)] animated:YES];
     }
 }
 
 - (IBAction)cancelPressed:(id)sender {
-    if (isNewMessage) {
+    if (isNewMessage == 1) {
         NSInteger noOfViewControllers = [self.navigationController.viewControllers count];
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(noOfViewControllers-3)] animated:YES];
+    }
+    if (isNewMessage == 2) {
+        NSInteger noOfViewControllers = [self.navigationController.viewControllers count];
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(noOfViewControllers-2)] animated:YES];
     }
 }
 

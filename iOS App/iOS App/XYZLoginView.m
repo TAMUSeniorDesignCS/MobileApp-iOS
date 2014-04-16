@@ -89,6 +89,7 @@
         appDelegate.userSettings.religiousOn = FALSE;
         appDelegate.userSettings.funnyOn = FALSE;
         appDelegate.userSettings.inspirationalOn = TRUE;
+        appDelegate.userSettings.postTime = 48;
         //NSLog(@"group id is: %i", appDelegate.userSettings.groupId);
         [self performSegueWithIdentifier:@"tabBarPush" sender:nil];
     }

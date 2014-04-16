@@ -196,7 +196,7 @@
         NSMutableDictionary *messages = [[NSMutableDictionary alloc] init];
         [[segue destinationViewController] setChatData:messages];
         [[segue destinationViewController] setChatBuddyName:chatBuddy];
-        [[segue destinationViewController] setIsNewMessage:TRUE];
+        [[segue destinationViewController] setIsNewMessage:1];
         
     }
 }

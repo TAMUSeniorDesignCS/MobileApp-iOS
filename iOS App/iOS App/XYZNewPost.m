@@ -29,6 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    _deleteTime.text = [NSString stringWithFormat:@"%d", appDelegate.userSettings.postTime];
+    
     self.text.layer.borderWidth = 5.0f;
     self.text.layer.borderColor = [[UIColor grayColor] CGColor];
     self.text.layer.cornerRadius = 8;
@@ -55,12 +58,12 @@
 }
 
 -(void)deleteCancelNumberPad{
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     [_deleteTime resignFirstResponder];
-    _deleteTime.text = @"48";
+    _deleteTime.text = [NSString stringWithFormat:@"%d", appDelegate.userSettings.postTime];
 }
 
 -(void)deleteDoneWithNumberPad{
-    NSString *deleteNumberFromTheKeyboard = _deleteTime.text;
     [_deleteTime resignFirstResponder];
 }
 

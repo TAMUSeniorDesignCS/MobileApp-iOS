@@ -65,13 +65,12 @@
         else{
             for(NSDictionary *dict in array){
                 if (dict[@"valid"]) {
-                    /*
-                    if ([dict[@"valid"] isEqualToString:@"false"]) {
+
+                    if ([dict[@"valid"] isEqual:FALSE]) {
                         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot retrieve posts" message:@"Something went wrong." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                         [alertView show];
                         return;
                     }
-                     */
                 }
                 else {
                     [postIDs addObject:dict[@"postid"]];
@@ -178,7 +177,8 @@
     NSDate *dte = [dateFormat dateFromString:str];
     //NSLog(@"convert to date %@", str);
     NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
-    [dateFormat2 setDateFormat:@"MM/dd/YYYY HH:mm"];
+    [dateFormat2 setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormat2 setTimeStyle:NSDateFormatterShortStyle];
     NSString *dateString = [dateFormat2 stringFromDate:dte];
     //NSLog(@"DateString: %@", dateString);
     

@@ -146,7 +146,11 @@
     [dateFormat setDateFormat:@"YYYY-MM-dd'T'HH:mm:ss'.000Z'"];
     NSDate *dte = [dateFormat dateFromString:str];
     NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
-    [dateFormat2 setDateFormat:@"MM/dd/YYYY HH:mm"];
+    //[dateFormat2 setDateFormat:@"MM/dd/YYYY HH:mm"];
+    
+    [dateFormat2 setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormat2 setTimeStyle:NSDateFormatterShortStyle];
+    
     NSString *dateString = [dateFormat2 stringFromDate:dte];
     cell.date.text = dateString;
     [cell.date sizeToFit];
@@ -208,7 +212,7 @@
         NSString *chatBuddy = [cell.username.text stringByReplacingOccurrencesOfString:@"@" withString:@""];
         [[segue destinationViewController] setChatData:messages];
         [[segue destinationViewController] setChatBuddyName:chatBuddy];
-        [[segue destinationViewController] setIsNewMessage:FALSE];
+        [[segue destinationViewController] setIsNewMessage:0];
     }
     
 }

@@ -8,6 +8,7 @@
 
 #import "XYZContactView.h"
 #import "XYZAppDelegate.h"
+#import "XYZBubbleMessage.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface XYZContactView ()
@@ -230,7 +231,7 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -238,7 +239,14 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"messageFromContact"]) {
+        //NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //XYZ *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSMutableDictionary *messages = [[NSMutableDictionary alloc] init];
+        [[segue destinationViewController] setChatData:messages];
+        [[segue destinationViewController] setChatBuddyName:userName];
+        [[segue destinationViewController] setIsNewMessage:2];
+    }
 }
-*/
 
 @end
