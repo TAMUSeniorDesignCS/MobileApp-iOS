@@ -13,6 +13,7 @@
     NSMutableArray *dates;
     NSMutableDictionary *messages;
     NSMutableArray *messageIDs;
+    NSMutableArray *firstNames;
 }
 
 @end

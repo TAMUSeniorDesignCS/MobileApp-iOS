@@ -11,5 +11,6 @@
 @interface XYZMessageCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *date;
+@property (weak, nonatomic) IBOutlet UILabel *firstname;
 
 @end

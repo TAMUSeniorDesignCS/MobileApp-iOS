@@ -35,6 +35,7 @@
     dates = [[NSMutableArray alloc] init];
     messages = [[NSMutableDictionary alloc] init];
     messageIDs = [[NSMutableArray alloc] init];
+    firstNames = [[NSMutableArray alloc] init];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -110,6 +111,46 @@
             }
         }
     }
+    
+    if ([userNames count] > 0) {
+        for (NSString *name in userNames) {
+            NSMutableURLRequest *request = [NSMutableURLRequest
+                                            requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/getinfo"]];
+            NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                         appDelegate.userSettings.username, @"rusername",
+                                         appDelegate.userSettings.password, @"rpassword",
+                                         @"-1", @"groupid",
+                                         name, @"username",
+                                         nil];
+            NSError *errorData;
+            NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
+            [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPMethod:@"POST"];
+            [request setHTTPBody:requestData];
+            NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&errorData];
+            NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+            NSLog(@"sponsor info: %@", post_string);
+            if (errorData) {
+                return;
+                NSLog(@"First error: %@", [errorData localizedDescription]);
+            }
+            if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
+                NSError *error2;
+                NSMutableDictionary *array = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error2];
+                if (error2) {
+                    return;
+                    NSLog(@"Second error: %@", [error2 localizedDescription]);
+                }
+                for(NSDictionary *dict in array){
+                    if (dict[@"valid"]);
+                    else
+                        [firstNames addObject:dict[@"firstname"]];
+                }
+            }
+
+        }
+    }
+    
 }
 
 #pragma mark - Table view data source
@@ -135,6 +176,9 @@
     if (cell == nil) {
         cell = [[XYZMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
+    cell.firstname.text = [firstNames objectAtIndex:indexPath.row];
+    [cell.firstname sizeToFit];
     
     cell.username.text = @"@";
     cell.username.text = [cell.username.text stringByAppendingString:[[userNames objectAtIndex:indexPath.row] lowercaseString]];
