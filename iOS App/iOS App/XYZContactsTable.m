@@ -21,8 +21,8 @@
     NSMutableArray *userNames;
     NSMutableArray *phoneNumbers;
     NSMutableArray *blockedUsers;
-    NSMutableArray *users;
-    NSMutableArray *searchResults;
+    //NSMutableArray *users;
+    //NSMutableArray *searchResults;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -44,17 +44,20 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    //_searchBar.delegate = (id)self;
+    
     firstNames = [[NSMutableArray alloc] init];
     userNames = [[NSMutableArray alloc] init];
     phoneNumbers = [[NSMutableArray alloc] init];
     blockedUsers = [[NSMutableArray alloc] init];
-    users = [[NSMutableArray alloc] init];
-    searchResults = [[NSMutableArray alloc] init];
+    //users = [[NSMutableArray alloc] init];
+    //searchResults = [[NSMutableArray alloc] init];
 
 }
 
 - (void)viewDidUnload
 {
+    //[self setSearchBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -81,14 +84,14 @@
     [firstNames removeAllObjects];
     [blockedUsers removeAllObjects];
     [phoneNumbers removeAllObjects];
-    [users removeAllObjects];
-    [searchResults removeAllObjects];
+    //[users removeAllObjects];
+    //[searchResults removeAllObjects];
 }
 
 - (void)refreshContacts {
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/getinfo"]];
+                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/getinfo"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  appDelegate.userSettings.username, @"rusername",
                                  appDelegate.userSettings.password, @"rpassword",
@@ -116,12 +119,13 @@
         for(NSDictionary *dict in array){
             if (dict[@"valid"]);
             else {
-                //XYZUserSettings *user = [XYZUserSettings new];
-                //user.username = dict[@"username"];
-                //user.firstname = dict[@"firstname"];
-                //user.phoneNumber = dict[@"phonenumber"];
-                //[users addObject:user];
                 if (!([dict[@"username"] isEqualToString:appDelegate.userSettings.username])) {
+                    /*XYZUserSettings *user = [XYZUserSettings new];
+                    user.username = dict[@"username"];
+                    user.firstname = dict[@"firstname"];
+                    user.phoneNumber = dict[@"phonenumber"];
+                    [users addObject:user];*/
+                    
                     [userNames addObject:dict[@"username"]];
                     [firstNames addObject:dict[@"firstname"]];
                     [phoneNumbers addObject:dict[@"phonenumber"]];
@@ -134,7 +138,7 @@
 - (void)getBlockedUsers {
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/userblock/getinfo"]];
+                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/userblock/getinfo"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  appDelegate.userSettings.username, @"rusername",
                                  appDelegate.userSettings.password, @"rpassword",
@@ -162,26 +166,10 @@
         for(NSDictionary *dict in array){
             if (dict[@"valid"]);
             else {
-                //XYZUserSettings *user = [XYZUserSettings new];
-                //user.username = dict[@"username"];
-                //user.firstname = dict[@"firstname"];
-                //user.phoneNumber = dict[@"phonenumber"];
-                //users = [NSArray arrayWithObjects:user, nil];
                 [blockedUsers addObject:dict[@"blockeduser"]];
             }
         }
     }
-}
-
-
--(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope{
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"firstname contains[c] %@", searchText];
-    searchResults = [firstNames filteredArrayUsingPredicate:resultPredicate];
-}
-
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller souldReloadTableForSearchString:(NSString *)searchString{
-    [self filterContentForSearchText:searchString scope:[[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
-    return YES;
 }
 
 #pragma mark - Table view data source
@@ -197,11 +185,16 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    if(tableView == self.searchDisplayController.searchResultsTableView) {
-        return [searchResults count];
-    }else{
-        return [firstNames count];
-    }
+    //if(self.isFiltered) {
+    //    return [searchResults count];
+    //}else{
+        return [userNames count];
+    //}
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 71;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -212,13 +205,6 @@
         cell = [[XYZContactCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Display recipe in the table cell
-    XYZUserSettings *user = nil;
-    if(tableView == self.searchDisplayController.searchResultsTableView){
-        user = [searchResults objectAtIndex:indexPath.row];
-    } else{
-        user = [firstNames objectAtIndex:indexPath.row];
-    }
     
     cell.firstNameLabel.text = [firstNames objectAtIndex:indexPath.row];
     [cell.firstNameLabel sizeToFit];
@@ -234,9 +220,16 @@
 }
 
 /*
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self showDetailsForIndexPath:indexPath];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self showDetailsForIndexPath:indexPath];
+    
+ [tableView deselectRowAtIndexPath:indexPath animated:NO];
     XYZContactView *contact = [self.storyboard instantiateViewControllerWithIdentifier:@"contactView"];
     contact.firstNameLabel.text = firstNames[indexPath.row];
     contact.usernameLabel.text = userNames[indexPath.row];
@@ -244,7 +237,6 @@
     [self performSegueWithIdentifier:@"contactPush" sender:nil];
 }
 */
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -284,6 +276,24 @@
     return YES;
 }
 */
+/*
+#pragma mark - Table view delegate
+
+-(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString *)text{
+    if(text.length == 0){
+        _isFiltered = FALSE;
+    }else{
+        _isFiltered = TRUE;
+        for(XYZUserSettings* user in users){
+            NSRange nameRange = [user.firstname rangeOfString:text options:NSCaseInsensitiveSearch];
+            NSRange usernameRange = [user.username rangeOfString:text options:NSCaseInsensitiveSearch];
+            if(nameRange.location != NSNotFound || usernameRange.location != NSNotFound){
+                [searchResults addObject:user];
+            }
+        }
+    }
+    [self.tableView reloadData];
+}*/
 
 
 #pragma mark - Navigation
@@ -296,6 +306,7 @@
     if ([[segue identifier] isEqualToString:@"contactPush"]) {
         XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
         NSString *first = firstNames[indexPath.row];
         NSString *user = userNames[indexPath.row];
         NSString *phone = phoneNumbers[indexPath.row];

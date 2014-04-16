@@ -10,6 +10,7 @@
 
 @interface XYZContactsTable : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
+//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, assign) bool isFiltered;
 
 @end

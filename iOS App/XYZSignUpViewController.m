@@ -137,7 +137,7 @@
     if([self.Password.text isEqualToString:self.VerifyPassword.text]){ //passwords match!
     
         NSMutableURLRequest *requestGroup = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/aagroup/auth"]];
+                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/aagroup/auth"]];
         
         NSDictionary *group_requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      self.GroupCode.text, @"groupid",
@@ -153,7 +153,7 @@
         if (!([groupReturn rangeOfString:@"true"].location == NSNotFound)) {
         
            NSMutableURLRequest *request = [NSMutableURLRequest
-                                           requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/member/new"]];
+                                           requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/new"]];
         
            NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      self.GroupCode.text, @"groupid",

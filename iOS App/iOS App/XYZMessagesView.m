@@ -66,7 +66,7 @@
 -(void)refreshMessages{
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/directmessage/refresh"]];
+                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/directmessage/refresh"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  appDelegate.userSettings.username, @"rusername",
                                  appDelegate.userSettings.password, @"rpassword",
@@ -208,6 +208,7 @@
         NSString *chatBuddy = [cell.username.text stringByReplacingOccurrencesOfString:@"@" withString:@""];
         [[segue destinationViewController] setChatData:messages];
         [[segue destinationViewController] setChatBuddyName:chatBuddy];
+        [[segue destinationViewController] setIsNewMessage:FALSE];
     }
     
 }

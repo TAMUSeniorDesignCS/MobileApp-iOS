@@ -11,6 +11,7 @@
 #import "UIBubbleTableView.h"
 #import "UIBubbleTableViewDataSource.h"
 #import "NSBubbleData.h"
+#import "XYZMessagesView.h"
 
 @interface XYZBubbleMessage (){
     NSMutableArray *bubbleData;
@@ -20,7 +21,7 @@
 
 @implementation XYZBubbleMessage
 
-@synthesize chatBuddyName ,chatData;
+@synthesize chatBuddyName ,chatData, isNewMessage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,7 +44,16 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    animated = NO;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.title = chatBuddyName;
+    if (isNewMessage) {
+        [self.cancelButton setTitle:@"Cancel"];
+        [self.cancelButton setEnabled:TRUE];
+    }
+    else {
+        [self.cancelButton setTitle:@""];
+        [self.cancelButton setEnabled:FALSE];
+    }
     [self refreshMessages];
     [self.bubbleTable reloadData];
 }
@@ -116,9 +126,10 @@
     
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-    
-    NSIndexPath *ipath = [NSIndexPath indexPathForRow:([_bubbleTable numberOfRowsInSection:([_bubbleTable numberOfSections]-1)] - 1) inSection:([_bubbleTable numberOfSections]-1)];
-    [_bubbleTable scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    if ([chatData count] > 0) {
+        NSIndexPath *ipath = [NSIndexPath indexPathForRow:([_bubbleTable numberOfRowsInSection:([_bubbleTable numberOfSections]-1)] - 1) inSection:([_bubbleTable numberOfSections]-1)];
+        [_bubbleTable scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    }
 	// Do any additional setup after loading the view.
 
 }
@@ -131,7 +142,7 @@
     else
         timeout = @"0";
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://ec2-54-201-163-32.us-west-2.compute.amazonaws.com:80/directmessage/new"]];
+                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/directmessage/new"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  appDelegate.userSettings.username, @"rusername",
                                  appDelegate.userSettings.password, @"rpassword",
@@ -179,6 +190,7 @@
     return [bubbleData objectAtIndex:row];
 }
 
+
 #pragma mark - Actions
 - (IBAction)sendPressed:(id)sender {
     _bubbleTable.typingBubble = NSBubbleTypingTypeNobody;
@@ -193,7 +205,19 @@
     //NSLog(@"number of rows in section 0: %i", bubbleData.count);
     NSIndexPath *ipath = [NSIndexPath indexPathForRow:([_bubbleTable numberOfRowsInSection:([_bubbleTable numberOfSections]-1)] - 1) inSection:([_bubbleTable numberOfSections]-1)];
     [_bubbleTable scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    if (isNewMessage) {
+        NSInteger noOfViewControllers = [self.navigationController.viewControllers count];
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(noOfViewControllers-3)] animated:YES];
+    }
 }
+
+- (IBAction)cancelPressed:(id)sender {
+    if (isNewMessage) {
+        NSInteger noOfViewControllers = [self.navigationController.viewControllers count];
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:(noOfViewControllers-3)] animated:YES];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -7,12 +7,14 @@
 //
 
 #import "XYZNewMessage.h"
-#import "UIBubbleTableView.h"
-#import "UIBubbleTableViewDataSource.h"
-#import "NSBubbleData.h"
+#import "XYZAppDelegate.h"
+#import "XYZNewMessageCell.h"
+#import "XYZBubbleMessage.h"
 
 @interface XYZNewMessage (){
-    NSMutableArray *bubbleData;
+    NSMutableArray *userNames;
+    NSMutableArray *firstNames;
+    NSMutableArray *blockedUsers;
 }
 
 @end
@@ -31,119 +33,172 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    firstNames = [[NSMutableArray alloc] init];
+    userNames = [[NSMutableArray alloc] init];
+    blockedUsers = [[NSMutableArray alloc] init];
     
-    NSBubbleData *heyBubble = [NSBubbleData dataWithText:@"Hey, halloween is soon" date:[NSDate dateWithTimeIntervalSinceNow:-300] type:BubbleTypeSomeoneElse];
-    heyBubble.avatar = nil;
-    
-    NSBubbleData *replyBubble = [NSBubbleData dataWithText:@"Wow.. Really cool picture out there. iPhone 5 has really nice camera, yeah?" date:[NSDate dateWithTimeIntervalSinceNow:-5] type:BubbleTypeMine];
-    replyBubble.avatar = nil;
-    
-    bubbleData = [[NSMutableArray alloc] initWithObjects:heyBubble, replyBubble, nil];
-    _bubbleTable.bubbleDataSource = self;
-    
-    // The line below sets the snap interval in seconds. This defines how the bubbles will be grouped in time.
-    // Interval of 120 means that if the next messages comes in 2 minutes since the last message, it will be added into the same group.
-    // Groups are delimited with header which contains date and time for the first message in the group.
-    
-    _bubbleTable.snapInterval = 120;
-    
-    // The line below enables avatar support. Avatar can be specified for each bubble with .avatar property of NSBubbleData.
-    // Avatars are enabled for the whole table at once. If particular NSBubbleData misses the avatar, a default placeholder will be set (missingAvatar.png)
-    
-    _bubbleTable.showAvatars = NO;
-    
-    // Uncomment the line below to add "Now typing" bubble
-    // Possible values are
-    //    - NSBubbleTypingTypeSomebody - shows "now typing" bubble on the left
-    //    - NSBubbleTypingTypeMe - shows "now typing" bubble on the right
-    //    - NSBubbleTypingTypeNone - no "now typing" bubble
-    
-    _bubbleTable.typingBubble = NSBubbleTypingTypeSomebody;
-    
-    [_bubbleTable reloadData];
-    
-    // Keyboard events
-    
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-    
-    NSIndexPath *ipath = [NSIndexPath indexPathForRow:([_bubbleTable numberOfRowsInSection:([_bubbleTable numberOfSections]-1)] - 1) inSection:([_bubbleTable numberOfSections]-1)];
-    [_bubbleTable scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-	// Do any additional setup after loading the view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (void)viewDidUnload
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    //[self setSearchBar:nil];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
 }
+
 
 #pragma mark - UIBubbleTableViewDataSource implementation
 
-- (NSInteger)rowsForBubbleTable:(UIBubbleTableView *)tableView
-{
-    return [bubbleData count];
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [firstNames count];
 }
 
-- (NSInteger)numberOfSections:(UIBubbleTableView *)tableView
+- (NSInteger)numberOfSections:(UITableView *)tableView
 {
     return 1;
 }
 
-- (NSBubbleData *)bubbleTableView:(UIBubbleTableView *)tableView dataForRow:(NSInteger)row
-{
-    return [bubbleData objectAtIndex:row];
+- (void)viewWillAppear:(BOOL)animated {
+    animated = NO;
+    //[self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    self.tabBarController.navigationItem.rightBarButtonItem.title = @"";
+    self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
+    [self refreshContacts];
+    [self getBlockedUsers];
+    [self.tableView reloadData];
 }
 
-#pragma mark - Keyboard events
-/*
- - (void)keyboardWasShown:(NSNotification*)aNotification
- {
- NSDictionary* info = [aNotification userInfo];
- CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
- 
- [UIView animateWithDuration:0.2f animations:^{
- 
- CGRect frame = _textInputView.frame;
- frame.origin.y -= kbSize.height;
- _textInputView.frame = frame;
- 
- frame = _bubbleTable.frame;
- frame.size.height -= kbSize.height;
- _bubbleTable.frame = frame;
- }];
- }
- 
- - (void)keyboardWillBeHidden:(NSNotification*)aNotification
- {
- NSDictionary* info = [aNotification userInfo];
- CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
- 
- [UIView animateWithDuration:0.2f animations:^{
- 
- CGRect frame = _textInputView.frame;
- frame.origin.y += kbSize.height;
- _textInputView.frame = frame;
- 
- frame = _bubbleTable.frame;
- frame.size.height += kbSize.height;
- _bubbleTable.frame = frame;
- }];
- }
- */
-#pragma mark - Actions
-- (IBAction)sendPressed:(id)sender {
-    _bubbleTable.typingBubble = NSBubbleTypingTypeNobody;
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [userNames removeAllObjects];
+    [firstNames removeAllObjects];
+    [blockedUsers removeAllObjects];
+}
+
+- (void)refreshContacts {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    NSMutableURLRequest *request = [NSMutableURLRequest
+                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/getinfo"]];
+    NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 appDelegate.userSettings.username, @"rusername",
+                                 appDelegate.userSettings.password, @"rpassword",
+                                 [NSString stringWithFormat:@"%d", appDelegate.userSettings.groupId], @"groupid",
+                                 nil];
+    NSError *error;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:requestData];
+    NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+    NSLog(@"contacts: %@", post_string);
+    if (error) {
+        return;
+        NSLog(@"First error: %@", [error localizedDescription]);
+    }
+    if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
+        NSError *error2;
+        NSMutableDictionary *array = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error2];
+        if (error2) {
+            return;
+            NSLog(@"Second error: %@", [error2 localizedDescription]);
+        }
+        for(NSDictionary *dict in array){
+            if (dict[@"valid"]);
+            else {
+                if (!([dict[@"username"] isEqualToString:appDelegate.userSettings.username])) {
+                    /*XYZUserSettings *user = [XYZUserSettings new];
+                     user.username = dict[@"username"];
+                     user.firstname = dict[@"firstname"];
+                     user.phoneNumber = dict[@"phonenumber"];
+                     [users addObject:user];*/
+                    
+                    [userNames addObject:dict[@"username"]];
+                    [firstNames addObject:dict[@"firstname"]];
+                }
+            }
+        }
+    }
+}
+
+- (void)getBlockedUsers {
+    XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+    NSMutableURLRequest *request = [NSMutableURLRequest
+                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/userblock/getinfo"]];
+    NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                 appDelegate.userSettings.username, @"rusername",
+                                 appDelegate.userSettings.password, @"rpassword",
+                                 appDelegate.userSettings.username, @"username",
+                                 nil];
+    NSError *error;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:requestData];
+    NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
+    NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+    NSLog(@"contacts: %@", post_string);
+    if (error) {
+        return;
+        NSLog(@"First error: %@", [error localizedDescription]);
+    }
+    if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
+        NSError *error2;
+        NSMutableDictionary *array = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&error2];
+        if (error2) {
+            return;
+            NSLog(@"Second error: %@", [error2 localizedDescription]);
+        }
+        for(NSDictionary *dict in array){
+            if (dict[@"valid"]);
+            else {
+                [blockedUsers addObject:dict[@"blockeduser"]];
+            }
+        }
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"newMessageCell";
+    XYZNewMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[XYZNewMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
-    NSBubbleData *sayBubble = [NSBubbleData dataWithText:_textField.text date:[NSDate dateWithTimeIntervalSinceNow:0] type:BubbleTypeMine];
-    [bubbleData addObject:sayBubble];
-    [_bubbleTable reloadData];
     
-    _textField.text = @"";
-    [_textField resignFirstResponder];
+    cell.firstLabel.text = [firstNames objectAtIndex:indexPath.row];
+    [cell.firstLabel sizeToFit];
+    cell.userLabel.text = @"@";
+    cell.userLabel.text = [cell.userLabel.text stringByAppendingString:[[userNames objectAtIndex:indexPath.row] lowercaseString]];
     
-    //NSLog(@"number of rows in section 0: %i", bubbleData.count);
-    NSIndexPath *ipath = [NSIndexPath indexPathForRow:([_bubbleTable numberOfRowsInSection:([_bubbleTable numberOfSections]-1)] - 1) inSection:([_bubbleTable numberOfSections]-1)];
-    [_bubbleTable scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+    //cell.userNameLabel.text = [userNames objectAtIndex:indexPath.row];
+    [cell.userLabel sizeToFit];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"newMessagePush"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        XYZNewMessageCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        NSString *chatBuddy = [cell.userLabel.text stringByReplacingOccurrencesOfString:@"@" withString:@""];
+        NSMutableDictionary *messages = [[NSMutableDictionary alloc] init];
+        [[segue destinationViewController] setChatData:messages];
+        [[segue destinationViewController] setChatBuddyName:chatBuddy];
+        [[segue destinationViewController] setIsNewMessage:TRUE];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -151,6 +206,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 @end
 
