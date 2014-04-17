@@ -25,12 +25,20 @@
     firstNames = [[NSMutableArray alloc] init];
     userNames = [[NSMutableArray alloc] init];
     dates = [[NSMutableArray alloc] init];
+    
+    [self.refreshControl addTarget:self action:@selector(refreshPost) forControlEvents:UIControlEventValueChanged];
+    //self.refreshControl = self;
     // Do any additional setup after loading the view, typically from a nib.
 
 }
 
 - (void)refreshPost
 {
+    [postIDs removeAllObjects];
+    [myPosts removeAllObjects];
+    [userNames removeAllObjects];
+    [firstNames removeAllObjects];
+    [dates removeAllObjects];
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/post/refresh"]];
@@ -86,6 +94,7 @@
         
         [self.tableView reloadData];
     }
+    [self.refreshControl endRefreshing];
 }
 
 
@@ -107,11 +116,13 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    /*
     [postIDs removeAllObjects];
     [myPosts removeAllObjects];
     [userNames removeAllObjects];
     [firstNames removeAllObjects];
     [dates removeAllObjects];
+     */
 }
 
 - (void)didReceiveMemoryWarning

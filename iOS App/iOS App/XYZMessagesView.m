@@ -37,6 +37,8 @@
     messageIDs = [[NSMutableArray alloc] init];
     firstNames = [[NSMutableArray alloc] init];
     
+    [self.refreshControl addTarget:self action:@selector(refreshMessages) forControlEvents:UIControlEventValueChanged];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -59,12 +61,17 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    /*
     [userNames removeAllObjects];
     [dates removeAllObjects];
     [messageIDs removeAllObjects];
+    */
 }
 
 -(void)refreshMessages{
+    [userNames removeAllObjects];
+    [dates removeAllObjects];
+    [messageIDs removeAllObjects];
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/directmessage/refresh"]];
@@ -149,7 +156,9 @@
             }
 
         }
+        [self.tableView reloadData];
     }
+    [self.refreshControl endRefreshing];
     
 }
 
