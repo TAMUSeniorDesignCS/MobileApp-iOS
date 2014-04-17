@@ -17,7 +17,7 @@
 
 @implementation XYZContactView
 
-@synthesize firstName, userName, phoneNumber, isBlocked, isSponsor;
+@synthesize firstName, userName, phoneNumber, displayPhone, isBlocked, isSponsor;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,26 +33,33 @@
     
     [super viewDidLoad];
     //if ([phoneNumber isEqual:[NSNull null]])
-    
-    //NSLog(@"%@", self.phoneButton.titleLabel.text);
-    if ([phoneNumber isEqual:[NSNull null]]) {
-        [self.phoneButton setTitle:@"" forState:UIControlStateNormal];
-        [self.phoneButton setEnabled:NO];
-    }
-    else if ([phoneNumber isEqualToString:@"undefined"]) {
-        [self.phoneButton setTitle:@"" forState:UIControlStateNormal];
-        [self.phoneButton setEnabled:NO];
-    }
-    else {
-        NSMutableString *formattedNumber = [NSMutableString stringWithString:phoneNumber];
-        [formattedNumber insertString:@"(" atIndex:0];
-        [formattedNumber insertString:@")" atIndex:4];
-        [formattedNumber insertString:@" " atIndex:5];
-        [formattedNumber insertString:@"-" atIndex:9];
+    if ([[NSString stringWithFormat:@"%@", displayPhone] isEqualToString:@"1"]) {
+        if ([phoneNumber isEqual:[NSNull null]]) {
+            [self.phoneButton setTitle:@"" forState:UIControlStateNormal];
+            [self.phoneButton setEnabled:NO];
+        }
+        else if ([phoneNumber isEqualToString:@"null"]) {
+            [self.phoneButton setTitle:@"" forState:UIControlStateNormal];
+            [self.phoneButton setEnabled:NO];
+        }
+        else if ([phoneNumber isEqualToString:@"undefined"]) {
+            [self.phoneButton setTitle:@"" forState:UIControlStateNormal];
+            [self.phoneButton setEnabled:NO];
+        }
+        else {
+            NSMutableString *formattedNumber = [NSMutableString stringWithString:phoneNumber];
+            [formattedNumber insertString:@"(" atIndex:0];
+            [formattedNumber insertString:@")" atIndex:4];
+            [formattedNumber insertString:@" " atIndex:5];
+            [formattedNumber insertString:@"-" atIndex:9];
         
-        [self.phoneButton setTitle:formattedNumber forState:UIControlStateNormal];
-        [self.phoneButton sizeToFit];
-        [self.phoneButton setEnabled:YES];
+            [self.phoneButton setTitle:formattedNumber forState:UIControlStateNormal];
+            [self.phoneButton sizeToFit];
+            [self.phoneButton setEnabled:YES];
+        }
+    }else{
+        [self.phoneButton setTitle:@"" forState:UIControlStateNormal];
+        [self.phoneButton setEnabled:NO];
     }
     self.firstNameLabel.text = firstName;
     self.usernameLabel.text = userName;
@@ -163,7 +170,7 @@
                                      userName, @"sponsorid",
                                      appDelegate.userSettings.email, @"email",
                                      appDelegate.userSettings.phoneNumber, @"phonenumber",
-                                     [NSString stringWithFormat:@"%d", (appDelegate.userSettings.showPhone ? 1 : 0) ], @"displayphonenumber",
+                                     appDelegate.userSettings.showPhone ? @"1" : @"0", @"displayphonenumber",
                                      nil];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
@@ -202,7 +209,7 @@
                                      @"", @"sponsorid",
                                      appDelegate.userSettings.email, @"email",
                                      appDelegate.userSettings.phoneNumber, @"phonenumber",
-                                     [NSString stringWithFormat:@"%d", (appDelegate.userSettings.showPhone ? 1 : 0) ], @"displayphonenumber",
+                                     appDelegate.userSettings.showPhone ? @"1" : @"0", @"displayphonenumber",
                                      nil];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];

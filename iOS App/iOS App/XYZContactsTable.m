@@ -21,8 +21,7 @@
     NSMutableArray *userNames;
     NSMutableArray *phoneNumbers;
     NSMutableArray *blockedUsers;
-    //NSMutableArray *users;
-    //NSMutableArray *searchResults;
+    NSMutableArray *displayphonenumber;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -44,14 +43,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //_searchBar.delegate = (id)self;
     
     firstNames = [[NSMutableArray alloc] init];
     userNames = [[NSMutableArray alloc] init];
     phoneNumbers = [[NSMutableArray alloc] init];
     blockedUsers = [[NSMutableArray alloc] init];
-    //users = [[NSMutableArray alloc] init];
-    //searchResults = [[NSMutableArray alloc] init];
+    displayphonenumber = [[NSMutableArray alloc] init];
 
 }
 
@@ -84,8 +81,7 @@
     [firstNames removeAllObjects];
     [blockedUsers removeAllObjects];
     [phoneNumbers removeAllObjects];
-    //[users removeAllObjects];
-    //[searchResults removeAllObjects];
+    [displayphonenumber removeAllObjects];
 }
 
 - (void)refreshContacts {
@@ -104,7 +100,7 @@
     [request setHTTPBody:requestData];
     NSData *postData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
     NSString *post_string = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
-    NSLog(@"contacts: %@", post_string);
+    NSLog(@"contactss: %@", post_string);
     if (error) {
         return;
         NSLog(@"First error: %@", [error localizedDescription]);
@@ -120,15 +116,10 @@
             if (dict[@"valid"]);
             else {
                 if (!([dict[@"username"] isEqualToString:appDelegate.userSettings.username])) {
-                    /*XYZUserSettings *user = [XYZUserSettings new];
-                    user.username = dict[@"username"];
-                    user.firstname = dict[@"firstname"];
-                    user.phoneNumber = dict[@"phonenumber"];
-                    [users addObject:user];*/
-                    
                     [userNames addObject:dict[@"username"]];
                     [firstNames addObject:dict[@"firstname"]];
                     [phoneNumbers addObject:dict[@"phonenumber"]];
+                    [displayphonenumber addObject:dict[@"displayphonenumber"]];
                 }
             }
         }
@@ -310,9 +301,11 @@
         NSString *first = firstNames[indexPath.row];
         NSString *user = userNames[indexPath.row];
         NSString *phone = phoneNumbers[indexPath.row];
+        NSString *displayphone = displayphonenumber[indexPath.row];
         [[segue destinationViewController] setFirstName:first];
         [[segue destinationViewController] setUserName:user];
         [[segue destinationViewController] setPhoneNumber:phone];
+        [[segue destinationViewController] setDisplayPhone:displayphone];
         
         if ([blockedUsers containsObject:userNames[indexPath.row]])
             [[segue destinationViewController] setIsBlocked:YES];

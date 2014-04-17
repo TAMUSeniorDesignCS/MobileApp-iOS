@@ -13,7 +13,7 @@
     NSString *_firstname;
     NSString *_password;
     int *_groupId;
-    BOOL *_showPhone;
+    NSString *_showPhone;
     NSString *_phoneNumber;
     BOOL *_showEmail;
     NSString *_email;
@@ -35,7 +35,7 @@
 @property (nonatomic, copy) NSString *firstname;
 @property (nonatomic, copy) NSString *password;
 @property int *groupId;
-@property BOOL *showPhone;
+@property (nonatomic, copy) NSString *showPhone;
 @property (nonatomic, copy) NSString *phoneNumber;
 @property BOOL *showEmail;
 @property (nonatomic, copy) NSString *email;

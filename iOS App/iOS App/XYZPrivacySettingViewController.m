@@ -28,7 +28,12 @@
 {
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     [super viewDidLoad];
-    [self.showPhoneNumber setOn:appDelegate.userSettings.showPhone];
+    //[self.showPhoneNumber setOn:appDelegate.userSettings.showPhone];
+    if ([[NSString stringWithFormat:@"%@", appDelegate.userSettings.showPhone] isEqualToString:@"1"])
+        [self.showPhoneNumber setOn:YES];
+    else
+        [self.showPhoneNumber setOn:NO];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -44,7 +49,7 @@
 
 - (IBAction)displayPhone:(id)sender {
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
-    if (appDelegate.userSettings.showPhone) {
+    if ([appDelegate.userSettings.showPhone isEqualToString:@"1"]) {
         XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSMutableURLRequest *request = [NSMutableURLRequest
                                         requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/edit"]];
@@ -73,8 +78,9 @@
             NSLog(@"First error: %@", [error localizedDescription]);
         }
         if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
-            appDelegate.userSettings.showPhone = FALSE;
+            appDelegate.userSettings.showPhone = @"0";
             [self.showPhoneNumber setOn:NO];
+            NSLog(@"show phone1: %@", appDelegate.userSettings.showPhone);
         }
         else {
             [self.showPhoneNumber setOn:YES];
@@ -112,7 +118,7 @@
             NSLog(@"First error: %@", [error localizedDescription]);
         }
         if (!([post_string rangeOfString:@"true"].location == NSNotFound)) {
-            appDelegate.userSettings.showPhone = TRUE;
+            appDelegate.userSettings.showPhone = @"1";
             [self.showPhoneNumber setOn:YES];
         }
         else {

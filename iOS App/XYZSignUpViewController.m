@@ -184,7 +184,7 @@
                  appDelegate.userSettings.firstname = [self.FirstName.text capitalizedString];
                  appDelegate.userSettings.groupId = [self.GroupCode.text intValue];
                  appDelegate.userSettings.password = self.Password.text;
-                 appDelegate.userSettings.showPhone = TRUE;
+                 appDelegate.userSettings.showPhone = @"1";
                  appDelegate.userSettings.phoneNumber = self.PhoneNumber.text;
                  appDelegate.userSettings.showEmail = FALSE;
                  appDelegate.userSettings.geoAlerts = FALSE;

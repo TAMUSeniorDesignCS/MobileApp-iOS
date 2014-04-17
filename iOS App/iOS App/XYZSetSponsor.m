@@ -177,7 +177,7 @@
                                      [userNames objectAtIndex:indexPath.row], @"sponsorid",
                                      appDelegate.userSettings.email, @"email",
                                      appDelegate.userSettings.phoneNumber, @"phonenumber",
-                                     [NSString stringWithFormat:@"%d", (appDelegate.userSettings.showPhone ? 1 : 0) ], @"displayphonenumber",
+                                     appDelegate.userSettings.showPhone ? @"1" : @"0", @"displayphonenumber",
                                      nil];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];
@@ -214,7 +214,7 @@
                                      @"", @"sponsorid",
                                      appDelegate.userSettings.email, @"email",
                                      appDelegate.userSettings.phoneNumber, @"phonenumber",
-                                     [NSString stringWithFormat:@"%d", (appDelegate.userSettings.showPhone ? 1 : 0) ], @"displayphonenumber",
+                                     appDelegate.userSettings.showPhone ? @"1" : @"0", @"displayphonenumber",
                                      nil];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:requestDict options:0 error:nil];

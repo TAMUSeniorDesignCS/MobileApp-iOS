@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSString *firstName;
 @property (strong, nonatomic) NSString *userName;
 @property (strong, nonatomic) NSString *phoneNumber;
+@property (weak, nonatomic) NSString *displayPhone;
 @property BOOL *isBlocked;
 @property BOOL *isSponsor;
 @property (weak, nonatomic) IBOutlet UILabel *firstNameLabel;

@@ -95,7 +95,7 @@
                                      appDelegate.userSettings.setSponsor, @"sponsorid",
                                      appDelegate.userSettings.email, @"email",
                                      appDelegate.userSettings.phoneNumber, @"phonenumber",
-                                     [NSString stringWithFormat:@"%d", (appDelegate.userSettings.showPhone ? 1 : 0) ], @"displayphonenumber",
+                                     appDelegate.userSettings.showPhone ? @"1" : @"0", @"displayphonenumber",
                                      nil];
         NSError *error;
         NSData *postData = [NSJSONSerialization dataWithJSONObject:requestData options:0 error:&error];

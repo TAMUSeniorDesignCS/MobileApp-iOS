@@ -66,7 +66,6 @@
     if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
         NSError *error2;
         NSMutableArray *array = [NSJSONSerialization JSONObjectWithData:authData options:NSJSONReadingMutableContainers error:&error2];
-        //NSLog(@"group id is: %@", user_info[@"groupid"]);
         if (error2) {
             return;
             NSLog(@"Second error: %@", [error2 localizedDescription]);
@@ -77,20 +76,19 @@
         appDelegate.userSettings.password = self.Password.text;
         appDelegate.userSettings.firstname = [user_info[@"firstname"] capitalizedString];
         appDelegate.userSettings.phoneNumber = user_info[@"phonenumber"];
-        if (user_info[@"displayphonenumber"] == 1)
-            appDelegate.userSettings.showPhone = TRUE;
+        if ([[NSString stringWithFormat:@"%@", user_info[@"displayphonenumber"]] isEqualToString:@"1"])
+            appDelegate.userSettings.showPhone = @"1";
         else
-            appDelegate.userSettings.showPhone = FALSE;
+            appDelegate.userSettings.showPhone = @"0";
+        
         appDelegate.userSettings.email = user_info[@"email"];
         appDelegate.userSettings.username = [self.Username.text lowercaseString];
         appDelegate.userSettings.groupId = [user_info[@"groupid"] intValue];
-        NSLog(@"group id i: %d", appDelegate.userSettings.groupId);
         appDelegate.userSettings.setSponsor = user_info[@"sponsorid"];
         appDelegate.userSettings.religiousOn = FALSE;
         appDelegate.userSettings.funnyOn = FALSE;
         appDelegate.userSettings.inspirationalOn = TRUE;
         appDelegate.userSettings.postTime = 48;
-        //NSLog(@"group id is: %i", appDelegate.userSettings.groupId);
         [self performSegueWithIdentifier:@"tabBarPush" sender:nil];
     }
     else {
