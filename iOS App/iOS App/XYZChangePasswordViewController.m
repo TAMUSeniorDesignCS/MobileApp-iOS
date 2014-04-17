@@ -109,8 +109,10 @@
             NSLog(@"error: %@", [error localizedDescription]);
         }
         if (!([authReturn rangeOfString:@"true"].location == NSNotFound)) {
+            appDelegate.userSettings.password = self.ConfirmPassword.text;
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Password changed!" message:@"Your password is now changed." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alertView show];
+            //[self.navigationController popViewControllerAnimated:YES];
         }
         else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Something went wrong." message:@"Please try again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -118,6 +120,12 @@
             return;
         }
     }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0 && [alertView.title isEqualToString:@"Password changed!"])
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
