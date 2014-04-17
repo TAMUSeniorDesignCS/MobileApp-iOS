@@ -86,7 +86,7 @@
 - (void)refreshContacts {
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/getinfo"]];
+                                    requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/getinfo"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  appDelegate.userSettings.username, @"rusername",
                                  appDelegate.userSettings.password, @"rpassword",
@@ -165,7 +165,7 @@
     }
     if (![self.checkedIndexPath isEqual:indexPath]) {
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/edit"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/edit"]];
         
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
@@ -203,7 +203,7 @@
     }
     else {
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/edit"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/edit"]];
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
                                      appDelegate.userSettings.password, @"rpassword",

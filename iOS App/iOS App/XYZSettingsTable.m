@@ -45,7 +45,7 @@
     
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/getlog"]];
+                                    requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/getlog"]];
     
     NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  appDelegate.userSettings.username, @"rusername",

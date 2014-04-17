@@ -88,7 +88,7 @@
     if (isBlocked) {
         XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/userblock/remove"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/userblock/remove"]];
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
                                      appDelegate.userSettings.password, @"rpassword",
@@ -122,7 +122,7 @@
     else {
         XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/userblock/new"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/userblock/new"]];
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
                                      appDelegate.userSettings.password, @"rpassword",
@@ -158,7 +158,7 @@
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     if (!isSponsor) {
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/edit"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/edit"]];
         
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
@@ -198,7 +198,7 @@
     }
     else {
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/edit"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/edit"]];
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
                                      appDelegate.userSettings.password, @"rpassword",

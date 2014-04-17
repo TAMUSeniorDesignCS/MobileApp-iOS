@@ -25,7 +25,6 @@
 		619092D518F3719D00D2E0E7 /* UIBubbleTypingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 619092CB18F3719D00D2E0E7 /* UIBubbleTypingTableViewCell.m */; };
 		619092D618F3719D00D2E0E7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 619092CD18F3719D00D2E0E7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		619892F618D265680090D576 /* XYZSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619892F518D265680090D576 /* XYZSignUpViewController.m */; };
-		61A8B60418FEFEA400CC389F /* XYZtest.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60318FEFEA400CC389F /* XYZtest.m */; };
 		61A8B60718FF031600CC389F /* XYZNewMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60618FF031600CC389F /* XYZNewMessageCell.m */; };
 		61A8B60A18FF397B00CC389F /* XYZSponsoreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60918FF397B00CC389F /* XYZSponsoreeCell.m */; };
 		61A8B60D18FF39DB00CC389F /* XYZSponsoreeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60C18FF39DB00CC389F /* XYZSponsoreeInfo.m */; };
@@ -120,8 +119,6 @@
 		619092CD18F3719D00D2E0E7 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		619892F418D265680090D576 /* XYZSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYZSignUpViewController.h; path = ../XYZSignUpViewController.h; sourceTree = "<group>"; };
 		619892F518D265680090D576 /* XYZSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYZSignUpViewController.m; path = ../XYZSignUpViewController.m; sourceTree = "<group>"; };
-		61A8B60218FEFEA400CC389F /* XYZtest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZtest.h; sourceTree = "<group>"; };
-		61A8B60318FEFEA400CC389F /* XYZtest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZtest.m; sourceTree = "<group>"; };
 		61A8B60518FF031600CC389F /* XYZNewMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZNewMessageCell.h; sourceTree = "<group>"; };
 		61A8B60618FF031600CC389F /* XYZNewMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZNewMessageCell.m; sourceTree = "<group>"; };
 		61A8B60818FF397B00CC389F /* XYZSponsoreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSponsoreeCell.h; sourceTree = "<group>"; };
@@ -368,8 +365,6 @@
 				61F4D9E118E0EC3700D1257B /* XYZUserSettings.m */,
 				DE93B47C18F9D1B100BEC59F /* XYZMeetingFinder.h */,
 				DE93B47D18F9D1B100BEC59F /* XYZMeetingFinder.m */,
-				61A8B60218FEFEA400CC389F /* XYZtest.h */,
-				61A8B60318FEFEA400CC389F /* XYZtest.m */,
 				DE060D0118AC4CDA0010DF47 /* Images.xcassets */,
 				DE060CEA18AC4CDA0010DF47 /* Supporting Files */,
 			);
@@ -531,7 +526,6 @@
 				DEDD78BA18E0D45600F8F82B /* XYZMessagesView.m in Sources */,
 				61F4D9DD18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m in Sources */,
 				619092CF18F3719D00D2E0E7 /* TPKeyboardAvoidingCollectionView.m in Sources */,
-				61A8B60418FEFEA400CC389F /* XYZtest.m in Sources */,
 				DE2DB35318AD4E1E001C03BF /* XYZSettingsTable.m in Sources */,
 				61A8B60718FF031600CC389F /* XYZNewMessageCell.m in Sources */,
 				DE2DB35018AD42DD001C03BF /* XYZContactsTable.m in Sources */,

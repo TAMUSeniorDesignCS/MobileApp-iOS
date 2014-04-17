@@ -142,7 +142,7 @@
     else
         timeout = @"0";
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/directmessage/new"]];
+                                    requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/directmessage/new"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  appDelegate.userSettings.username, @"rusername",
                                  appDelegate.userSettings.password, @"rpassword",

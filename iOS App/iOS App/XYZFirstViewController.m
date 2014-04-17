@@ -131,7 +131,7 @@
     self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
     if (![appDelegate.userSettings.setSponsor isEqualToString:@""]) {
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/getinfo"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/getinfo"]];
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
                                      appDelegate.userSettings.password, @"rpassword",

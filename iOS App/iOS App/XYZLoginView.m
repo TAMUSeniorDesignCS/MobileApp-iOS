@@ -46,7 +46,7 @@
 - (IBAction)pressLoginButton:(id)sender{
     
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/auth"]];
+                                    requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/auth"]];
     
     NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  [self.Username.text lowercaseString], @"username",

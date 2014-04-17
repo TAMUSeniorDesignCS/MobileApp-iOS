@@ -41,7 +41,7 @@
     [dates removeAllObjects];
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/post/refresh"]];
+                                    requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/post/refresh"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                 [NSString stringWithFormat:@"%d", appDelegate.userSettings.groupId], @"groupid",
                                 appDelegate.userSettings.username, @"rusername",
@@ -235,7 +235,7 @@
         NSString *editID = postIDs[indexPath.row];
         XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/post/edit"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/post/edit"]];
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
                                      appDelegate.userSettings.password, @"rpassword",
@@ -294,7 +294,7 @@
         NSString *removeID = postIDs[indexPath.row];
         XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/post/remove"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/post/remove"]];
         NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
                                      appDelegate.userSettings.password, @"rpassword",

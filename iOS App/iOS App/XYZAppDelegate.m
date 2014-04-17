@@ -80,7 +80,7 @@
         
         //XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/postlog"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/postlog"]];
         
         NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      self.userSettings.username, @"rusername",

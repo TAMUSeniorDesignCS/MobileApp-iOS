@@ -74,7 +74,7 @@
     [messageIDs removeAllObjects];
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
     NSMutableURLRequest *request = [NSMutableURLRequest
-                                    requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/directmessage/refresh"]];
+                                    requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/directmessage/refresh"]];
     NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                  appDelegate.userSettings.username, @"rusername",
                                  appDelegate.userSettings.password, @"rpassword",
@@ -122,7 +122,7 @@
     if ([userNames count] > 0) {
         for (NSString *name in userNames) {
             NSMutableURLRequest *request = [NSMutableURLRequest
-                                            requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/getinfo"]];
+                                            requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/getinfo"]];
             NSDictionary *requestDict = [[NSDictionary alloc] initWithObjectsAndKeys:
                                          appDelegate.userSettings.username, @"rusername",
                                          appDelegate.userSettings.password, @"rpassword",

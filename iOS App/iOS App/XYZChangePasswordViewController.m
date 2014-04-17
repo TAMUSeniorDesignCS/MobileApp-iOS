@@ -83,7 +83,7 @@
     }
     else {
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/member/edit"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/edit"]];
         
         NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",

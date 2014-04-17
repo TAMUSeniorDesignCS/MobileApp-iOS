@@ -87,7 +87,7 @@
     if (![self.text.text isEqual: @""]) {
         XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
         NSMutableURLRequest *request = [NSMutableURLRequest
-                                        requestWithURL:[NSURL URLWithString:@"http://54.187.99.187:80/post/new"]];
+                                        requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/post/new"]];
         
         NSDictionary *requestData = [[NSDictionary alloc] initWithObjectsAndKeys:
                                      appDelegate.userSettings.username, @"rusername",
