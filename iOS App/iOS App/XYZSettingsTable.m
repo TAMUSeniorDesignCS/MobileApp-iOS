@@ -44,6 +44,8 @@
     self.tabBarController.navigationItem.rightBarButtonItem.enabled = NO;
     
     XYZAppDelegate *appDelegate=(XYZAppDelegate *)[UIApplication sharedApplication].delegate;
+        
+    
     NSMutableURLRequest *request = [NSMutableURLRequest
                                     requestWithURL:[NSURL URLWithString:@"https://paulgreco.net/member/getlog"]];
     

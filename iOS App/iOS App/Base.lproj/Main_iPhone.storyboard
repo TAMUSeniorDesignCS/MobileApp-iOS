@@ -461,6 +461,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="pis-AD-7WU"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="reportCell" destination="wMR-CE-sCW" id="zAZ-1u-tk6"/>
                         <segue destination="RHH-7q-ZUv" kind="push" identifier="sponsoreeInfo" id="cmx-gA-2Je"/>
                     </connections>
                 </tableViewController>
