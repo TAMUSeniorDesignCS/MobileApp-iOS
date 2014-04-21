@@ -135,6 +135,7 @@
     {
         [self.navigationController popToRootViewControllerAnimated:YES];
         [appDelegate.userSettings resetAllObjects];
+        [appDelegate.locationManager stopMonitoringSignificantLocationChanges];
     }
 }
 
