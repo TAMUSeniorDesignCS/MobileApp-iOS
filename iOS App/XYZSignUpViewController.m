@@ -65,6 +65,7 @@
 {
     //[_Username becomeFirstResponder];
     [super viewDidLoad];
+    
     self.PhoneNumber.delegate = self;
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.contentView.frame.size.height);
     
@@ -222,6 +223,11 @@
     if (textField.text.length >= 10 && range.length == 0)
         return NO;
     return YES;
+}
+
+- (IBAction)changeView:(id)sender {
+    [_modalView removeFromSuperview];
+    [self.view addSubview:_modalView];
 }
 
 @end

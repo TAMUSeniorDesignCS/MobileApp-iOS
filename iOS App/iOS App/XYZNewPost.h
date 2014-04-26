@@ -14,6 +14,10 @@
 @property (weak, nonatomic) IBOutlet UITextView *text;
 @property (weak, nonatomic) IBOutlet UITextField *deleteTime;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (strong, nonatomic) IBOutlet UIView *topView;
+
+
 @property(nonatomic,assign) XYZSecondViewController *_postView;
 
 @end

@@ -28,6 +28,20 @@
 		61A8B60718FF031600CC389F /* XYZNewMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60618FF031600CC389F /* XYZNewMessageCell.m */; };
 		61A8B60A18FF397B00CC389F /* XYZSponsoreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60918FF397B00CC389F /* XYZSponsoreeCell.m */; };
 		61A8B60D18FF39DB00CC389F /* XYZSponsoreeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A8B60C18FF39DB00CC389F /* XYZSponsoreeInfo.m */; };
+		61AFE443190C20EF00B95882 /* XYZHelpPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AFE442190C20EF00B95882 /* XYZHelpPost.m */; };
+		61AFE446190C2FC700B95882 /* XYZHelpGuideTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AFE445190C2FC700B95882 /* XYZHelpGuideTableViewController.m */; };
+		61AFE448190C304700B95882 /* contact.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61AFE447190C304700B95882 /* contact.jpg */; };
+		61AFE44A190C306100B95882 /* privacySettings.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61AFE449190C306100B95882 /* privacySettings.jpg */; };
+		61AFE44C190C306E00B95882 /* setting.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61AFE44B190C306E00B95882 /* setting.jpg */; };
+		61AFE44E190C309F00B95882 /* newpost.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61AFE44D190C309F00B95882 /* newpost.jpg */; };
+		61AFE452190C373B00B95882 /* post.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61AFE451190C373B00B95882 /* post.jpg */; };
+		61AFE455190C37CF00B95882 /* XYZHelpNewPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AFE454190C37CF00B95882 /* XYZHelpNewPost.m */; };
+		61AFE458190C381900B95882 /* XYZHelpContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AFE457190C381900B95882 /* XYZHelpContact.m */; };
+		61AFE45B190C386400B95882 /* XYZHelpPrivacySettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AFE45A190C386400B95882 /* XYZHelpPrivacySettings.m */; };
+		61AFE45E190C387A00B95882 /* XYZSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AFE45D190C387A00B95882 /* XYZSettings.m */; };
+		61AFE460190C3B5E00B95882 /* leftarrow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61AFE45F190C3B5E00B95882 /* leftarrow.jpg */; };
+		61AFE462190C3C5800B95882 /* rightarrow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61AFE461190C3C5800B95882 /* rightarrow.jpg */; };
+		61AFE468190C3D5100B95882 /* arrow-19-512.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 61AFE467190C3D5100B95882 /* arrow-19-512.jpg */; };
 		61F4D9DD18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */; };
 		61F4D9DF18E0EA4E00D1257B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F4D9DE18E0EA4E00D1257B /* libsqlite3.dylib */; };
 		61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 61F4D9E118E0EC3700D1257B /* XYZUserSettings.m */; };
@@ -125,6 +139,26 @@
 		61A8B60918FF397B00CC389F /* XYZSponsoreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSponsoreeCell.m; sourceTree = "<group>"; };
 		61A8B60B18FF39DB00CC389F /* XYZSponsoreeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSponsoreeInfo.h; sourceTree = "<group>"; };
 		61A8B60C18FF39DB00CC389F /* XYZSponsoreeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSponsoreeInfo.m; sourceTree = "<group>"; };
+		61AFE441190C20EF00B95882 /* XYZHelpPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZHelpPost.h; sourceTree = "<group>"; };
+		61AFE442190C20EF00B95882 /* XYZHelpPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZHelpPost.m; sourceTree = "<group>"; };
+		61AFE444190C2FC700B95882 /* XYZHelpGuideTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZHelpGuideTableViewController.h; sourceTree = "<group>"; };
+		61AFE445190C2FC700B95882 /* XYZHelpGuideTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZHelpGuideTableViewController.m; sourceTree = "<group>"; };
+		61AFE447190C304700B95882 /* contact.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = contact.jpg; sourceTree = "<group>"; };
+		61AFE449190C306100B95882 /* privacySettings.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = privacySettings.jpg; sourceTree = "<group>"; };
+		61AFE44B190C306E00B95882 /* setting.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = setting.jpg; sourceTree = "<group>"; };
+		61AFE44D190C309F00B95882 /* newpost.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newpost.jpg; sourceTree = "<group>"; };
+		61AFE451190C373B00B95882 /* post.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = post.jpg; sourceTree = "<group>"; };
+		61AFE453190C37CF00B95882 /* XYZHelpNewPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZHelpNewPost.h; sourceTree = "<group>"; };
+		61AFE454190C37CF00B95882 /* XYZHelpNewPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZHelpNewPost.m; sourceTree = "<group>"; };
+		61AFE456190C381900B95882 /* XYZHelpContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZHelpContact.h; sourceTree = "<group>"; };
+		61AFE457190C381900B95882 /* XYZHelpContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZHelpContact.m; sourceTree = "<group>"; };
+		61AFE459190C386400B95882 /* XYZHelpPrivacySettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZHelpPrivacySettings.h; sourceTree = "<group>"; };
+		61AFE45A190C386400B95882 /* XYZHelpPrivacySettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZHelpPrivacySettings.m; sourceTree = "<group>"; };
+		61AFE45C190C387A00B95882 /* XYZSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZSettings.h; sourceTree = "<group>"; };
+		61AFE45D190C387A00B95882 /* XYZSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZSettings.m; sourceTree = "<group>"; };
+		61AFE45F190C3B5E00B95882 /* leftarrow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = leftarrow.jpg; sourceTree = "<group>"; };
+		61AFE461190C3C5800B95882 /* rightarrow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rightarrow.jpg; sourceTree = "<group>"; };
+		61AFE467190C3D5100B95882 /* arrow-19-512.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "arrow-19-512.jpg"; sourceTree = "<group>"; };
 		61F4D9DB18E0DC3900D1257B /* XYZTypesOfMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYZTypesOfMessagesViewController.h; path = ../XYZTypesOfMessagesViewController.h; sourceTree = "<group>"; };
 		61F4D9DC18E0DC3900D1257B /* XYZTypesOfMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYZTypesOfMessagesViewController.m; path = ../XYZTypesOfMessagesViewController.m; sourceTree = "<group>"; };
 		61F4D9DE18E0EA4E00D1257B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -302,6 +336,18 @@
 			children = (
 				6171AB6118F3478A00F7639C /* UIBubbleTable */,
 				DE060CF518AC4CDA0010DF47 /* Main_iPhone.storyboard */,
+				61AFE45C190C387A00B95882 /* XYZSettings.h */,
+				61AFE45D190C387A00B95882 /* XYZSettings.m */,
+				61AFE459190C386400B95882 /* XYZHelpPrivacySettings.h */,
+				61AFE45A190C386400B95882 /* XYZHelpPrivacySettings.m */,
+				61AFE456190C381900B95882 /* XYZHelpContact.h */,
+				61AFE457190C381900B95882 /* XYZHelpContact.m */,
+				61AFE453190C37CF00B95882 /* XYZHelpNewPost.h */,
+				61AFE454190C37CF00B95882 /* XYZHelpNewPost.m */,
+				61AFE444190C2FC700B95882 /* XYZHelpGuideTableViewController.h */,
+				61AFE445190C2FC700B95882 /* XYZHelpGuideTableViewController.m */,
+				61AFE441190C20EF00B95882 /* XYZHelpPost.h */,
+				61AFE442190C20EF00B95882 /* XYZHelpPost.m */,
 				DE060CF818AC4CDA0010DF47 /* Main_iPad.storyboard */,
 				DE138DF518F24B910067C8B9 /* XYZContactCell.h */,
 				DE138DF618F24B910067C8B9 /* XYZContactCell.m */,
@@ -365,6 +411,14 @@
 				61F4D9E118E0EC3700D1257B /* XYZUserSettings.m */,
 				DE93B47C18F9D1B100BEC59F /* XYZMeetingFinder.h */,
 				DE93B47D18F9D1B100BEC59F /* XYZMeetingFinder.m */,
+				61AFE451190C373B00B95882 /* post.jpg */,
+				61AFE44D190C309F00B95882 /* newpost.jpg */,
+				61AFE447190C304700B95882 /* contact.jpg */,
+				61AFE449190C306100B95882 /* privacySettings.jpg */,
+				61AFE44B190C306E00B95882 /* setting.jpg */,
+				61AFE45F190C3B5E00B95882 /* leftarrow.jpg */,
+				61AFE461190C3C5800B95882 /* rightarrow.jpg */,
+				61AFE467190C3D5100B95882 /* arrow-19-512.jpg */,
 				DE060D0118AC4CDA0010DF47 /* Images.xcassets */,
 				DE060CEA18AC4CDA0010DF47 /* Supporting Files */,
 			);
@@ -477,9 +531,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE060CFA18AC4CDA0010DF47 /* Main_iPad.storyboard in Resources */,
+				61AFE44A190C306100B95882 /* privacySettings.jpg in Resources */,
+				61AFE468190C3D5100B95882 /* arrow-19-512.jpg in Resources */,
+				61AFE44C190C306E00B95882 /* setting.jpg in Resources */,
 				DE060D0218AC4CDA0010DF47 /* Images.xcassets in Resources */,
+				61AFE44E190C309F00B95882 /* newpost.jpg in Resources */,
+				61AFE462190C3C5800B95882 /* rightarrow.jpg in Resources */,
 				DE060CF718AC4CDA0010DF47 /* Main_iPhone.storyboard in Resources */,
 				DE060CEE18AC4CDA0010DF47 /* InfoPlist.strings in Resources */,
+				61AFE452190C373B00B95882 /* post.jpg in Resources */,
+				61AFE460190C3B5E00B95882 /* leftarrow.jpg in Resources */,
+				61AFE448190C304700B95882 /* contact.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,9 +571,11 @@
 				DE1A09C818BC046F00C999C5 /* XYZTabBarViewController.m in Sources */,
 				DEB6336E18D806200089CC76 /* SBJson4Writer.m in Sources */,
 				6171AB6418F3481D00F7639C /* XYZBubbleMessage.m in Sources */,
+				61AFE446190C2FC700B95882 /* XYZHelpGuideTableViewController.m in Sources */,
 				DE060CFD18AC4CDA0010DF47 /* XYZFirstViewController.m in Sources */,
 				DEB6337018D806200089CC76 /* SBJson4StreamTokeniser.m in Sources */,
 				619092D218F3719D00D2E0E7 /* UIBubbleHeaderTableViewCell.m in Sources */,
+				61AFE458190C381900B95882 /* XYZHelpContact.m in Sources */,
 				DEC1A0B518FD7E83007E7165 /* XYZSponsorCell.m in Sources */,
 				619892F618D265680090D576 /* XYZSignUpViewController.m in Sources */,
 				619092D118F3719D00D2E0E7 /* TPKeyboardAvoidingTableView.m in Sources */,
@@ -520,6 +584,7 @@
 				DE060CF418AC4CDA0010DF47 /* XYZAppDelegate.m in Sources */,
 				619092D518F3719D00D2E0E7 /* UIBubbleTypingTableViewCell.m in Sources */,
 				614B3AF718BC297F001AB654 /* XYZChangePasswordViewController.m in Sources */,
+				61AFE45E190C387A00B95882 /* XYZSettings.m in Sources */,
 				61A8B60A18FF397B00CC389F /* XYZSponsoreeCell.m in Sources */,
 				619092CE18F3719D00D2E0E7 /* NSBubbleData.m in Sources */,
 				DE6589BB18B576E300ECC5F0 /* XYZProximityViewViewController.m in Sources */,
@@ -532,6 +597,7 @@
 				DEB6336A18D806200089CC76 /* SBJson4StreamWriterState.m in Sources */,
 				DEB6336C18D806200089CC76 /* SBJson4StreamParser.m in Sources */,
 				619092D318F3719D00D2E0E7 /* UIBubbleTableView.m in Sources */,
+				61AFE443190C20EF00B95882 /* XYZHelpPost.m in Sources */,
 				DE93B47E18F9D1B100BEC59F /* XYZMeetingFinder.m in Sources */,
 				619092D618F3719D00D2E0E7 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				DE060D0018AC4CDA0010DF47 /* XYZSecondViewController.m in Sources */,
@@ -542,10 +608,12 @@
 				DEC1A0B218FD7E64007E7165 /* XYZSetSponsor.m in Sources */,
 				DE1A09C518BBF85200C999C5 /* XYZInitialNavigationViewViewController.m in Sources */,
 				61F4D9E218E0EC3700D1257B /* XYZUserSettings.m in Sources */,
+				61AFE455190C37CF00B95882 /* XYZHelpNewPost.m in Sources */,
 				619092D018F3719D00D2E0E7 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				DE4BB22918F46779003B7CD8 /* XYZContactView.m in Sources */,
 				DE060CF018AC4CDA0010DF47 /* main.m in Sources */,
 				DEB6336F18D806200089CC76 /* SBJson4StreamParserState.m in Sources */,
+				61AFE45B190C386400B95882 /* XYZHelpPrivacySettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
